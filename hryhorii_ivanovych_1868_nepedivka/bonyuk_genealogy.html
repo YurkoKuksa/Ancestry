@@ -1,0 +1,601 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+<meta charset="UTF-8">
+<title>Родовід Бонюків — Непедівка</title>
+<style>
+  @page {
+    size: A4;
+    margin: 18mm 16mm;
+  }
+  * { box-sizing: border-box; }
+  body {
+    font-family: "Georgia", "Times New Roman", serif;
+    color: #2b241c;
+    background: #fdfbf6;
+    line-height: 1.55;
+    font-size: 13.5px;
+    margin: 0;
+    padding: 0;
+  }
+  .page {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 30px 10px;
+  }
+
+  /* ---------- Cover ---------- */
+  .cover {
+    text-align: center;
+    padding: 60px 20px 40px;
+    border-bottom: 3px double #8a6d3b;
+    margin-bottom: 40px;
+  }
+  .cover .ornament {
+    font-size: 22px;
+    color: #a3813f;
+    letter-spacing: 8px;
+    margin-bottom: 14px;
+  }
+  .cover h1 {
+    font-size: 34px;
+    margin: 0 0 8px;
+    color: #4a3820;
+    letter-spacing: 1px;
+  }
+  .cover .subtitle {
+    font-size: 16px;
+    color: #6b5738;
+    font-style: italic;
+    margin-bottom: 18px;
+  }
+  .cover .dates {
+    font-size: 15px;
+    color: #4a3820;
+    margin-top: 10px;
+  }
+  .cover .village {
+    margin-top: 22px;
+    font-size: 13px;
+    color: #8a7550;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+  }
+
+  /* ---------- Section headers ---------- */
+  h2.section-title {
+    font-size: 21px;
+    color: #4a3820;
+    border-bottom: 2px solid #a3813f;
+    padding-bottom: 6px;
+    margin-top: 46px;
+    margin-bottom: 18px;
+    display: flex;
+    align-items: baseline;
+    gap: 10px;
+  }
+  h2.section-title .num {
+    font-size: 15px;
+    color: #a3813f;
+    font-weight: normal;
+  }
+  h3.sub-title {
+    font-size: 16px;
+    color: #5c4826;
+    margin-top: 26px;
+    margin-bottom: 8px;
+    border-left: 4px solid #c9a86b;
+    padding-left: 10px;
+  }
+
+  p { margin: 0 0 10px; text-align: justify; }
+
+  /* ---------- Info grid for bio facts ---------- */
+  .facts-grid {
+    display: grid;
+    grid-template-columns: 190px 1fr;
+    gap: 6px 14px;
+    background: #f6efe0;
+    border: 1px solid #ddc9a0;
+    border-radius: 6px;
+    padding: 16px 18px;
+    margin: 16px 0;
+  }
+  .facts-grid dt {
+    font-weight: bold;
+    color: #6b5330;
+  }
+  .facts-grid dd {
+    margin: 0;
+  }
+
+  /* ---------- Callout box ---------- */
+  .callout {
+    background: #fbf5e6;
+    border-left: 4px solid #a3813f;
+    padding: 10px 16px;
+    margin: 14px 0;
+    font-size: 12.8px;
+    color: #4a3820;
+  }
+  .callout.sad {
+    border-left-color: #8a4a3b;
+    background: #f8ede8;
+  }
+  .callout.link {
+    border-left-color: #3b6a4a;
+    background: #eef5ee;
+  }
+
+  /* ---------- Family tree cards ---------- */
+  .branch {
+    border: 1px solid #ddc9a0;
+    border-radius: 8px;
+    padding: 18px 20px;
+    margin: 18px 0 26px;
+    background: #fffdf8;
+    page-break-inside: avoid;
+  }
+  .branch-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-bottom: 10px;
+  }
+  .branch-header .badge {
+    background: #a3813f;
+    color: #fff;
+    font-size: 11px;
+    padding: 3px 10px;
+    border-radius: 12px;
+    letter-spacing: 0.5px;
+  }
+  .branch-header h4 {
+    margin: 0;
+    font-size: 17px;
+    color: #4a3820;
+  }
+  .couple {
+    text-align: center;
+    font-size: 14.5px;
+    margin: 6px 0 14px;
+    color: #3a2e1a;
+  }
+  .couple .plus { color: #a3813f; margin: 0 6px; }
+
+  .children-row {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 14px;
+    margin-top: 12px;
+  }
+  .child-card {
+    border: 1px solid #e3d4b0;
+    background: #fbf7ed;
+    border-radius: 6px;
+    padding: 10px 12px;
+    min-width: 170px;
+    max-width: 230px;
+    font-size: 12.3px;
+  }
+  .child-card .name {
+    font-weight: bold;
+    color: #4a3820;
+    display: block;
+    margin-bottom: 3px;
+    font-size: 13px;
+  }
+  .child-card .note {
+    color: #6b5738;
+  }
+  .grandchild {
+    margin-top: 6px;
+    padding-top: 6px;
+    border-top: 1px dashed #d9c69a;
+    font-size: 11.8px;
+    color: #55483060;
+  }
+  .grandchild .name { color: #6b5738; font-weight: bold; }
+
+  .connector {
+    text-align: center;
+    color: #a3813f;
+    font-size: 12px;
+    margin: 2px 0;
+  }
+
+  /* ---------- Table of links ---------- */
+  table.links-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 14px 0;
+    font-size: 12.3px;
+  }
+  table.links-table th {
+    background: #a3813f;
+    color: #fff;
+    text-align: left;
+    padding: 8px 10px;
+  }
+  table.links-table td {
+    border-bottom: 1px solid #e3d4b0;
+    padding: 8px 10px;
+    vertical-align: top;
+  }
+  table.links-table tr:nth-child(even) td {
+    background: #faf5e9;
+  }
+
+  /* ---------- Misc records ---------- */
+  .uncertain-item {
+    background: #f5f1ea;
+    border: 1px dashed #c9b98f;
+    border-radius: 6px;
+    padding: 10px 14px;
+    margin-bottom: 10px;
+    font-size: 12.3px;
+  }
+  .uncertain-item .tag {
+    display: inline-block;
+    font-size: 10.5px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: #8a4a3b;
+    border: 1px solid #8a4a3b;
+    border-radius: 10px;
+    padding: 1px 8px;
+    margin-bottom: 5px;
+  }
+
+  footer {
+    margin-top: 50px;
+    padding-top: 14px;
+    border-top: 1px solid #ddc9a0;
+    font-size: 10.5px;
+    color: #9c8a63;
+    text-align: center;
+  }
+
+  .footnote {
+    font-size: 11px;
+    color: #7a6a4a;
+    font-style: italic;
+  }
+
+  * {
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+    color-adjust: exact;
+  }
+
+  ul.plain { margin: 6px 0 10px 20px; padding: 0; }
+  ul.plain li { margin-bottom: 4px; }
+
+  @media print {
+    .branch, .facts-grid, .child-card { break-inside: avoid; }
+    h2.section-title { page-break-after: avoid; }
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <!-- ======================= COVER ======================= -->
+  <div class="cover">
+    <div class="ornament">❧ ❧ ❧</div>
+    <h1>Григорій Іванович Бонюк</h1>
+    <div class="subtitle">Григорій Іоанниковъ Бонюкъ</div>
+    <div class="dates">25 січня 1868 — 30 листопада (13 грудня н.ст.) 1919</div>
+    <div class="village">село Непедівка · Бердичівський повіт · Київська губернія</div>
+  </div>
+
+  <!-- ======================= BIOGRAPHY ======================= -->
+  <h2 class="section-title"><span class="num">І.</span> Біографія</h2>
+
+  <h3 class="sub-title">Народження та хрещення</h3>
+  <p>
+    Григорій Іоанниковъ (Іванович) Бонюк народився 25 січня 1868 року та був хрещений
+    наступного дня, 26 січня 1868 року, за православним обрядом.
+  </p>
+  <dl class="facts-grid">
+    <dt>Батько</dt><dd>Иоанній Иоанновъ Бонюкъ (Іван Іванович), нар. бл. 1826 р. — ?</dd>
+    <dt>Мати</dt><dd>Марѳа Ивановна Трайдакало (Марфа Іванівна), нар. бл. 1843 р. — ?</dd>
+    <dt>Хрещений батько</dt><dd>Осеодор (Феодор) Михайлов Ольмшдинг</dd>
+    <dt>Хрещена мати</dt><dd>Агафія Ігнатівна Ольмшдинг (Альмшдинг)</dd>
+    <dt>Віросповідання</dt><dd>Православне</dd>
+  </dl>
+  <p class="footnote">
+    Шляхетське/іноземне прізвище хрещених батьків (Ольмшдинг) — цікава деталь, оскільки
+    околична шляхта Непедівки часто кумувалася у своєму вузькому колі.
+  </p>
+
+  <h3 class="sub-title">Шлюб батьків</h3>
+  <p>
+    Іван Іванович Бонюк та Марфа Іванівна Трайдакало одружилися 14 травня 1867 року —
+    за рік до народження Григорія. На момент вінчання Іванові було 41 рік, а Марфі — 24.
+    Цей шлюб був для Івана <strong>другим</strong>, що свідчить про ймовірну наявність
+    у Григорія зведених братів чи сестер від першого шлюбу батька; наразі відомостей
+    про них немає.
+  </p>
+  <dl class="facts-grid">
+    <dt>Свідки нареченого</dt><dd>Брати Іван Данилович Бида (Біда) та Василь Данилович Бида (Біда)</dd>
+    <dt>Свідки нареченої</dt><dd>Іван Якович Трайдакало та Ісаакій Якович Трайдакало</dd>
+  </dl>
+  <p class="footnote">
+    Прізвище Трайдакало серед свідків нареченої (ймовірно, її брати) збігається з прізвищем
+    Трайдакало, яке в записі 1906 року фігурує серед хрещених батьків паралельної гілки
+    Григорія Онисимовича (Гілка 2) — можливий додатковий слід родинних зв'язків у селі,
+    що потребує подальшої перевірки.
+  </p>
+
+  <h3 class="sub-title">Соціальний стан родини</h3>
+  <p>
+    Григорій народився у родині «слободских обывателей» (слобідських жителів) — це означає,
+    що Бонюки були особисто вільними мешканцями слободи, а не кріпаками. У діловодстві
+    Російської імперії середини ХІХ ст. цей термін за статусом близький до дрібного міщанина
+    або особисто вільного селянина-землероба, який проживав у слободі — поселенні, мешканці
+    якого історично отримували певні пільги («свободи») від податків чи повинностей за
+    заселення нових земель.
+  </p>
+  <p>
+    Дуже часто саме декласовану шляхту (колишніх чиншовиків), яка жила на землях поміщика
+    окремими поселеннями-слободами, записували як «слободских обывателей». Поняття пов'язане
+    з міграційними процесами XVII–XIX століть: у ці часи Правобережна Україна (зокрема Східне
+    Поділля та Брацлавщина) зазнавала спустошень через війни, і поміщики активно закликали
+    переселенців з Волині, Галичини, Полісся чи сусідніх маєтків для заснування нових слобід.
+  </p>
+
+  <h3 class="sub-title">Родина</h3>
+  <p>
+    Дружина Григорія — Мотрона Онуфріївна (Матрона Онуфріева); достеменних відомостей про неї
+    поки що немає. Про братів та сестер Григорія також нічого не відомо.
+  </p>
+  <p><strong>Діти Григорія та Мотрони:</strong></p>
+  <ul class="plain">
+    <li><strong>Уляна Григорівна</strong> (документально не підтверджено; відома лише зі
+      свідчень Петра та дядька Романа) — за родинними переказами старша донька, ймовірно
+      народжена бл. 1901–1905 р. й померла бл. 1925 р. Судячи з реконструйованого дерева,
+      вийшла заміж за Герасима Чубатого, донька — Тетяна.</li>
+    <li><strong>Петро Григорович</strong> (11 січня 1909, хрещення 12 січня — 3 березня 1997) —
+      наймолодша дитина, народився, коли Григорію було 41 рік.</li>
+  </ul>
+  <p class="footnote">Про інших можливих дітей прямої лінії відомостей немає. Раніше до цього
+    переліку помилково включався Ігнат Григорович (бл. 1896–1919); подальша перевірка
+    метричних записів встановила його приналежність до паралельної гілки Григорія Онисимовича
+    (див. Гілку 2 нижче), а не до прямої лінії Григорія Івановича.</p>
+
+  <h3 class="sub-title">Смерть</h3>
+  <div class="callout sad">
+    Григорій Бонюк помер від тифу 30 листопада (13 грудня за н.ст.) 1919 року, у віці
+    51 рік. Період з квітня 1919 по 1920 рік став часом сильної епідемії тифу — за цей час
+    у с. Непедівка померло щонайменше 106 людей від цієї хвороби. На момент смерті батька
+    Петру було лише 10 років; Уляна, як старша, ймовірно, піклувалася про нього як про
+    молодшого брата.
+  </div>
+  <p class="footnote">
+    1919 рік загалом був катастрофічним для села Непедівка: війна, тиф та інші хвороби
+    забрали життя щонайменше 106 мешканців. Смерть Григорія восени 1919-го залишила
+    десятирічного Петра практично без батьківської опіки — за родинними переказами, турботу
+    про нього взяла на себе старша сестра Уляна.
+  </p>
+
+  <!-- ======================= GENEALOGY OVERVIEW ======================= -->
+  <h2 class="section-title"><span class="num">ІІ.</span> Родові гілки Бонюків села Непедівка</h2>
+  <p>
+    Аналіз метричних книг Непедівки (Свято-Миколаївська церква) виявляє щонайменше чотири
+    паралельні гілки роду Бонюків, які в різний час перетинаються між собою через шлюби та
+    інститут кумівства (хресних батьків) — типову форму соціальних зв'язків у селі того часу.
+    Нижче наведено кожну гілку окремо з відомими на сьогодні фактами.
+  </p>
+
+  <!-- BRANCH 1 -->
+  <div class="branch">
+    <div class="branch-header">
+      <h4>Гілка 1 — Пряма лінія (Григорій Іванович)</h4>
+      <span class="badge">Пряма лінія Григорія Івановича</span>
+    </div>
+    <div class="couple">Григорій Іванович БОНЮК <span class="plus">✚</span> Мотрона Онуфріївна</div>
+    <div class="children-row">
+      <div class="child-card">
+        <span class="name">Уляна Григорівна</span>
+        бл. 1901/1905 — бл. 1925<br>
+        <span class="note">Документально не підтверджено; відома зі свідчень нащадків.</span>
+        <div class="grandchild">
+          <span class="name">+ Герасим Чубатий</span><br>
+          донька — Тетяна
+        </div>
+      </div>
+      <div class="child-card">
+        <span class="name">Петро Григорович</span>
+        11.01.1909 — 03.03.1997<br>
+        <span class="note">Наймолодша дитина; на момент смерті батька мав 10 років.</span>
+      </div>
+    </div>
+    <div class="callout">
+      Раніше до цієї гілки помилково відносили Ігната Григоровича (бл. 1896–1919); подальша
+      перевірка метричних записів встановила, що він належить до паралельної гілки
+      Григорія Онисимовича (Гілка 2).
+    </div>
+  </div>
+
+  <!-- BRANCH 2 -->
+  <div class="branch">
+    <div class="branch-header">
+      <h4>Гілка 2 — Лінія Григорія Онисимовича</h4>
+      <span class="badge">Однофамільці / паралельна гілка</span>
+    </div>
+    <div class="couple">Григорій Онисимович БОНЮК <span class="plus">✚</span> Марія Марківна</div>
+    <div class="children-row">
+      <div class="child-card">
+        <span class="name">Ігнат Григорович</span>
+        бл. 1896 — 25 лютого / 10 березня 1919 (23 р.)<br>
+        <span class="note">Служив у військовій службі (Перша світова війна), повернувся
+          пораненим до Непедівки та помер від наслідків рани. Похований 27 лютого 1919 р.
+          Сповідав і причащав священник Павло Оппоков.</span>
+      </div>
+      <div class="child-card">
+        <span class="name">Іуліанія (Уляна)</span>
+        нар. 19 грудня 1900 р.<br>
+        <span class="note">Документально підтверджено.</span>
+      </div>
+      <div class="child-card">
+        <span class="name">Февронія</span>
+        26.02.1906 — 20.02.1908 (померла дитиною)
+      </div>
+    </div>
+    <div class="callout">
+      По батькові Григорія цієї гілки — <em>Онисимович</em>, тоді як у Григорія з Гілки 1 —
+      <em>Іванович</em>, тому це інша, паралельна гілка роду Бонюків, а не пряма лінія Гілки 1.
+      Ігнат Григорович, раніше пов'язуваний з Гілкою 1, документально належить саме до
+      цієї родини.
+    </div>
+  </div>
+
+  <!-- BRANCH 3 -->
+  <div class="branch">
+    <div class="branch-header">
+      <h4>Гілка 3 — Лінія Іллі / Климента</h4>
+      <span class="badge">Пов'язана шлюбами з Гілкою 4</span>
+    </div>
+    <div class="couple">Ілля БОНЮК</div>
+    <div class="children-row">
+      <div class="child-card">
+        <span class="name">Климент Ілліч</span>
+        <span class="note">+ Агрипина Львівна</span>
+        <div class="grandchild"><span class="name">Устинія</span> — 01.06.1902 – 1903 (померла в дитинстві)</div>
+        <div class="grandchild"><span class="name">Тетяна Климентіївна</span> — нар. бл. 1899.
+          Одружувалася двічі; другий шлюб 10/23.10.1919 з Лазарем Гавриловим Білокуром (20 р.).
+          Свідком з боку нареченої був Зосима Ігнатійович Бонюк (Гілка 4).</div>
+        <div class="grandchild"><span class="name">Іван Климентович</span> — нар. бл. 1892.
+          Одружився 29.06/12.07.1919 з Устинією (Юстиною) Григорівною Корнійчук (16 р.).</div>
+      </div>
+      <div class="child-card">
+        <span class="name">Мотрона Іллівна</span>
+        <span class="note">+ Федір Корнюк</span><br>
+        Була хрещеною матір'ю доньки Устинії свого брата Климента — тобто рідна сестра
+        Климента Ілліча.
+      </div>
+    </div>
+    <div class="callout link">
+      <strong>Ключовий зв'язок:</strong> на весіллі Тетяни Климентіївни (Гілка 3) свідком виступив
+      Зосима Ігнатійович Бонюк — син Ігната Калениковича з Гілки 4. Це підтверджує близькі родинні
+      стосунки між гілками Климента та Ігната (Каленикового роду).
+    </div>
+  </div>
+
+  <!-- BRANCH 4 -->
+  <div class="branch">
+    <div class="branch-header">
+      <h4>Гілка 4 — Каленикові (старше покоління)</h4>
+      <span class="badge">Пов'язана шлюбами з Гілкою 3</span>
+    </div>
+    <div class="couple">Каленик БОНЮК</div>
+    <div class="children-row">
+      <div class="child-card">
+        <span class="name">Ігнат Каленикович</span>
+        <span class="note">+ Гликерія Григорівна</span>
+        <div class="grandchild"><span class="name">Іоанн (Іван)</span> — нар. 24.06.1906, помер 01.12.1916.</div>
+        <div class="grandchild"><span class="name">Зосима Ігнатійович</span> — нар. бл. 1900/1901.
+          Одружився 10/23 жовтня 1919 р. з Агрипиною Елеазаровою Мосьондз (20 р.).
+          Свідками були Северин Антонійович Бонюк та Варфоломій Прохоров Прончук.</div>
+      </div>
+      <div class="child-card">
+        <span class="name">Іван Каленикович</span>
+        <span class="note">Відомостей про нащадків поки немає.</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ======================= CROSS-BRANCH LINKS ======================= -->
+  <h2 class="section-title"><span class="num">ІІІ.</span> Виявлені зв'язки між гілками</h2>
+  <table class="links-table">
+    <tr>
+      <th>Подія</th>
+      <th>Учасники</th>
+      <th>Що це доводить</th>
+    </tr>
+    <tr>
+      <td>Хрещення Устинії (черв. 1902), Гілка 3</td>
+      <td>Хрещена мати — Мотрона Іллівна (дружина Федора Корнюка)</td>
+      <td>Мотрона — рідна сестра батька дитини, Климента Ілліча; підтверджує спорідненість
+        дітей Іллі Бонюка</td>
+    </tr>
+    <tr>
+      <td>Весілля Тетяни Климентіївни (жовт. 1919), Гілка 3</td>
+      <td>Свідок — Зосима Ігнатійович Бонюк (Гілка 4)</td>
+      <td>Прямий доказ близьких родинних зв'язків між лінією Климента (Гілка 3) та лінією
+        Ігната Калениковича (Гілка 4)</td>
+    </tr>
+    <tr>
+      <td>Весілля Зосими Ігнатійовича (жовт. 1919), Гілка 4</td>
+      <td>Свідок — Северин Антонійович Бонюк (окрема бічна лінія «Антонійовичів»)</td>
+      <td>Вказує на ще одну паралельну лінію Бонюків (нащадки Антонія), пов'язану з Гілкою 4
+        через кумівство/свідчення на весіллях</td>
+    </tr>
+    <tr>
+      <td>Смерті 1919 р. в лінії «Антонійовичів»</td>
+      <td>Ксенофонт (8 міс., син Ігната Антонійовича) та Онисим Антонійович (46 р.) — рідні
+        брати-Антонійовичі</td>
+      <td>Ще одна бічна гілка (сини Антонія Бонюка), не пов'язана напряму з Григорієм
+        Івановичем, але контекстуально важлива для епідеміологічної картини 1919 року в Непедівці</td>
+    </tr>
+  </table>
+  <p>
+    Спільне соціальне коло родини також простежується через повторювані прізвища хрещених
+    батьків і свідків на весіллях: <strong>Данчуки</strong> (Федір, Парфеній, Іван Архипович),
+    <strong>Поліщуки</strong> (Юхим і Євдокія Федорівна; Феодосій і Уляна Лук'янівна),
+    <strong>Гупало</strong> (Федот та Іван Венедиктовичі), а також
+    <strong>Бондарчуки, Якимчуки, Білокури</strong>.
+  </p>
+
+  <!-- ======================= UNCERTAIN / ADJACENT RECORDS ======================= -->
+  <h2 class="section-title"><span class="num">IV.</span> Записи під сумнівом і суміжні знахідки</h2>
+  <p>Ці записи згадуються в дослідженні, але наразі не мають підтвердженого зв'язку з прямою лінією Григорія Івановича:</p>
+
+  <div class="uncertain-item">
+    <span class="tag">ймовірно інша гілка</span>
+    <p style="margin:4px 0 0"><strong>Никифор Ананійович Бонюк</strong> (1891, с. Баламутівка Ружинської
+    волості Сквирського повіту) — рахівник колгоспу, заарештований 28.08.1937 за
+    «антирадянську агітацію», розстріляний 20.11.1937, реабілітований 1959 р.
+    Ружинська волость Сквирського повіту — інша парафія, тож, найімовірніше, однофамілець
+    або далекий родич із сусідньої гілки, а не мешканець Непедівки.</p>
+  </div>
+
+  <div class="uncertain-item">
+    <span class="tag">не пов'язано напряму</span>
+    <p style="margin:4px 0 0"><strong>Андрій Бонюк</strong> — с. Марківці, Козятинський р-н,
+    Вінницька обл., хлібороб-колгоспник, згадка 1933 р. (жертва Голодомору).</p>
+  </div>
+
+  <div class="uncertain-item">
+    <span class="tag">інша парафія / епоха</span>
+    <p style="margin:4px 0 0"><strong>Григорій Никитов Бонюк</strong> — помер 25.01.1849 у віці
+    50 років (народження бл. 1799 р.), Параскевіївська церква, с. Глухівці, Бердичівський повіт.
+    Інше село й інше покоління — може бути далеким предком одного з бічних кланів, але прямого
+    зв'язку з Григорієм Івановичем (1868–1919) не встановлено.</p>
+  </div>
+
+  <div class="uncertain-item">
+    <span class="tag">інша гілка (Тимофеєві)</span>
+    <p style="margin:4px 0 0"><strong>Иларион Бонюк</strong> (хрещений 21.10.1842, Непедівка/Бердичів) —
+    син Терентія Тимофейовича Бонюка та Онисії Євстафіївни. По батькові Терентія — Тимофейович,
+    що вказує на ще одну, самостійну гілку роду в Непедівці, не перетнуту поки що з жодною
+    з чотирьох описаних вище.</p>
+  </div>
+
+  <p class="footnote">
+    Висновок: наразі в Непедівці задокументовано мінімум п'ять окремих ліній Бонюків
+    (Іванович, Онисимович, Ілліч/Климентович, Каленикович та Тимофейович), з яких Гілки 3 і 4
+    доведено пов'язані шлюбами й свідченнями на весіллях 1919 року, а Гілка «Антонійовичів»
+    контактує з Гілкою 4 через інститут весільних свідків.
+  </p>
+
+  <footer>
+    Родовід родини Бонюк · село Непедівка, Бердичівський повіт, Київська губернія<br>
+    Складено на основі метричних книг Свято-Миколаївської церкви та архівних джерел (FamilySearch, DuckArchive, Reabit.org.ua)
+  </footer>
+
+</div>
+</body>
+</html>
