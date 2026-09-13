@@ -1,0 +1,1988 @@
+<!doctype html>
+<html lang="uk">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Родовід Бонюків — шість паралельних ліній</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Spectral:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400;1,500&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --bg: #d7cbaa;
+        --paper: #f4eedb;
+        --paper-edge: #c8b98e;
+        --ink: #2a2116;
+        --ink-soft: #6c5f47;
+        --gold: #a1802f;
+        --oxblood: #7c3a3a;
+        --male-bg: #2e4a68;
+        --male-fg: #f1ead6;
+        --female-bg: #d8ab9e;
+        --female-fg: #3a241d;
+        --flag: #b23a3a;
+             --memorial: #4a4238;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+      * {
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+        color-adjust: exact;
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        margin: 0;
+        font-family: "Spectral", Georgia, "Times New Roman", serif;
+        color: var(--ink);
+        background-color: var(--bg);
+        background-image: repeating-linear-gradient(
+          0deg,
+          rgba(0, 0, 0, 0.025) 0px,
+          rgba(0, 0, 0, 0.025) 1px,
+          transparent 1px,
+          transparent 3px
+        );
+      }
+
+      .wrap {
+        max-width: 1360px;
+        margin: 0 auto;
+        padding: 0 28px 80px;
+      }
+
+      /* ---------- header ---------- */
+      .page-header {
+        background: linear-gradient(180deg, #26364a, #1c2836);
+        color: #f1ead6;
+        padding: 30px 28px;
+        border-bottom: 4px double var(--gold);
+        position: sticky;
+        top: 0;
+        z-index: 20;
+        box-shadow: 0 6px 18px rgba(0, 0, 0, 0.25);
+      }
+      .header-inner {
+        max-width: 1360px;
+        margin: 0 auto;
+        display: flex;
+        align-items: flex-end;
+        justify-content: space-between;
+        gap: 24px;
+        flex-wrap: wrap;
+      }
+      .header-inner h1 {
+        font-weight: 600;
+        font-size: clamp(26px, 3.4vw, 38px);
+        margin: 0 0 6px;
+        letter-spacing: 0.3px;
+      }
+      .header-inner .subtitle {
+        margin: 0;
+        font-style: italic;
+        color: #cbd3da;
+        font-size: 15px;
+        max-width: 640px;
+      }
+      .print-btn {
+        background: var(--oxblood);
+        color: #f4eedb;
+        border: 1px solid #9a5252;
+        font-family: inherit;
+        font-size: 15px;
+        padding: 11px 22px;
+        border-radius: 3px;
+        cursor: pointer;
+        letter-spacing: 0.2px;
+        white-space: nowrap;
+        transition: background 0.15s ease;
+      }
+      .print-btn:hover {
+        background: #8f4444;
+      }
+      .print-tip {
+        max-width: 1360px;
+        margin: 10px auto 0;
+        padding: 0 4px;
+        font-size: 12.5px;
+        color: #c7b98a;
+        font-style: italic;
+      }
+
+      /* ---------- intro / legend / toc ---------- */
+      .intro {
+        padding: 34px 0 10px;
+        max-width: 800px;
+      }
+      .intro p {
+        line-height: 1.65;
+        font-size: 15.5px;
+      }
+
+      .legend {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 16px 28px;
+        background: var(--paper);
+        border: 1px solid var(--paper-edge);
+        border-radius: 4px;
+        padding: 16px 22px;
+        margin: 18px 0 32px;
+        font-size: 13.5px;
+      }
+      .legend-item {
+        display: flex;
+        align-items: center;
+        gap: 0;
+      }
+      .swatch {
+        display: inline-block;
+        width: 15px;
+        height: 15px;
+        border-radius: 3px;
+        margin-right: 7px;
+        flex: none;
+      }
+      .swatch.male {
+        background: var(--male-bg);
+      }
+      .swatch.female {
+        background: var(--female-bg);
+      }
+      .swatch.unknown {
+        background: transparent;
+        border: 1.5px dashed var(--ink-soft);
+      }
+      .swatch.hypo {
+        background: var(--male-bg);
+        opacity: 0.5;
+        border: 1.5px dashed var(--ink);
+      }
+      .swatch.flag {
+        background: var(--female-bg);
+        border: 2px solid var(--flag);
+      }
+
+            .swatch.memorial {
+        background: var(--memorial);
+        opacity: 0.75;
+      }
+            .swatch.placeholder {
+        background: transparent;
+        border: 1.5px dashed var(--gold);
+      }
+      .union-sample {
+        color: var(--oxblood);
+        font-size: 16px;
+        margin-right: 6px;
+      }
+
+      .toc {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px 22px;
+        border-top: 1px solid var(--paper-edge);
+        border-bottom: 1px solid var(--paper-edge);
+        padding: 14px 4px;
+        margin-bottom: 10px;
+      }
+      .toc a {
+        color: var(--oxblood);
+        text-decoration: none;
+        font-size: 14.5px;
+        border-bottom: 1px dotted var(--oxblood);
+      }
+      .toc a:hover {
+        color: var(--ink);
+      }
+
+      /* ---------- sections ---------- */
+      .line-section {
+        padding-top: 56px;
+        margin-top: 8px;
+        border-top: 1px solid var(--paper-edge);
+      }
+      .line-section:first-of-type {
+        border-top: none;
+      }
+
+      .line-head {
+        display: flex;
+        gap: 20px;
+        align-items: flex-start;
+        margin-bottom: 22px;
+      }
+      .line-num {
+        font-size: 40px;
+        line-height: 1;
+        color: var(--oxblood);
+        font-weight: 600;
+        border-right: 2px solid var(--gold);
+        padding-right: 16px;
+        min-width: 52px;
+        text-align: right;
+      }
+      .line-title {
+        margin: 0 0 4px;
+        font-size: 24px;
+        font-weight: 600;
+      }
+      .line-sub {
+        margin: 0;
+        color: var(--ink-soft);
+        font-style: italic;
+        font-size: 14.5px;
+      }
+
+      .line-footnote {
+        max-width: 820px;
+        font-size: 13.5px;
+        color: var(--ink-soft);
+        font-style: italic;
+        line-height: 1.55;
+        margin-top: 22px;
+        padding-top: 14px;
+        border-top: 1px dashed var(--paper-edge);
+      }
+
+      /* ---------- tree frame ---------- */
+      .tree-frame {
+        overflow-x: auto;
+        padding: 10px 6px 26px;
+        -webkit-overflow-scrolling: touch;
+      }
+      .scroll-hint {
+        display: none;
+        font-size: 12px;
+        color: var(--ink-soft);
+        font-style: italic;
+        text-align: center;
+        margin-bottom: 4px;
+      }
+
+      /* ---------- pure-CSS genealogy tree ---------- */
+      .tree {
+        display: flex;
+        justify-content: center;
+        min-width: max-content;
+        padding: 0 8px;
+      }
+      .tree > ul {
+        padding-top: 0;
+      }
+      .tree ul {
+        display: flex;
+        list-style: none;
+        margin: 0;
+        padding-top: 26px;
+        position: relative;
+      }
+      .tree li {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        list-style: none;
+        position: relative;
+        padding: 26px 0 0 9px;
+      }
+      .tree li::before,
+      .tree li::after {
+        content: "";
+        position: absolute;
+        top: 0;
+        right: 50%;
+        width: 50%;
+        height: 26px;
+        border-top: 2px solid var(--gold);
+      }
+      .tree li::after {
+        right: auto;
+        left: 50%;
+        border-left: 2px solid var(--gold);
+      }
+      .tree li:only-child::before,
+      .tree li:only-child::after {
+        display: none;
+      }
+      .tree li:only-child {
+        padding-top: 0;
+      }
+      .tree li:first-child::before {
+        border: none;
+      }
+      .tree li:last-child::after {
+        border: none;
+      }
+      .tree li:last-child::before {
+        border-right: 2px solid var(--gold);
+        border-radius: 0 6px 0 0;
+      }
+      .tree li:first-child::after {
+        border-radius: 6px 0 0 0;
+      }
+      .tree ul ul::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 50%;
+        border-left: 2px solid var(--gold);
+        width: 0;
+        height: 26px;
+      }
+
+      .frame-right {
+        display: flex !important;
+        justify-content: flex-end !important;
+      }
+
+      @media print {
+        /* Скидаємо зсув для друку */
+        .tree-frame,
+        .tree-frame.align-right {
+          direction: ltr !important;
+          justify-content: center !important;
+          overflow: visible !important;
+        }
+
+        .tree,
+        .tree.align-right {
+          margin-left: 0 !important;
+          margin-right: 0 !important;
+          justify-content: center !important;
+          width: 100% !important;
+        }
+      }
+
+      .couple {
+        display: flex;
+        align-items: center;
+      }
+      .union {
+        font-size: 12px;
+        color: var(--oxblood);
+        padding: 0 7px;
+        white-space: nowrap;
+        align-self: center;
+      }
+
+      .person {
+        min-width: 140px;
+        max-width: 196px;
+        padding: 8px 12px;
+        border-radius: 4px;
+        text-align: center;
+        border: 1px solid rgba(0, 0, 0, 0.28);
+        box-shadow: 2px 2px 0 rgba(0, 0, 0, 0.12);
+      }
+
+      .child-node {
+        display: flex;
+        align-items: center;
+        gap: 7px;
+      }
+      .spouse-tag {
+        font-size: 10.3px;
+        line-height: 1.35;
+        color: var(--ink-soft);
+        font-style: italic;
+        border: 1px dashed var(--paper-edge);
+        border-radius: 10px;
+        padding: 5px 9px;
+        background: var(--paper);
+        max-width: 150px;
+        text-align: left;
+      }
+
+      .couple-inlaw {
+        display: flex;
+        align-items: flex-end;
+      }
+      .couple-inlaw .union {
+        align-self: flex-end;
+        margin-bottom: 16px;
+        text-align: center;
+      }
+      .inlaw-stack {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+      .inlaw-stack .stub-parent {
+        min-width: 120px;
+        max-width: 170px;
+        padding: 5px 9px;
+      }
+      .inlaw-stack .stub-parent .name {
+        font-size: 12px;
+      }
+      .stub-line {
+        width: 2px;
+        height: 14px;
+        background: var(--gold);
+      }
+      .person .name {
+        font-weight: 600;
+        font-size: 14px;
+        line-height: 1.28;
+      }
+      .person .dates {
+        font-size: 11.5px;
+        margin-top: 3px;
+        opacity: 0.92;
+      }
+      .person .note {
+        font-size: 10.8px;
+        font-style: italic;
+        margin-top: 4px;
+        opacity: 0.9;
+        line-height: 1.3;
+      }
+
+      .correctBox {
+        text-align: start;
+      }
+
+      .boxBold {
+        font-weight: bold;
+      }
+
+      .person.male {
+        background: var(--male-bg);
+        color: var(--male-fg);
+      }
+      .person.female {
+        background: var(--female-bg);
+        color: var(--female-fg);
+      }
+      .person.unknown {
+        background: transparent;
+        border: 1.5px dashed var(--ink-soft);
+        color: var(--ink-soft);
+        font-style: italic;
+      }
+      .person.hypo {
+        border-style: dashed;
+        border-width: 2px;
+        border-color: var(--ink);
+      }
+      .person.flag {
+        border: 2px solid var(--flag);
+      }
+
+      /* mini / side trees */
+      .tree.mini .person {
+        min-width: 120px;
+        padding: 6px 9px;
+      }
+
+      .tree.mini .person .name {
+        font-size: 12.5px;
+      }
+      .tree.mini .person .dates {
+        font-size: 10px;
+      }
+      .tree.mini li {
+        padding-top: 20px;
+      }
+      .tree.mini ul {
+        padding-top: 20px;
+      }
+      .tree.mini li::before,
+      .tree.mini li::after {
+        height: 20px;
+      }
+      .tree.mini ul ul::before {
+        height: 20px;
+      }
+
+      .side-tree {
+        margin-top: 26px;
+        padding: 18px 22px 50px;
+        background: var(--paper);
+        border-left: 4px solid var(--oxblood);
+        border-radius: 0 4px 4px 0;
+        /* overflow-x: auto; */
+      }
+
+      .side-label {
+        margin: 0 0 10px;
+        font-weight: 600;
+        font-size: 14px;
+        color: var(--oxblood);
+      }
+      .tree-row {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 30px;
+        justify-content: center;
+      }
+
+      .box-row-extra {
+        justify-content: flex-end;
+      }
+
+      .side-note {
+        font-size: 12.5px;
+        color: var(--ink-soft);
+        font-style: italic;
+        margin: 14px 4px 4px;
+        line-height: 1.5;
+      }
+
+      .union-banner {
+        text-align: center;
+        font-size: 13.5px;
+        color: var(--ink);
+        background: var(--paper);
+        border: 1px dashed var(--gold);
+        border-radius: 4px;
+        padding: 9px 16px;
+        margin: 22px auto;
+        max-width: 760px;
+      }
+      .union-banner b {
+        color: var(--oxblood);
+      }
+
+      /* ---------- footer ---------- */
+      .page-footer {
+        margin-top: 70px;
+        padding-top: 22px;
+        border-top: 3px double var(--gold);
+        font-size: 12.5px;
+        color: var(--ink-soft);
+        line-height: 1.6;
+      }
+
+      .no-print {
+      }
+
+      @media (max-width: 720px) {
+        .header-inner {
+          flex-direction: column;
+          align-items: flex-start;
+        }
+        .wrap {
+          padding: 0 14px 60px;
+        }
+        .scroll-hint {
+          display: block;
+        }
+        .line-num {
+          font-size: 30px;
+          min-width: 40px;
+        }
+      }
+
+      @media print {
+        @page {
+          size: A3 landscape;
+          margin: 12mm;
+        }
+        body {
+          background-image: none;
+        }
+        .no-print {
+          display: none !important;
+        }
+        .page-header {
+          position: static;
+          box-shadow: none;
+          background: #26364a;
+        }
+        .tree-frame {
+          overflow: visible;
+          zoom: 0.72;
+        }
+        .line-section {
+          break-before: page;
+          border-top: none;
+          padding-top: 8px;
+        }
+        .line-section:first-of-type {
+          break-before: auto;
+        }
+        .side-tree,
+        .union-banner {
+          break-inside: avoid;
+        }
+      }
+
+      .person-card-link {
+  text-decoration: none;
+  color: inherit;
+  display: block;
+}
+
+/* Ефекти для картки з посиланням */
+.person-link {
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+}
+
+/* Ефект підсвічування, легкого підйому та м'якої тіні при наведенні */
+.person-link:hover {
+  transform: translateY(-3px); /* Легкий підйом картки вгору */
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.35), 0 0 12px rgba(255, 255, 255, 0.2); /* Глибока тінь + м'яке зовнішнє сяйво */
+  border-color: #f3e5ab; /* Ніжне золотаве/світле підсвічування рамки */
+}
+
+/* Основний клас для розриву сторінки */
+.page-start {
+  /* Для друку та збереження в PDF */
+  break-before: page;
+  page-break-before: always; /* Для підтримки старих версій браузерів */
+
+  /* Для візуального розриву на екрані браузера */
+  /* margin-top: 60px;  */
+  /* Відступ від попереднього блоку */
+}
+
+/* Спеціальні правила для режиму друку (Ctrl + P -> PDF) */
+@media print {
+  .page-start {
+    break-before: page;
+    page-break-before: always;
+    margin-top: 0; /* Прибираємо зайвий відступ при друку */
+  }
+}
+    </style>
+  </head>
+  <body>
+    <header class="page-header">
+      <div class="header-inner">
+        <div>
+          <h1>Родовід Бонюків</h1>
+          <p class="subtitle">
+            Шість паралельних ліній роду — за матеріалами метричних книг і
+            родинних записів, ХІХ–ХХ ст.
+          </p>
+        </div>
+        <button class="print-btn no-print" onclick="window.print()">
+          Зберегти як PDF
+        </button>
+      </div>
+      <p class="print-tip no-print">
+        Порада: у вікні друку оберіть «Зберегти як PDF» і альбомну орієнтацію
+        (бажано формат A3 для Лінії I та II — вони найширші). Дерева автоматично
+        трохи зменшуються для друку, але якщо крайні гілки все ж обрізаються —
+        зменшіть масштаб друку вручну до 50–70%. Якщо кольори не з'явились —
+        увімкніть у налаштуваннях друку пункт «Фонові рисунки / Background
+        graphics».
+      </p>
+    </header>
+
+    <div class="wrap">
+      <div class="intro">
+        <p>
+          Цей документ об'єднує шість гілок роду Бонюк, зафіксованих у окремих
+          аркушах родовідного дослідження. Гілки наведені паралельно, оскільки
+          прямий кровний зв'язок між ними на сьогодні документально не
+          підтверджений — там, де дослідник висловлював обґрунтовану гіпотезу
+          про можливе споріднення, це позначено окремо. Дати народження та
+          смерті часто наближені («бл.», «орієнтовно») — так само, як у
+          первинних записах.
+        </p>
+      </div>
+
+      <div class="legend no-print">
+        <div class="legend-item"><span class="swatch male"></span>Чоловік</div>
+        <div class="legend-item"><span class="swatch female"></span>Жінка</div>
+        <div class="legend-item">
+          <span class="swatch unknown"></span>Особа чи ім'я не встановлені
+        </div>
+        <div class="legend-item">
+          <span class="swatch hypo"></span>Гіпотетичний / малодокументований
+          зв'язок
+        </div>
+        <div class="legend-item">
+          <span class="swatch flag"></span>Потребує додаткового уточнення
+        </div>
+
+        <div class="legend-item">
+          <span class="swatch memorial"></span>Загинув(ла) на війні
+        </div>
+        <div class="legend-item">
+          <span class="swatch placeholder"></span>Місце для майбутнього
+          доповнення
+        </div>
+
+
+
+
+
+        <div class="legend-item">
+          <span class="union-sample">⚭</span>Шлюб (з роком, якщо відомий)
+        </div>
+
+                        <div class="legend-item">
+          <span class="union-sample">⚯</span>Позашлюбний зв'язок / Спільні діти
+        </div>
+      </div>
+
+      <nav class="toc no-print">
+        <a href="#line-1">I. Бонюк — Трайдакало</a>
+        <a href="#line-2">II. Лінія Онисима</a>
+        <a href="#line-3">III. Лінія Кирила</a>
+        <a href="#line-4">IV. Лінія Антонії</a>
+        <a href="#line-5">V. Лінія Іллі</a>
+        <a href="#line-6">VI. Каленик — Мосюйба</a>
+      </nav>
+
+      <!-- ============ LINE I ============ -->
+      <section class="line-section" id="line-1">
+        <div class="line-head">
+          <span class="line-num">I</span>
+          <div>
+            <h2 class="line-title">Бонюк — Трайдакало</h2>
+            <p class="line-sub">
+              Нащадки Івана Бонюка; Марфа Іванівна (дівоче — Трайдакало) стала
+              другою дружиною Івана Івановича Бонюка, 1867
+            </p>
+          </div>
+        </div>
+
+        <div class="tree-frame">
+          <div class="tree">
+            <ul>
+              <li>
+                <div class="person male">
+                  <div class="name">Іван Бонюк</div>
+                  <div class="note">батьки невідомі</div>
+                  <div class="note">орієнтовно 1780–1807 р.н.</div>
+                </div>
+                <ul>
+                  <li>
+                    <div class="couple">
+                      <div class="person male">
+                        <div class="name">Іван Іванович Бонюк</div>
+                        <div class="dates">
+                          бл. 1826 р.н. · «Іоаннъ Іоанниковъ»
+                        </div>
+                        <div class="note">
+                          другий шлюб (перша дружина невідома)
+                        </div>
+                      </div>
+                      <div class="union">⚭ 14.05.1867</div>
+                      <div class="person female">
+                        <div class="name">Марфа Іванівна Трайдакало</div>
+                        <div class="dates">бл. 1843 р.н.</div>
+                        <div class="note">
+                          донька Івана Власовича Трайдакало — див. дерево нижче
+                        </div>
+                      </div>
+                    </div>
+                    <ul>
+                      <li> <div class="couple">
+                        <a href="hryhorii_ivanovych_1868_nepedivka/index.html" target="_blank" rel="noopener noreferrer" class="person-card-link">
+  <div class="person male person-link">
+    <div class="name">Григорій Іванович Бонюк</div>
+    <div class="dates">
+      25.01.1868 – 30.11.1919 (13.12 за н.ст.)
+    </div>
+    <div class="note">
+      хрещений 26.01.1868. Хрещені: Феодор (Осеодор)
+      Михайлов Ольмшдинг/Альмшдинг і Агафія Ігнатівна
+      Ольмшдинг — шляхетське/іноземне прізвище, можлива
+      ознака вузького кола кумівства навколишньої шляхти
+      Непедівки
+    </div>
+  </div>
+</a>
+                       
+
+                          <div class="union">⚭</div>
+                          <div class="person female">
+                            <div class="name">Мотрона Онуфріївна</div>
+                            <div class="note">донька Онуфрія</div>
+                          </div>
+                        </div>
+                        <ul>
+
+                        
+                    
+                          
+                          <li> 
+                                                        <div class="couple">
+                              <!-- <div class="person male hypo">
+                              <div class="name">Герасим Андрійович Чубатий </div>
+                              <div class="dates"></div>
+                              <div class="note">
+
+                              </div>
+                            </div>
+                              <div class="union"></div> -->
+
+                            <div class="person female hypo">
+                              <div class="name">Уляна Григорівна Бонюк</div>
+                              <div class="dates">бл. 1900–1901 – 1923</div>
+                              <div class="note">
+                                донька за сімейними переказами, документально не
+                                підтверджено
+                              </div>
+                            </div></div>
+                          </li>
+
+
+                          <li>
+                            <div class="couple">
+                              <div class="person male">
+                                <div class="name">Петро Григорович Бонюк</div>
+                                <div class="dates">11.01.1909 – 03.03.1997</div>
+                                <div class="note">
+                                  хрещені: Михайло Павлович Баранчук; Уляна
+                                  Лук'янівна (дружина Федосія Поліщука)
+                                </div>
+                              </div>
+                              <div class="union">⚭</div>
+                              <div class="person female">
+                                <div class="name">Зоя Степанівна (Тидень) Бонюк</div>
+                                <div class="dates">18.12.1909 – 27.10.1986</div>
+                                <div class="note">
+                                  батьки — Степан Прокопьєв Тидень і Матрона
+                                  Іванова. Хрещені: Ісаак Григорович Левчук;
+                                  Марія Максимівна (дружина Харитона Чубатого)
+                                </div>
+                              </div>
+                            </div>
+                          </li>
+                        </ul>
+                      </li>
+                    </ul>
+                  </li>
+                </ul>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <p class="line-footnote">
+          Чоловік Уляни Григорівни — Герасим Андрійович Чубатий (син Андрія
+          Чубатого). Їхня донька Тетяна Герасимівна Бєляєва
+          (21.01.1922–14.02.2006) мала два шлюби: 1) з Савою Бондарчуком —
+          донька <b>Марія Савівна</b> (одружена з Миколаєм Боряком); 2) з
+          Григорієм Олексійовичем Бєляєвим (09.01.1919–20.05.1989) — донька
+          <b>Любов Григорівна Бєляєва</b> (одружена з Сергієм Петровичем
+          Куксою).<br /><br />
+          Діти Петра Григоровича та Зої Степанівни: <b>Ліда</b> (1929 – ?,
+          чоловік невідомий); <b>Василь Петрович</b> (одружений з Галиною
+          Василівною; діти — Сергій Васильович, Тетяна Василівна, Зоя Василівна
+          Баточенко); <b>Григорій</b> (за родинними переказами, документально не
+          підтверджено).
+        </p>
+
+        <div class="union-banner">
+          <b>⚭ 14.05.1867</b> — шлюб Івана Івановича Бонюка (41 рік, другий
+          шлюб) та Марфи Іванівни Трайдакало (24 роки).<br />
+          Свідки з боку нареченого: брати Іван Данилович Біда та Василь
+          Данилович Біда.<br />
+          Свідки з боку нареченої: брати Іван Якович Трайдакало (н. 1829) та
+          Ісаакій Якович Трайдакало.
+        </div>
+
+        <div class="side-tree">
+          <p class="side-label">Родина Трайдакало (батьківська лінія Марфи)</p>
+          <div class="tree-row box-row-extra">
+            <div class="tree mini">
+              <ul>
+                <li>
+                  <div class="person male">
+                    <div class="name">Влас Трайдакало</div>
+                    <div class="note">орієнтовно 1760–1775 р.н.</div>
+                  </div>
+                  <ul>
+                    <li>
+                      <div class="couple">
+                        <div class="person male">
+                          <div class="name">Іван Власович Трайдакало</div>
+                          <div class="note">орієнтовно 1790–1823 р.н.</div>
+                        </div>
+                        <div class="union">⚭</div>
+                        <div class="person female">
+                          <div class="name">Мотрона</div>
+                        </div>
+                      </div>
+                      <ul>
+                        <li>
+                          <div class="couple">
+                            <div class="person female">
+                              <div class="name">Марфа Іванівна</div>
+                              <div class="dates">бл. 1843 р.н.</div>
+
+                              <div class="note correctBox">
+                                Рідні брати: <br />
+                                <span class="boxBold">Харлампій Іванович</span>
+                                10 лютого 1847 р.н.;<br />
+                                <span class="boxBold">Афанасій Іванович</span> 2
+                                травня 1848 р.н. (зв'язок документально не
+                                підтверджено);<br />
+                                <span class="boxBold">Олександр Іванович</span>
+                                30 серпня 1851 р.н.;<br />
+                                <span class="boxBold">Мойсей Іванович</span>
+                                (зв'язок документально не підтверджено)
+                              </div>
+                            </div>
+                            <div class="union">⚭</div>
+                            <div class="person male">
+                              <div class="name">Іван Іванович Бонюк</div>
+                              <div class="dates">бл. 1826 р.н.</div>
+                              <div class="note">див. основне дерево вище</div>
+                            </div>
+                          </div>
+                        </li>
+                      </ul>
+                    </li>
+                    <li>
+                      <div class="person male">
+                        <div class="name">Яків Власович Трайдакало</div>
+                        <div class="dates">1796 – 1852</div>
+                        <div class="note">рідний брат Івана Власовича</div>
+                      </div>
+                      <ul>
+                        <li>
+                          <div class="couple">
+                            <div class="person male">
+                              <div class="name">Іван Якович Трайдакало</div>
+                              <div class="dates">бл. 1829 р.н.</div>
+                              <div class="note">
+                                Свідок на весіллі Івана Івановича Бонюка та
+                                Марфи Іванівни Трайдакало (14.05.1867)
+                              </div>
+                            </div>
+
+                            <div class="union">⚭</div>
+
+                            <div class="person female">
+                              <div class="name">
+                                Харитона <br />
+                                Василівна Нечипорук
+                              </div>
+                              <div class="dates">бл. 1832 р.н.</div>
+                            </div>
+                          </div>
+                        </li>
+                        <li>
+                          <div class="couple">
+                            <div class="person male">
+                              <div class="name">Ісаакій Якович Трайдакало</div>
+                              <div class="note">
+                                Свідок на весіллі Івана Івановича Бонюка та
+                                Марфи Іванівни Трайдакало (14.05.1867)
+                              </div>
+                            </div>
+                            <div class="union">⚭</div>
+
+                            <div class="person female">
+                              <div class="name">Дарія</div>
+                            </div>
+                          </div>
+                        </li>
+                      </ul>
+                    </li>
+                  </ul>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <p class="line-footnote">
+
+26 вересня 1894 року 
+  <i>Григорій Іванович Бонюк</i> виступав свідком на весіллі 
+  Доментія Семеновича Трайдакала. Другим свідком у цьому записі фігурує 
+  <i>Роман Андрійович Якимчук</i>. Цей документ є прямим підтвердженням 
+  близьких родинно-дружніх зв'язків між родами Бонюків, Трайдакалів та Якимчуків. <br><br>
+
+
+
+
+          У найдавніших записах цієї лінії трапляється ще одна особа на прізвище
+          Чубата, чий зв'язок із родиною Герасима Андрійовича Чубатого поки не
+          встановлено.
+        </p>
+      </section>
+
+      <!-- ============ LINE II ============ -->
+      <section class="line-section" id="line-2">
+        <div class="line-head">
+          <span class="line-num">II</span>
+          <div>
+            <h2 class="line-title">Лінія Онисима</h2>
+            <p class="line-sub">
+              Гіпотетично пов'язана з Лінією I через можливе братерство Онисима
+              та Івана Івановича
+            </p>
+          </div>
+        </div>
+
+    <div class="tree-frame">
+          <div class="tree">
+            <ul>
+
+              <li>
+                <div class="person male hypo">
+                  <div class="name">Онисим (Онексим) Тимкович Бонюк</div>
+                  <div class="note">
+                    народився орієнтовно 1840 – 1855 <br><br>
+                    
+                    <!-- Із метрики за 23.08.1867 рік:  Унисімъ Томкіевъ Бонюкъ (Онисим/Онексим Тимкович/Томкович Бонюк) — хрещений -->
+                    <!-- <br> <br> і'мя по батькові Онисима потребує додаткової перевірки -->
+                  </div>
+                </div>
+                <ul>
+                  <li>
+                    <div class="couple">
+                      <div class="person male">
+                        <div class="name">Григорій Онисимович Бонюк</div>
+                        <div class="dates">
+                      бл. 1868 р.н.
+                        </div>
+                     <div class="note">
+    Свідок на весіллі сестри Феодосії (1895 р.).
+  </div>
+                      </div>
+                      <div class="union">⚭ 21.05.1890</div>
+                      <div class="person female">
+                        <div class="name">Марія Марківна Корнійчук</div>
+                        <div class="dates">
+                     27.06.1868 - ?
+                        </div>
+                        <div class="note"> Батько: Вільний обиватель Марко Прокопович Корнійчук;<br> Мати: Лукія (Лукія / Лукіана) Матвіївна   (або Мамонтівна)    <br>    Брат: Іван Маркович       </div>
+                      </div>
+                    </div>
+                    
+                    </li>
+                      <li>
+
+                    <div class="couple">
+                      <div class="person female">
+                        <div class="name">Феодосія Онисимова Бонюк</div>
+                        <div class="dates">
+                          бл. 1873 р.н.
+                        </div>
+                      </div>
+                      <div class="union">⚭ 05.11.1895</div>
+                      <div class="person male">
+                        <div class="name">Андрій Феодоров Редченко (Радчук)</div>
+                                                <div class="dates">
+                       бл. 1871 р.н.
+                        </div>
+                        <div class="note"></div>
+                      </div>
+                    </div>
+                    
+                    </li>
+                </ul>
+
+                
+
+                  </li>
+
+                </ul>
+              </li>
+            </ul>
+          </div>
+        </div>
+<p class="line-footnote">
+          <b>Свідки на весіллі Григорія та Марії (1890):</b><br />
+          • <i>По нареченому:</i> Михайло Пилипович Чубатий, Іван Кіндратович Грамчук.<br />
+          • <i>По нареченій:</i> Сава Савович Нечипорук, Опанас Іванович Трайдакало.<br />
+          <small><i>*Участь Опанаса Трайдакала серед свідків з боку нареченої слугує ще одним свідченням тісних родинно-сусідських зв'язків між Бонюками та Трайдакалами в Непедівці.</i></small>
+        </p>
+                <p class="line-footnote">
+
+<b>Свідки на весіллі Феодосії (1895):</b><br>
+  • <i>По нареченому:</i> міщанин Тимофій Йосипович Радецький, селянин Роман Андрійович Якимчук.<br>
+  • <i>По нареченій:</i> Григорій Онисимович Бонюк (рідний брат молодої), відставний фельдфебель Прокопій Васильович Півднюк.<br>
+  <small><i>*Роман Якимчук  у 1900 р. стане хрещеним батьком Уляни Григорівни Бонюк, що підтверджує тісні багаторічні зв'язки між родинами Бонюків та Якимчуків.
+
+  </i></small>
+        </p>
+</section>
+        <!-- Лінія Григорія Онисимовича -->
+<section class="line-section">
+                <div class="line-head page-start">
+          <!-- <span class="line-num">II</span> -->
+          <div>
+            <h2 class="line-title">Григорій Онисимович Бонюк</h2>
+            <p class="line-sub">
+ Продовження роду лінії Онисима, II лінія
+            </p>
+          </div>
+        </div>
+
+        <div class="tree-frame">
+          <div class="tree">
+            <ul>
+              <li>
+                <div class="person male hypo">
+                  <div class="name">Онисим (Онексим) Бонюк</div>
+                  <div class="note">
+                   
+                  </div>
+                </div>
+                <ul>
+                  <li>
+                
+                    <div class="couple">
+                      <div class="person male">
+                        <div class="name">Григорій Онисимович Бонюк</div>
+                        <div class="dates">
+                      бл. 1868 р.н.
+                        </div>
+                     <div class="note">
+    Свідок на весіллі сестри Феодосії (1895 р.).
+  </div>
+                      </div>
+                      <div class="union">⚭ 21.05.1890</div>
+
+                                              
+                                                <!--  <div class="inlaw-stack"> -->
+                                                   <!-- <div class="couple">
+                            <div class="person male stub-parent">
+
+                              <div class="name">Марко Прокопович Корнійчук</div>
+
+                            </div> <div class="union">⚭</div>
+                                                        <div class="person female stub-parent">
+
+                              <div class="name">Лукія (Лукія / Лукіана) Матвіївна</div>
+
+                            </div>
+                          
+                          </div>
+                                <div class="stub-line"></div>                  -->
+                             
+                      <div class="person female">
+                        <div class="name">Марія Марківна Корнійчук</div>
+                        <div class="dates">
+                     27.06.1868 - ?
+                        </div>
+                        <div class="note"> Батько: Вільний обиватель Марко Прокопович Корнійчук;<br> Мати: Лукія (Лукія / Лукіана) Матвіївна  (або Мамонтівна)      <br>    Брат: Іван Маркович           </div>
+                      </div>
+<!-- </div> -->
+
+
+                    </div>
+                    
+                   
+                    <ul>
+                      <li>
+                        <div class="couple">
+                          <div class="person male">
+                            <div class="name">Ігнатій Григорович Бонюк</div>
+                            <div class="dates">23/24.10.1895 – 10.03.1919</div>
+                            <div class="note">
+                              точніше: 25.02 (10.03 за н.ст.) <br /><br />
+                              · Загинув під час I світової війни
+                            </div>
+                          </div>
+
+                          <div class="union">⚭ 30.01.1917</div>
+
+                          <div class="person female">
+                            <div class="name">Тетяна Климентівна Бонюк</div>
+                            <div class="dates">бл. 1899 р.н.</div>
+                            <div class="note">V лінія Бонюків</div>
+                          </div>
+                        </div>
+                        <ul>
+                          <li>
+                            <div class="person male">
+                              <div class="name">Іван Ігнатович Бонюк</div>
+                              <div class="dates">29.12.1917 –</div>
+                              <div class="note correctBox">
+                                Хресний батько: Омелян Федорович Південь. <br />
+                                Хресна мати: Варвара Захарівна, дружина Михайла
+                                Баранчука. <br><br>
+
+                                Іван мав одноутробних брата й сестру:<br> 
+                                Андрій Лазаревич Білокур; <br>
+                               Маня (Марія) Лазарівна Білокур.
+                              </div>
+                            </div>
+                          </li>
+                        </ul>
+                      </li>
+                      <!-- добавити клас  flag для підсвічування рамки: class="person female flag" -->
+                      <li>
+                        <div class="person female">
+                          <div class="name">Февронія</div>
+                          <div class="dates">26.02.1906 – 20.02.1908</div>
+                          <div class="note">
+                            хрещена мати — Євдокія Іванова (Якимчук), дружина Василя
+                            Трайдакала
+                          </div>
+                        </div>
+                      </li>
+                      <li>
+                        <div class="couple">                      
+                        <div class="person female">
+                          <div class="name">Ульяна Григорівна</div>
+                          <div class="dates">19.12.1900 – ?</div>
+                                                    <div class="note">
+                          Хрещений батько: Роман Андрійович Якимчук.<br>
+                          Хрещена мати: Євдокія Федорівна, дружина Юхима Поліщука.
+                          </div>
+                        </div>
+
+                          <div class="union" title="Позашлюбний зв'язок / Спільні діти">⚯</div>
+
+                        <div class="person male">
+                          <div class="name">Герасим Андрійович Чубатий</div>
+                          <div class="dates"></div>
+                          <div class="note">Фактичний чоловік (шлюб не оформлено)</div>
+                        </div>
+
+                        </div>
+                                                <ul>
+                          <li>
+                            <div class="person female">
+                              <div class="name">Тетяна Герасимівна Бонюк</div>
+                              <div class="dates">21.01.1922 – 14.02.2006</div>
+                              <div class="note correctBox">
+                                Хресний батько: Хрещений батько (за сімейними переказами): <br><b>Купрій Пилипович Чубатий </b>, 1895 р. народж, прожив майже 92 р
+                              </div>
+                            </div>
+                          </li>
+                        </ul>  
+                      </li>
+                    </ul>
+                  </li>
+                </ul>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <p class="line-footnote">
+          <b>Перетин ліній II, V:</b>
+          Шлюб 1917 року: Ігнатій Григорович Бонюк одружується з Тетяною
+          Климентівною Бонюк (представник Лінії V), що чітко розрізняє
+          паралельні гілки роду Бонюк.<br />
+
+          Свідки на весіллі: <br />
+
+          • <i>По нареченому:</i> Михайло Павлович Баранчук та Сава Корнійчук.<br />
+
+          • <i>По нареченій:</i> Севастіян Михайлович Корнійчук та Іван Терентійович
+          Безглуздий.<br />
+
+          Родинні зв'язки: Родина Корнійчуків додатково пов'язана з Лінією V
+          через шлюб Івана Климентійовича Бонюка та Устинії Григорівни
+          Корнійчук. 
+<br /><br />
+                    Василь Трайдакало та його дружина Євдокія Іванова (Якимчук) були хрещеними
+          батьками Февронії (1906) — ще один непрямий зв'язок із родиною
+          Трайдакало з Лінії I, хоча пряме споріднення між Василем і
+          Власом/Яковом Трайдакалами не встановлено.
+   <br />
+  • Окрему роль відіграє <b>Роман Андрійович Якимчук</b>:  <br />
+
+         
+            • <i>26 вересня 1894 р.</i> — був свідком на весіллі Доментія Семеновича 
+            Трайдакала разом із <i>Григорієм Івановичем Бонюком</i> (представником Лінії I); <br />
+      
+            • <i>1895 р.</i> — виступав свідком на весіллі Феодосії Бонюк; <br />
+         
+         
+            • <i>1900 р.</i> — став хрещеним батьком Уляни Григорівни Бонюк. <br />
+         
+      
+
+   Це свідчить про глибокі й тривалі кумівсько-дружні зв'язки між родинами Бонюків та Якимчуків протягом десятиліть.
+        </p>
+
+
+      </section>
+
+      <!-- ============ LINE III ============ -->
+      <section class="line-section" id="line-3">
+        <div class="line-head">
+          <span class="line-num">III</span>
+          <div>
+            <h2 class="line-title">Лінія Кирила Бонюка</h2>
+            <p class="line-sub">
+              Гіпотетично пов'язана з Лінією I як можлива лінія сина Івана
+              Бонюка
+            </p>
+          </div>
+        </div>
+
+        <div class="tree-frame">
+          <div class="tree">
+            <ul>
+              <li>
+                <div class="person male hypo">
+                  <div class="name">Кирило Бонюк</div>
+                  <div class="dates">народився орієнтовно у 1860–1880-х</div>
+                  <div class="note">
+                    гіпотеза: міг бути сином Івана (Бонюка, Лінія I)
+                  </div>
+                </div>
+                <ul>
+                  <li>
+                          <div class="couple">
+                    <div class="person male">
+                      <div class="name">Іван Кирилович Бонюк</div>
+                    </div>
+                        <div class="union">⚭</div>
+                       <div class="person unknown">
+                        <div class="name">дружина невідома</div>
+                      </div>
+
+                  </div>
+                    <ul>
+                      <li>
+                          <div class="couple">
+                        <div class="person male">
+                          <div class="name">Степан Іванович Бонюк</div>
+                          <div class="dates">1921 – 22.09.1941</div>
+                          <div class="note">
+                            · учасник II світової, пропав безвісти
+                          </div>
+                        </div>
+                                             <div class="union">⚭</div>
+                       <div class="person unknown">
+                        <div class="name">дружина невідома</div>
+                      </div>
+                    </div>
+                      </li>
+                    </ul>
+                  </li>
+                </ul>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============ LINE IV ============ -->
+      <section class="line-section" id="line-4">
+        <div class="line-head">
+          <span class="line-num">IV</span>
+          <div>
+            <h2 class="line-title">Лінія Антонії Бонюк</h2>
+            <p class="line-sub">
+              Два сини Антонії —  Онисим, Антон і донька Текля 
+            </p>
+          </div>
+        </div>
+
+        <div class="tree-frame">
+          <div class="tree">
+            <ul>
+              <li>
+                <div class="person male">
+                  <div class="name">Антоній Бонюк</div>
+ <div class="note">народився близько 1835–1840 років <br><br>
+гіпотеза: міг бути братом Івана Бонюка (Лінія I)
+</div>
+                  
+                </div>
+                <ul>
+      
+                  <li>
+                    <div class="couple">
+                      <div class="person male">
+                        <div class="name">Онисим <br>Антонійович Бонюк</div>
+                        <div class="dates">бл. 1873 – 24.05.1919</div>
+                      </div>
+
+                    </div>
+                  </li>
+                  <li>
+                    <div class="couple">
+                      <div class="person male">
+                        <div class="name">Антон <br>Антонійович Бонюк</div>
+                        <div class="dates"></div>
+                         <div class="note"> Свідок на весіллі Прокіп Васильович Лінчук  та Пелагія Іванівна Трайдакало, 28 жовтня 1884 року   </div>
+                      </div>
+  
+                    </div>
+
+                  
+                  </li>
+                  <li>
+                    <div class="couple">
+                      <div class="person female">
+                        <div class="name">Фекля (Текля) <br>Антонійович Бонюк</div>
+                        <div class="dates">бл. 1862 р.н. </div>
+                      </div>
+    <div class="union">⚭ 31.10.1882</div>
+                          <div class="person male">
+                        <div class="name">Гаврило<br>Степанович Белокур</div>
+                        <div class="dates">бл. 1864 р.н. </div>
+                      </div>
+                    </div>
+
+                    <ul>
+                      <li>
+                        <div class="child-node">
+                          <div class="couple">
+                                                        <div class="person male">
+                              <div class="name">Лазар Гаврилович Білокур</div>
+                              <div class="dates">бл. 1899 р.н.</div>
+                            </div>
+                            <div class="union">
+                              ⚭ 23.10.1919 
+                            
+                            </div>
+                            <div class="person female">
+                              <div class="name">Тетяна Климентівна Бонюк</div>
+                              <div class="dates">бл. 1899 р.н.</div>
+                              <div class="note">
+<br>
+                                див. V лінію Бонюків<br><br>
+                                Перший чоловік, представник II гілки — Ігнат
+                                Григорович Бонюк, загинув на війні цього ж року
+                                10.03.1919 <br />
+                                Від першошго шлюбу залишився син Іван Ігнатович Бонюк (29.12.1917)
+                              </div>
+                            </div>
+
+
+     
+
+
+
+
+                          </div>
+                        </div>
+                      </li>
+
+
+
+                    </ul>
+                  </li>
+  
+                </ul>
+              </li>
+            </ul>
+          </div>
+        </div>
+              <p class="line-footnote">
+          <b>Переплетення родин:</b> Свідчення Антона Бонюка на весіллі Пелагії Трайдакало вказує на близькі сусідо-родинні зв'язки між Бонюками та Трайдакалами в Непедівці ще з 1880-х років.
+         
+        </p>
+
+        <!-- Покоління Антона Антонія -->
+                <div class="tree-frame">
+          <div class="tree">
+            <ul>
+              <li>
+                  <div class="couple">
+                <div class="person male">
+                  <div class="name">Антон <br>Антонійович Бонюк</div>
+ <div class="note"></div>
+                  
+                </div>
+                                  <div class="union">⚭</div>
+                  <div class="person unknown">
+                    <div class="name">дружина невідома</div>
+                  </div>
+                  </div>
+                <ul>
+                  <li>
+                    <div class="couple">
+                      <div class="person male">
+                        <div class="name">Ігнат <br> Антонійович Бонюк</div>
+                      </div>
+                      <div class="union">⚭</div>
+                      <div class="person female">
+                        <div class="name">Дарія Йосипівна</div>
+                        <div class="dates"></div>
+                        <div class="note"></div>
+                      </div>
+                    </div>
+                    <ul>
+                      <!-- <li>
+                        <div class="person">
+                          <div class="name">Ксенофонт</div>
+                          <div class="dates">1918 – 02.04.1919</div>
+                          <div class="note">прожив 8 місяців</div>
+                        </div>
+                      </li> -->
+                      <li>
+                              <div class="person male">
+                                <div class="name">Іван</div>
+                                <div class="dates">01.08.1918 – 19.04.1919</div>
+                                <div class="note">
+                            
+                                </div>
+
+
+
+                      </li>
+                    </ul>
+                  </li>
+
+                  <li>
+                    <div class="couple">
+                      <div class="person male">
+                        <div class="name">Северин <br>Антонійович Бонюк</div>
+                        <div class="note">
+                          свідок весілля Зосим Бонюка та Агрипини Мосюйби, 1921
+                          (Лінія VI)
+                        </div>
+                      </div>
+                     <!-- <div class="union">⚭</div>
+                       <div class="person unknown">
+                        <div class="name">дружина невідома</div>
+                      </div> -->
+                    </div>
+
+                  </li>
+                                    <li>
+                    <div class="couple">
+                      <div class="person male">
+                        <div class="name">Феофіл<br> Антонійович Бонюк</div>
+                        <!-- <div class="dates"> </div> -->
+                      </div>
+                      <div class="union">⚭</div>
+                      <div class="person female">
+                        <div class="name">Марфа Василівна</div>
+                      </div>
+                    </div>
+                                        <ul>
+                         <li>
+                              <div class="person female">
+                                <div class="name">Марія Феофілівна</div>
+                                <div class="dates">16.07.1918 – ?</div>
+                                <div class="note">
+                            
+                                </div>
+
+
+
+                      </li>
+                      <li>
+                              <div class="person female">
+                                <div class="name">Вера Феофілівна</div>
+                                <div class="dates">01.09.1920 – ?</div>
+                                <div class="note">
+                            
+                                </div>
+
+
+
+                      </li>
+                    </ul>
+                  </li>
+                </ul>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+
+       
+
+      </section>
+
+      <!-- ============ LINE V ============ -->
+      <section class="line-section" id="line-5">
+        <div class="line-head">
+          <span class="line-num">V</span>
+          <div>
+            <h2 class="line-title">Лінія Іллі Бонюка</h2>
+            <p class="line-sub">
+              Нащадки Климента Ілліча; окремо — можливо споріднена родина
+              Мотрони Іллівни
+            </p>
+          </div>
+        </div>
+
+        <div class="tree-frame frame-right">
+          <div class="tree">
+            <ul>
+              <li>
+                <div class="couple">
+                  <div class="person male">
+                    <div class="name">Ілля Микитович Бонюк</div>
+                                            <div class="note">Орієнтовно народжений 1835 - 1852</div>
+                  </div>
+                  <div class="union">⚭</div>
+                  <div class="person female">
+                    <div class="name">Феодора Федорівна</div>
+                  </div>
+                </div>
+                <ul>
+                  <li>
+                    <div class="couple">
+                      <div class="person male">
+                        <div class="name">Климент Ілліч Бонюк</div>
+                         <div class="dates">22.01.1870 – ?</div>
+                      
+                      </div>
+                      <div class="union">⚭</div>
+                      <div class="person female">
+                        <div class="name">Агрипина Львівна</div>
+                        <div class="note">донька Лева</div>
+                      </div>
+                    </div>
+                    <ul>
+                      <li>
+                        <div class="person female">
+                          <div class="name">Устинія</div>
+                          <div class="dates">01.06.1902 – 28.01.1903</div>
+                        </div>
+                      </li>
+                      <li>
+                        <div class="child-node">
+                          <div class="couple">
+                            <div class="person female">
+                              <div class="name">Тетяна Климентівна Бонюк</div>
+                              <div class="dates">бл. 1899 р.н.</div>
+                              <div class="note">
+                                Перший чоловік, представник II гілки — Ігнат
+                                Григорович Бонюк, загинув на війні цього ж року
+                                10.03.1919 <br />
+                               Від першошго шлюбу залишився син Іван Ігнатович Бонюк (29.12.1917)
+                              </div>
+                            </div>
+
+                            <div class="union">
+                              ⚭ 23.10.1919 <br />
+                              2 шлюб
+                            </div>
+                            <!-- <div class="spouse-tag">
+                            ⚭ 23.10.1919<br />Лазар Гаврилович Білокур (б. 1899)
+                          </div> -->
+
+                            <div class="person male">
+                              <div class="name">Лазар Гаврилович Білокур</div>
+                              <div class="dates">бл. 1899 р.н.</div>
+  <div class="note">
+                              див. IV лінію Бонюків</div>
+                            </div>
+                          </div>
+                        </div>
+                      </li>
+                      <li>
+                        <div class="child-node">
+                          <div class="couple">
+                            <div class="person male">
+                              <div class="name">Іван Климентійович Бонюк</div>
+                              <div class="dates">бл. 1892 р.н.</div>
+                            </div>
+
+                            <div class="union">⚭ 12.07.1919</div>
+                            <!-- <div class="spouse-tag">
+                            ⚭ 12.07.1919<br />Устинія (Юстина) Григорівна
+                            Корнійчук (б. бл. 1903)
+                          </div> -->
+                            <div class="person female">
+                              <div class="name">
+                                Устинія (Юстина) Григорівна Корнійчук
+                              </div>
+                              <div class="dates">бл. 1903 р.н.</div>
+                            </div>
+                          </div>
+                        </div>
+                      </li>
+                    </ul>
+                  </li>
+                </ul>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="union-banner">
+          Зосим Ігнатійович Бонюк (Лінія VI) — свідок весілля Тетяни Климентівни
+          Бонюк та Лазара Гавриловича Білокур 1919 року.
+        </div>
+
+        <div class="union-banner">
+          Мотрона Іллівна — хрещена мати Устинії (1902). Гіпотеза дослідника:
+          обидва «Іллі» на цих деревах можуть бути однією особою — тоді Мотрона
+          є рідною сестрою Климента.
+        </div>
+
+        <div class="tree-frame">
+          <div class="tree">
+            <ul>
+              <li>
+                <div class="couple">
+                  <div class="person male hypo">
+                    <div class="name">Ілля</div>
+                  </div>
+                  <div class="union">⚭</div>
+                  <div class="person unknown">
+                    <div class="name">дружина невідома</div>
+                  </div>
+                </div>
+                <ul>
+                  <li>
+                    <div class="couple">
+                      <div class="person female">
+                        <div class="name">Мотрона Іллівна</div>
+                      </div>
+                      <div class="union">⚭</div>
+                      <div class="person male">
+                        <div class="name">Федір Корнюк</div>
+                      </div>
+                    </div>
+                  </li>
+                </ul>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+       <div class="line-footnote"> <p >
+          <b>Перетин ліній II, IV, V та VI:</b> Тетяна Климентівна Бонюк (лінія V) 
+          об'єднує лінію II та лінію IV своїми шлюбними зв'язками.<br /><br />
+          
+          Спочатку, 30 січня 1917 року, Тетяна Климентівна одружується з Ігнатом 
+          Григоровичем Бонюком, від якого народжується син Іван Ігнатович Бонюк.<br /><br />
+          
+          Згодом, 23 жовтня 1919 року, вона виходить заміж удруге — за Лазаря 
+          Гавриловича Білокура, який походить із родини Бонюків (гілка IV). 
+          Свідком на цьому весіллі 1919 року був Зосим Ігнатійович Бонюк — 
+          представник VI гілки Бонюків.<br /><br />
+          
+          Від другого шлюбу у них народилися діти:
+        </p>
+        <ul class="plain">
+          <li>Андрій Лазарович Білокур</li>
+          <li>Маня (Марія) Лазарівна Білокур</li>
+        </ul></div>
+
+      </section>
+
+      <!-- ============ LINE VI ============ -->
+      <section class="line-section" id="line-6">
+        <div class="line-head">
+          <span class="line-num">VI</span>
+          <div>
+            <h2 class="line-title">Каленик Бонюк — Мосюйба</h2>
+            <p class="line-sub">
+              Родина Ігнатія Каленикoвича сходиться через шлюб 1921 року з
+              родиною Мосюйба
+            </p>
+          </div>
+        </div>
+
+        <div class="tree-frame">
+          <div class="tree">
+            <ul>
+              <li>
+                <div class="couple">
+                  <div class="person male">
+                    <div class="name">Каленик Бонюк</div>
+            <div class="note">            </div>
+                  </div>
+                  <div class="union">⚭</div>
+                  <div class="person unknown">
+                    <div class="name">дружина невідома</div>
+                  </div>
+                </div>
+
+
+                <ul>
+                  <li>
+                    <div class="couple">
+                      <div class="person male">
+                        <div class="name">Ігнатій Каленикович Бонюк</div>
+                        <div class="note">
+                          (Інгнат) «Игнатій Каллиниковъ Бонюкъ»
+                        </div>
+                      </div>
+                      <div class="union">⚭</div>
+                      <div class="person female">
+                        <div class="name">Ксенія Григорівна</div>
+                        <div class="note">донька Григора</div>
+                      </div>
+                    </div>
+                    
+                  </li>
+                                    <li>
+                    <div class="couple">
+                      <div class="person female">
+                        <div class="name">Олена Каленикович Бонюк</div>
+                        <div class="note">
+                         
+                        </div>
+                      </div>
+                      <div class="union">⚭</div>
+                      <div class="person male">
+                        <div class="name">Янікій Йосипович Нечипурук</div>
+                        <div class="note"></div>
+                      </div>
+                    </div>
+                    <ul>
+                      <li>
+                      <div class="person male">
+                        <div class="name">Архип Янікійович Нечипурук</div>
+                                                      <div class="dates">18.02.1917</div>
+                        <div class="note">Хрещений батько: Киприян Калиникович Бонюк — брат Олени.</div>
+                      </div>
+
+                      </li>
+                    </ul>
+                    
+                  </li>
+                  <li>
+                      <div class="person male">
+                        <div class="name">Кипріян Каленикович Бонюк</div>
+                        <div class="note">Хрещений батько Архипа 18.04.1917</div>
+                      </div>
+
+
+                  </li>
+                </ul>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+         <div class="tree-frame frame-right">
+          <div class="tree">
+            <!-- <ul>
+              <li> -->
+                <!-- <div class="couple">
+                  <div class="person male">
+                    <div class="name">Каленик Бонюк</div>
+                                         <div class="note">
+                                          
+                                        </div>
+                  </div>
+                  <div class="union">⚭</div>
+                  <div class="person unknown">
+                    <div class="name">дружина невідома</div>
+                  </div>
+                </div> -->
+
+
+                <ul>
+
+                  <li>
+                    <div class="couple">
+                      <div class="person male">
+                        <div class="name">Ігнатій Каленикович Бонюк</div>
+                        <div class="note">
+                          (Інгнат) «Игнатій Каллиниковъ Бонюкъ»
+                        </div>
+                      </div>
+                      <div class="union">⚭</div>
+                      <div class="person female">
+                        <div class="name">Ксенія Григорівна</div>
+                        <div class="note">донька Григора</div>
+                      </div>
+                    </div>
+                    <ul>
+                      <li>
+                        <div class="couple-inlaw">
+                          <div class="person male">
+                            <div class="name">Зосим Ігнатійович Бонюк</div>
+                            <div class="dates">бл. 1902 р.н.</div>
+                            <div class="note">
+                              свідок весілля Тетяни Климентівни Бонюк (Лінія V) та Лазаря
+                              Гавриловича Білокура, 1919 
+                            </div>
+                          </div>
+                          <div class="union">⚭ 23.10.1921</div>
+
+                          <!-- <div class="inlaw-stack"> -->
+                            <!-- <div class="person male stub-parent">
+                              <div class="name">Єлеазар (Лазар) Мосюйба</div>
+                            </div> -->
+                            <!-- <div class="stub-line"></div> -->
+                            <div class="person female">
+                              <div class="name">
+                                Агрипина <br />Єлеазарівна Мосюйба
+                              </div>
+                              <div class="dates">бл. 1901 р.н.</div>
+
+                              <div class="note">
+Батько: Єлеазар (Лазар) Мосюйба
+                            </div>
+                            <!-- </div> -->
+                          </div>
+                        </div>
+                      </li>
+
+                      <li>
+                        <div class="person male">
+                          <div class="name">Іван (Іоанн)</div>
+                          <div class="dates">24.06.1906 – 01.12.1916</div>
+                        </div>
+                      </li>
+                      <li>
+                        <div class="person female">
+                          <div class="name">Ксенія</div>
+                          <div class="dates">25.01.1909 – 16.11.1911</div>
+                        </div>
+                      </li>
+
+                      <li>
+                        <div class="person male">
+                          <div class="name">Степан Ігнатович Бонюк</div>
+                          <div class="dates">1911 – ?</div>
+                          <div class="note">
+                            · зв'язок теоретичний (за хронологією),
+                            документально не підтверджено<br /><br />
+                            · учасник II світової
+                          </div>
+                        </div>
+                      </li>
+
+                      <li>
+                        <div class="person male">
+                          <div class="name">Михайло Ігнатович Бонюк</div>
+                          <div class="dates">1912 – 25.12.1941</div>
+                          <div class="note">
+                            · зв'язок теоретичний (за хронологією),
+                            документально не підтверджено <br /><br />
+                            · розстріляний під час II світової
+                          </div>
+                        </div>
+                      </li>
+                    </ul>
+                  </li>
+                </ul>
+              <!-- </li>
+            </ul> -->
+          </div>
+        </div>
+
+        <div class="union-banner">
+          Северин Антонійович Бонюк (Лінія IV) — свідок весілля Зосима
+          Ігнатійовича Бонюка та Агрипини Єлеазарівни Мосюйба 1921 року.
+        </div>
+
+        <p class="line-footnote">
+          <b>Перетин ліній IV, V і VI:</b> Северин Антонійович Бонюк (Лінія IV)
+          був свідком весілля Зосима Ігнатійовича Бонюка (ця лінія) 1921 року;
+          сам Зосим, своєю чергою, був свідком весілля Тетяни Климентівни Бонюк
+          (Лінія V) 1919 року. Це вказує, що родини трьох ліній жили поруч і
+          тісно спілкувалися, хоча пряме кровне споріднення між ними
+          документально ще не підтверджено.
+        </p>
+      </section>
+
+      <footer class="page-footer">
+        <p>
+          Реконструйовано на основі шести аркушів рукописного родовідного
+          дослідження родини Бонюк (записи метричних книг та родинні джерела,
+          орієнтовно XIX–XX ст.). Дати у форматі «день.місяць.рік», подвійні
+          дати позначають старий і новий стилі. Пунктирні рамки й підписи
+          «гіпотеза» відповідають припущенням дослідника, які потребують
+          подальшого архівного підтвердження.
+        </p>
+      </footer>
+    </div>
+  </body>
+</html>
