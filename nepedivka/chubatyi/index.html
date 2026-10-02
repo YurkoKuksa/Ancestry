@@ -109,6 +109,36 @@
       .print-btn:hover {
         background: #8f4444;
       }
+
+      /* ==================== нове поле ========================= */
+      .home-btn {
+        background: transparent;
+        color: #f1ead6;
+        border: 1px solid #a1802f;
+        font-family: inherit;
+        font-size: 15px;
+        padding: 11px 22px;
+        border-radius: 3px;
+        cursor: pointer;
+        letter-spacing: 0.2px;
+        white-space: nowrap;
+        text-decoration: none;
+        display: inline-block;
+        transition:
+          background 0.15s ease,
+          color 0.15s ease;
+      }
+      .home-btn:hover {
+        background: #a1802f;
+        color: #1c2836;
+      }
+      .header-actions {
+        display: flex;
+        gap: 10px;
+        flex-wrap: wrap;
+      }
+
+      /* ================================================ */
       .print-tip {
         max-width: 1360px;
         margin: 10px auto 0;
@@ -662,9 +692,12 @@
             гілках, так і новими, поки не пов'язаними лініями роду.
           </p>
         </div>
-        <button class="print-btn no-print" onclick="window.print()">
-          Зберегти як PDF
-        </button>
+        <div class="header-actions no-print">
+          <a class="home-btn" href="../index.html">⌂ На головну</a>
+          <button class="print-btn" onclick="window.print()">
+            Зберегти як PDF
+          </button>
+        </div>
       </div>
       <p class="print-tip no-print">
         Порада: у вікні друку оберіть «Зберегти як PDF» і альбомну орієнтацію
@@ -1269,5 +1302,6 @@
         window.addEventListener("afterprint", resetTreesAfterPrint);
       })();
     </script>
+    <script src="../../js/audio.js"></script>
   </body>
 </html>

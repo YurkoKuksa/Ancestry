@@ -1,225 +1,256 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="uk">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Генеалогічний архів родин | Ancestry</title>
-    <style>
-      /* Базові скидання та фон */
-      * {
-        box-sizing: border-box;
-        margin: 0;
-        padding: 0;
-      }
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Родовід — головна</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Spectral:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #d7cbaa;
+    --paper: #f4eedb;
+    --paper-edge: #c8b98e;
+    --ink: #2a2116;
+    --ink-soft: #6c5f47;
+    --gold: #a1802f;
+    --oxblood: #7c3a3a;
+    --navy: #26364a;
+    --navy-deep: #1c2836;
+  }
+  * { box-sizing: border-box; }
+  html, body { height: 100%; margin: 0; }
+  body {
+    font-family: "Spectral", Georgia, "Times New Roman", serif;
+    color: var(--ink);
+    background: var(--navy-deep);
+    overflow: hidden;
+  }
 
-      body {
-        font-family:
-          -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Georgia, serif;
-        background-color: #f8f6f0; /* Теплий архівний відтінок */
-        color: #2c2c2c;
-        min-height: 100vh;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        padding: 40px 20px;
-      }
+  /* ---------- background stack ---------- */
+  .layer { position: fixed; inset: 0; pointer-events: none; }
 
-      .main-container {
-        max-width: 900px;
-        width: 100%;
-      }
+  /* 1. фото: приглушене, ненасичене */
 
-      header {
-        text-align: center;
-        margin-bottom: 40px;
-        border-bottom: 2px solid #dcd7ca;
-        padding-bottom: 20px;
-      }
+  /* 2. векторні елементи: під градієнтами */
+  .floaters { overflow: hidden; color: var(--paper); }
+  .floater {
+    position: absolute;
+    left: var(--x); top: var(--y);
+    width: var(--w);
+    aspect-ratio: 1;
+    opacity: var(--o, 0.3);
+    transform-origin: 50% 70%;
+    animation: sway var(--d, 14s) ease-in-out var(--s, 0s) infinite;
+  }
+  .floater svg { width: 100%; height: 100%; display: block; overflow: visible; }
+  @keyframes sway {
+    0%, 100% { transform: translate3d(0, 0, 0) rotate(calc(var(--r, 1.5deg) * -1)); }
+    50%      { transform: translate3d(6px, -9px, 0) rotate(var(--r, 1.5deg)); }
+  }
 
-      header h1 {
-        font-size: 2.2rem;
-        font-family: Georgia, serif;
-        color: #1a1a1a;
-        letter-spacing: 0.5px;
-        margin-bottom: 10px;
-      }
+  /* 3. градієнти поверх усього, що нижче */
+  .grain {
+    background-image: repeating-linear-gradient(0deg, rgba(0,0,0,0.04) 0 1px, transparent 1px 3px);
+    mix-blend-mode: multiply;
+  }
 
-      header p {
-        font-size: 1.05rem;
-        color: #666;
-        font-style: italic;
-      }
+  /* ---------- centre stage ---------- */
+  main {
+    position: relative; z-index: 5;
+    height: 100%;
+    display: grid; place-items: center;
+    padding: 24px;
+    overflow-y: auto;
+  }
+  .panel {
+    width: min(560px, 100%);
+    padding: 40px 36px 34px;
+    text-align: center;
+    background: rgba(244, 238, 219, 0.93);
+    border: 1px solid var(--paper-edge);
+    outline: 1px solid var(--gold);
+    outline-offset: -9px;
+    border-radius: 4px;
+    box-shadow: 0 18px 50px rgba(0, 0, 0, 0.45);
+  }
+  h1 {
+    margin: 0 0 8px;
+    font-size: clamp(32px, 6vw, 46px);
+    font-weight: 600;
+    letter-spacing: 0.4px;
+    line-height: 1.1;
+    color: var(--navy);
+  }
+  .sub {
+    margin: 0 auto 26px;
+    max-width: 380px;
+    font-style: italic;
+    font-size: 15.5px;
+    line-height: 1.55;
+    color: var(--ink-soft);
+  }
+  .rule {
+    height: 0; margin: 0 auto 26px; width: 120px;
+    border-top: 3px double var(--gold);
+  }
 
-      /* Сітка картка-посилань */
-      .surnames-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
-        gap: 20px;
-        list-style: none;
-      }
+  .btn {
+    display: block;
+    width: 100%;
+    font: inherit;
+    font-size: 17px;
+    letter-spacing: 0.2px;
+    padding: 14px 22px;
+    border-radius: 3px;
+    text-decoration: none;
+    cursor: pointer;
+    transition: background 0.15s ease, color 0.15s ease, transform 0.15s ease;
+  }
+  .btn-enter {
+    background: var(--oxblood);
+    color: var(--paper);
+    border: 1px solid #9a5252;
+  }
+  .btn-enter:hover { background: #8f4444; }
 
-      .surname-card {
-        background: #ffffff;
-        border: 1px solid #e2ddd0;
-        border-radius: 8px;
-        transition: all 0.25s ease-in-out;
-        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.04);
-      }
+  .lines { display: grid; gap: 12px; }
+  .btn-line {
+    background: var(--navy);
+    color: #f1ead6;
+    border: 1px solid var(--gold);
+    border-left: 5px solid var(--oxblood);
+    text-align: left;
+    display: flex; align-items: baseline; justify-content: space-between; gap: 12px;
+  }
+  .btn-line small { font-style: italic; font-size: 13px; color: #cbd3da; }
+  .btn-line:hover { background: var(--gold); color: var(--navy-deep); transform: translateY(-2px); }
+  .btn-line:hover small { color: var(--navy-deep); }
 
-      .surname-card a {
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-        padding: 24px 20px;
-        text-decoration: none;
-        color: inherit;
-        height: 100%;
-      }
+  .btn:focus-visible, .sound-btn:focus-visible {
+    outline: 3px solid #f3e5ab; outline-offset: 3px;
+  }
 
-      .surname-card h2 {
-        font-size: 1.4rem;
-        color: #2c3e50;
-        font-family: Georgia, serif;
-        margin-bottom: 8px;
-      }
+  [hidden] { display: none !important; }
+  #menu:not([hidden]) { animation: rise 0.7s ease both; }
+  @keyframes rise { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: none; } }
 
-      .surname-card .desc {
-        font-size: 0.88rem;
-        color: #7f8c8d;
-        margin-bottom: 16px;
-      }
+  @media (max-width: 520px) {
+    .panel { padding: 32px 22px 26px; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .floater { animation: none; }
+    #menu:not([hidden]) { animation: none; }
+  }
+</style>
+<!-- спільна тема: фон (.bg-photo, .tint) задається в css/theme.css -->
+<link rel="stylesheet" href="./css/theme.css">
+</head>
+<body class="home">
 
-      .surname-card .action-link {
-        font-size: 0.85rem;
-        font-weight: 600;
-        color: #8b0000; /* Шляхетний темно-червоний акцент */
-        display: flex;
-        align-items: center;
-        gap: 6px;
-      }
+<!-- символи векторного декору -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <symbol id="portrait" viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="2.4">
+      <ellipse cx="50" cy="50" rx="34" ry="44"/>
+      <ellipse cx="50" cy="50" rx="29" ry="39" stroke-width="1"/>
+      <circle cx="50" cy="40" r="11"/>
+      <path d="M26 82 Q50 52 74 82"/>
+    </symbol>
+    <symbol id="box" viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="2.4">
+      <rect x="10" y="22" width="80" height="12"/>
+      <rect x="15" y="34" width="70" height="46"/>
+      <rect x="38" y="48" width="24" height="12"/>
+      <path d="M46 70h8"/>
+    </symbol>
+    <symbol id="scroll" viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="2.4">
+      <rect x="28" y="18" width="44" height="64" rx="3"/>
+      <ellipse cx="50" cy="18" rx="22" ry="5"/>
+      <ellipse cx="50" cy="82" rx="22" ry="5"/>
+      <path d="M36 36h28M36 48h28M36 60h20" stroke-width="1.6"/>
+    </symbol>
+    <symbol id="book" viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="2.4">
+      <path d="M12 25 L50 33 L88 25 V75 L50 83 L12 75 Z"/>
+      <path d="M50 33 V83"/>
+      <path d="M22 38l20 4M22 50l20 4M58 42l20-4M58 54l20-4" stroke-width="1.4"/>
+    </symbol>
+    <symbol id="tree" viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="2.4">
+      <circle cx="50" cy="16" r="7"/>
+      <path d="M50 23v14M28 37h44M28 37v10M72 37v10"/>
+      <circle cx="28" cy="54" r="7"/>
+      <circle cx="72" cy="54" r="7"/>
+      <path d="M28 61v10M16 71h24M16 71v6M40 71v6M72 61v10M60 71h24M60 71v6M84 71v6"/>
+      <circle cx="16" cy="83" r="5"/><circle cx="40" cy="83" r="5"/>
+      <circle cx="60" cy="83" r="5"/><circle cx="84" cy="83" r="5"/>
+    </symbol>
+    <symbol id="key" viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="2.4">
+      <circle cx="30" cy="50" r="15"/>
+      <circle cx="30" cy="50" r="6"/>
+      <path d="M45 50h42M72 50v12M82 50v9"/>
+    </symbol>
+  </defs>
+</svg>
 
-      .surname-card .action-link::after {
-        content: "→";
-        transition: transform 0.2s ease;
-      }
+<div class="layer bg-photo"></div>
 
-      /* Ховер ефекти */
-      .surname-card:hover {
-        transform: translateY(-4px);
-        border-color: #8b0000;
-        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.08);
-      }
+<!-- Нові елементи додавайте тут: --x/--y позиція, --w розмір, --o прозорість, --d тривалість, --s затримка -->
+<div class="layer floaters" aria-hidden="true">
+  <div class="floater" style="--x:4%;  --y:8%;  --w:150px; --o:.30; --d:15s; --s:-2s"><svg><use href="#portrait"/></svg></div>
+  <div class="floater" style="--x:20%; --y:62%; --w:120px; --o:.26; --d:18s; --s:-7s; --r:2deg"><svg><use href="#box"/></svg></div>
+  <div class="floater" style="--x:12%; --y:30%; --w:90px;  --o:.24; --d:13s; --s:-4s"><svg><use href="#scroll"/></svg></div>
+  <div class="floater" style="--x:30%; --y:6%;  --w:130px; --o:.26; --d:17s; --s:-9s"><svg><use href="#tree"/></svg></div>
+  <div class="floater" style="--x:6%;  --y:78%; --w:100px; --o:.24; --d:16s; --s:-1s"><svg><use href="#book"/></svg></div>
+  <div class="floater" style="--x:40%; --y:80%; --w:80px;  --o:.22; --d:12s; --s:-6s; --r:2.4deg"><svg><use href="#key"/></svg></div>
 
-      .surname-card:hover .action-link::after {
-        transform: translateX(4px);
-      }
+  <div class="floater" style="--x:84%; --y:10%; --w:140px; --o:.30; --d:16s; --s:-5s"><svg><use href="#portrait"/></svg></div>
+  <div class="floater" style="--x:70%; --y:4%;  --w:100px; --o:.24; --d:14s; --s:-8s"><svg><use href="#book"/></svg></div>
+  <div class="floater" style="--x:88%; --y:42%; --w:110px; --o:.26; --d:19s; --s:-3s"><svg><use href="#tree"/></svg></div>
+  <div class="floater" style="--x:74%; --y:66%; --w:130px; --o:.28; --d:15s; --s:-10s; --r:2deg"><svg><use href="#box"/></svg></div>
+  <div class="floater" style="--x:90%; --y:74%; --w:90px;  --o:.22; --d:13s; --s:-2s"><svg><use href="#scroll"/></svg></div>
+  <div class="floater" style="--x:58%; --y:84%; --w:100px; --o:.24; --d:17s; --s:-11s"><svg><use href="#portrait"/></svg></div>
+  <div class="floater" style="--x:62%; --y:14%; --w:70px;  --o:.2;  --d:12s; --s:-4s; --r:2.4deg"><svg><use href="#key"/></svg></div>
+  <div class="floater" style="--x:46%; --y:22%; --w:86px;  --o:.18; --d:18s; --s:-6s"><svg><use href="#scroll"/></svg></div>
+</div>
 
-      footer {
-        margin-top: 50px;
-        text-align: center;
-        font-size: 0.85rem;
-        color: #8c8c8c;
-      }
-    </style>
-  </head>
-  <body>
-    <div class="main-container">
-      <header>
-        <h1>Генеалогічний архів родин</h1>
-        <p>
-          Оберіть прізвище для перегляду родових ліній, документів та метричних
-          записів
-        </p>
-      </header>
+<div class="layer tint"></div>
+<div class="layer grain"></div>
 
-      <main>
-        <ul class="surnames-grid">
-          <!-- Бонюк -->
-          <li class="surname-card">
-            <a href="./boniuk/index.html">
-              <div>
-                <h2>Бонюк</h2>
-                <p class="desc">
-                  Гілки роду, метричні записи с. Непедівка та родинні зв'язки.
-                </p>
-              </div>
-              <span class="action-link">Перейти до гілок</span>
-            </a>
-          </li>
+<main>
+  <section class="panel">
+    <h1>Родовід</h1>
+    <p class="sub">Архів родинних ліній: люди, дати та пам’ять про тих, хто був до нас.</p>
+    <div class="rule"></div>
 
-          <!-- Бондарчук -->
-          <li class="surname-card">
-            <a href="./bondarchuk/index.html">
-              <div>
-                <h2>Бондарчук</h2>
-                <p class="desc">Архівні дослідження та родові лінії.</p>
-              </div>
-              <span class="action-link">Перейти до гілок</span>
-            </a>
-          </li>
-
-          <!-- Трайдакало -->
-          <li class="surname-card">
-            <a href="./traidakalo/index.html">
-              <div>
-                <h2>Трайдакало</h2>
-                <p class="desc">
-                  Документи, хресні зв'язки та генеалогічне дерево.
-                </p>
-              </div>
-              <span class="action-link">Перейти до гілок</span>
-            </a>
-          </li>
-
-          <!-- Корнійчук -->
-          <li class="surname-card">
-            <a href="./korniichuk/index.html">
-              <div>
-                <h2>Корнійчук</h2>
-                <p class="desc">Історія роду та родинні перетини.</p>
-              </div>
-              <span class="action-link">Перейти до гілок</span>
-            </a>
-          </li>
-
-          <!-- Кукса -->
-          <li class="surname-card">
-            <a href="./kuksa/index.html">
-              <div>
-                <h2>Кукса</h2>
-                <p class="desc">Генеалогічні лінії та архівні джерела.</p>
-              </div>
-              <span class="action-link">Перейти до гілок</span>
-            </a>
-          </li>
-
-          <!-- Гончарук -->
-          <li class="surname-card">
-            <a href="./honchar/index.html">
-              <div>
-                <h2>Гончар</h2>
-                <p class="desc">Родові матеріали та метричні дані.</p>
-              </div>
-              <span class="action-link">Перейти до гілок</span>
-            </a>
-          </li>
-
-          <!-- Чубатий -->
-          <li class="surname-card">
-            <a href="./chubatyi/index.html">
-              <div>
-                <h2>Чубатий</h2>
-                <p class="desc">Родові матеріали та метричні дані.</p>
-              </div>
-              <span class="action-link">Перейти до гілок</span>
-            </a>
-          </li>
-        </ul>
-      </main>
-
-      <footer>
-        <p>&copy; Ancestry Project — Генеалогічний архів</p>
-      </footer>
+    <!-- крок 1: вхід (запускає музику) -->
+    <div id="gate">
+      <button class="btn btn-enter" id="enterBtn" type="button">Відкрити архів</button>
     </div>
-  </body>
+
+    <!-- крок 2: родоводи. Нова лінія = ще один <a class="btn btn-line"> -->
+    <nav class="lines" id="menu" hidden aria-label="Родоводи">
+      <a class="btn btn-line" href="./nepedivka/index.html">Непедівка <small>родовід</small></a>
+      <a class="btn btn-line" href="./liubar/index.html">Любар <small>родовід</small></a>
+    </nav>
+  </section>
+</main>
+
+<script src="./js/audio.js"></script>
+<script>
+  (function () {
+    var gate = document.getElementById('gate');
+    var menu = document.getElementById('menu');
+    function showMenu() { gate.hidden = true; menu.hidden = false; }
+
+    // повернулися зі сторінки родоводу — одразу показуємо меню, музика вже грає
+    if (RodovidAudio.started()) showMenu();
+
+    document.getElementById('enterBtn').addEventListener('click', function () {
+      RodovidAudio.start();
+      showMenu();
+      menu.querySelector('a').focus();
+    });
+  })();
+</script>
+</body>
 </html>

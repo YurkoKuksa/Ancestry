@@ -1,0 +1,171 @@
+<!doctype html>
+<html lang="uk">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Генеалогічний архів родин | Ancestry</title>
+    <style>
+      /* Базові скидання та фон */
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
+      body {
+        font-family:
+          -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Georgia, serif;
+        color: #2c2c2c;
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 40px 20px;
+      }
+
+      .main-container {
+        max-width: 900px;
+        width: 100%;
+      }
+
+      header {
+        text-align: center;
+        margin-bottom: 40px;
+        border-bottom: 2px solid #dcd7ca;
+        padding-bottom: 20px;
+      }
+
+      header h1 {
+        font-size: 2.2rem;
+        font-family: Georgia, serif;
+        color: #1a1a1a;
+        letter-spacing: 0.5px;
+        margin-bottom: 10px;
+      }
+
+      header p {
+        font-size: 1.05rem;
+        color: #666;
+        font-style: italic;
+      }
+
+      /* Сітка картка-посилань */
+      .surnames-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+        gap: 20px;
+        list-style: none;
+      }
+
+      .surname-card {
+        background: #ffffff;
+        border: 1px solid #e2ddd0;
+        border-radius: 8px;
+        transition: all 0.25s ease-in-out;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.04);
+      }
+
+      .surname-card a {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        padding: 24px 20px;
+        text-decoration: none;
+        color: inherit;
+        height: 100%;
+      }
+
+      .surname-card h2 {
+        font-size: 1.4rem;
+        color: #2c3e50;
+        font-family: Georgia, serif;
+        margin-bottom: 8px;
+      }
+
+      .surname-card .desc {
+        font-size: 0.88rem;
+        color: #7f8c8d;
+        margin-bottom: 16px;
+      }
+
+      .surname-card .action-link {
+        font-size: 0.85rem;
+        font-weight: 600;
+        color: #8b0000; /* Шляхетний темно-червоний акцент */
+        display: flex;
+        align-items: center;
+        gap: 6px;
+      }
+
+      .surname-card .action-link::after {
+        content: "→";
+        transition: transform 0.2s ease;
+      }
+
+      /* Ховер ефекти */
+      .surname-card:hover {
+        transform: translateY(-4px);
+        border-color: #8b0000;
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.08);
+      }
+
+      .surname-card:hover .action-link::after {
+        transform: translateX(4px);
+      }
+
+      footer {
+        margin-top: 50px;
+        text-align: center;
+        font-size: 0.85rem;
+        color: #8c8c8c;
+      }
+    </style>
+    <!-- спільна тема: фон, панель, кнопка «назад» -->
+    <link rel="stylesheet" href="../css/theme.css" />
+  </head>
+  <body>
+    <div class="main-container">
+      <a class="back-link" href="../index.html">← На головну</a>
+
+      <header>
+        <h1>Генеалогічний архів родин</h1>
+        <p>
+          Оберіть прізвище для перегляду родових ліній, документів та метричних
+          записів
+        </p>
+      </header>
+
+      <main>
+        <ul class="surnames-grid">
+          <!-- Кукса -->
+          <li class="surname-card">
+            <a href="./kuksa/index.html">
+              <div>
+                <h2>Кукса</h2>
+                <p class="desc">Генеалогічні лінії та архівні джерела.</p>
+              </div>
+              <span class="action-link">Перейти до гілок</span>
+            </a>
+          </li>
+
+          <!-- Гончарук -->
+          <li class="surname-card">
+            <a href="./honchar/index.html">
+              <div>
+                <h2>Гончар</h2>
+                <p class="desc">Родові матеріали та метричні дані.</p>
+              </div>
+              <span class="action-link">Перейти до гілок</span>
+            </a>
+          </li>
+        </ul>
+      </main>
+
+      <footer>
+        <p>&copy; Ancestry Project — Генеалогічний архів</p>
+      </footer>
+    </div>
+    <!-- спільний звук: музика продовжується з головної, звук кліків -->
+    <script src="../js/audio.js"></script>
+  </body>
+</html>
