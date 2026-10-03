@@ -1,0 +1,1203 @@
+<!doctype html>
+<html lang="uk">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Родовід Корнійчуків</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Spectral:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400;1,500&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --bg: #d7cbaa;
+        --paper: #f4eedb;
+        --paper-edge: #c8b98e;
+        --ink: #2a2116;
+        --ink-soft: #6c5f47;
+        --gold: #a1802f;
+        --oxblood: #7c3a3a;
+        --male-bg: #2e4a68;
+        --male-fg: #f1ead6;
+        --female-bg: #d8ab9e;
+        --female-fg: #3a241d;
+        --flag: #b23a3a;
+        --memorial: #4a4238;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+      * {
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+        color-adjust: exact;
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        margin: 0;
+        font-family: "Spectral", Georgia, "Times New Roman", serif;
+        color: var(--ink);
+        background-color: var(--bg);
+        background-image: repeating-linear-gradient(
+          0deg,
+          rgba(0, 0, 0, 0.025) 0px,
+          rgba(0, 0, 0, 0.025) 1px,
+          transparent 1px,
+          transparent 3px
+        );
+      }
+
+      .wrap {
+        max-width: 1360px;
+        margin: 0 auto;
+        padding: 0 28px 80px;
+      }
+
+      /* ---------- header ---------- */
+      .page-header {
+        background: linear-gradient(180deg, #26364a, #1c2836);
+        color: #f1ead6;
+        padding: 30px 28px;
+        border-bottom: 4px double var(--gold);
+        position: sticky;
+        top: 0;
+        z-index: 20;
+        box-shadow: 0 6px 18px rgba(0, 0, 0, 0.25);
+      }
+      .header-inner {
+        max-width: 1360px;
+        margin: 0 auto;
+        display: flex;
+        align-items: flex-end;
+        justify-content: space-between;
+        gap: 24px;
+        flex-wrap: wrap;
+      }
+      .header-inner h1 {
+        font-weight: 600;
+        font-size: clamp(26px, 3.4vw, 38px);
+        margin: 0 0 6px;
+        letter-spacing: 0.3px;
+      }
+      .header-inner .subtitle {
+        margin: 0;
+        font-style: italic;
+        color: #cbd3da;
+        font-size: 15px;
+        max-width: 680px;
+      }
+      .header-actions {
+        display: flex;
+        gap: 10px;
+        flex-wrap: wrap;
+      }
+      .home-btn {
+        background: transparent;
+        color: #f1ead6;
+        border: 1px solid #a1802f;
+        font-family: inherit;
+        font-size: 15px;
+        padding: 11px 22px;
+        border-radius: 3px;
+        cursor: pointer;
+        letter-spacing: 0.2px;
+        white-space: nowrap;
+        text-decoration: none;
+        display: inline-block;
+        transition:
+          background 0.15s ease,
+          color 0.15s ease;
+      }
+      .home-btn:hover {
+        background: #a1802f;
+        color: #1c2836;
+      }
+      .print-btn {
+        background: var(--oxblood);
+        color: #f4eedb;
+        border: 1px solid #9a5252;
+        font-family: inherit;
+        font-size: 15px;
+        padding: 11px 22px;
+        border-radius: 3px;
+        cursor: pointer;
+        letter-spacing: 0.2px;
+        white-space: nowrap;
+        transition: background 0.15s ease;
+      }
+      .print-btn:hover {
+        background: #8f4444;
+      }
+      .print-tip {
+        max-width: 1360px;
+        margin: 10px auto 0;
+        padding: 0 4px;
+        font-size: 12.5px;
+        color: #c7b98a;
+        font-style: italic;
+      }
+
+      /* ---------- intro / legend / toc ---------- */
+      .intro {
+        padding: 34px 0 10px;
+        max-width: 820px;
+      }
+      .intro p {
+        line-height: 1.65;
+        font-size: 15.5px;
+      }
+
+      .legend {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 16px 28px;
+        background: var(--paper);
+        border: 1px solid var(--paper-edge);
+        border-radius: 4px;
+        padding: 16px 22px;
+        margin: 18px 0 32px;
+        font-size: 13.5px;
+      }
+      .legend-item {
+        display: flex;
+        align-items: center;
+        gap: 0;
+      }
+      .swatch {
+        display: inline-block;
+        width: 15px;
+        height: 15px;
+        border-radius: 3px;
+        margin-right: 7px;
+        flex: none;
+      }
+      .swatch.male {
+        background: var(--male-bg);
+      }
+      .swatch.female {
+        background: var(--female-bg);
+      }
+      .swatch.unknown {
+        background: transparent;
+        border: 1.5px dashed var(--ink-soft);
+      }
+      .swatch.hypo {
+        background: var(--male-bg);
+        opacity: 0.5;
+        border: 1.5px dashed var(--ink);
+      }
+      .swatch.flag {
+        background: var(--female-bg);
+        border: 2px solid var(--flag);
+      }
+      .swatch.placeholder {
+        background: transparent;
+        border: 1.5px dashed var(--gold);
+      }
+      .union-sample {
+        color: var(--oxblood);
+        font-size: 16px;
+        margin-right: 6px;
+      }
+
+      .toc {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px 22px;
+        border-top: 1px solid var(--paper-edge);
+        border-bottom: 1px solid var(--paper-edge);
+        padding: 14px 4px;
+        margin-bottom: 10px;
+      }
+      .toc a {
+        color: var(--oxblood);
+        text-decoration: none;
+        font-size: 14.5px;
+        border-bottom: 1px dotted var(--oxblood);
+      }
+      .toc a:hover {
+        color: var(--ink);
+      }
+      .toc .toc-sep {
+        color: var(--paper-edge);
+      }
+
+      /* ---------- sections ---------- */
+      .line-section {
+        padding-top: 56px;
+        margin-top: 8px;
+        border-top: 1px solid var(--paper-edge);
+      }
+      .line-section:first-of-type {
+        border-top: none;
+      }
+
+      .line-head {
+        display: flex;
+        gap: 20px;
+        align-items: flex-start;
+        margin-bottom: 22px;
+      }
+      .line-num {
+        font-size: 40px;
+        line-height: 1;
+        color: var(--oxblood);
+        font-weight: 600;
+        border-right: 2px solid var(--gold);
+        padding-right: 16px;
+        min-width: 52px;
+        text-align: right;
+      }
+      .line-title {
+        margin: 0 0 4px;
+        font-size: 24px;
+        font-weight: 600;
+      }
+      .line-sub {
+        margin: 0;
+        color: var(--ink-soft);
+        font-style: italic;
+        font-size: 14.5px;
+      }
+
+      .line-footnote {
+        max-width: 860px;
+        font-size: 13.5px;
+        color: var(--ink-soft);
+        font-style: italic;
+        line-height: 1.55;
+        margin-top: 22px;
+        padding-top: 14px;
+        border-top: 1px dashed var(--paper-edge);
+      }
+
+      /* ---------- overview tree ---------- */
+      .overview-block {
+        background: var(--paper);
+        border: 1px solid var(--paper-edge);
+        border-radius: 4px;
+        padding: 22px 18px 8px;
+        margin-bottom: 38px;
+      }
+      .overview-label {
+        margin: 0 0 4px;
+        font-weight: 600;
+        font-size: 14px;
+        color: var(--oxblood);
+        text-align: center;
+      }
+
+      /* ---------- branch blocks ---------- */
+      .branch-block {
+        margin: 0 0 46px;
+        padding: 20px 20px 22px;
+        background: var(--paper);
+        border: 1px solid var(--paper-edge);
+        border-left: 4px solid var(--oxblood);
+        border-radius: 0 4px 4px 0;
+        scroll-margin-top: 90px;
+      }
+      .branch-block.fragment {
+        border-left-style: dashed;
+        border-left-color: var(--gold);
+      }
+      .branch-head {
+        display: flex;
+        align-items: baseline;
+        gap: 12px;
+        margin: 0 0 14px;
+      }
+      .branch-num {
+        font-size: 20px;
+        color: var(--oxblood);
+        font-weight: 600;
+        min-width: 26px;
+      }
+      .fragment .branch-num {
+        color: var(--gold);
+      }
+      .branch-title {
+        margin: 0;
+        font-size: 18.5px;
+        font-weight: 600;
+      }
+      .branch-note {
+        margin: 12px 2px 0;
+        font-size: 12.5px;
+        color: var(--ink-soft);
+        font-style: italic;
+        line-height: 1.5;
+      }
+      .branch-open {
+        margin: 14px 2px 0;
+        font-size: 12px;
+        color: var(--gold);
+        font-style: italic;
+        border-top: 1px dashed var(--paper-edge);
+        padding-top: 10px;
+      }
+
+      /* ---------- tree frame ---------- */
+      .tree-frame {
+        overflow-x: auto;
+        padding: 10px 6px 26px;
+        -webkit-overflow-scrolling: touch;
+      }
+
+      /* ---------- pure-CSS genealogy tree ---------- */
+      .tree {
+        display: flex;
+        justify-content: center;
+        min-width: max-content;
+        padding: 0 8px;
+      }
+      .tree > ul {
+        padding-top: 0;
+      }
+      .tree ul {
+        display: flex;
+        list-style: none;
+        margin: 0;
+        padding-top: 26px;
+        position: relative;
+      }
+      .tree li {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        list-style: none;
+        position: relative;
+        padding: 26px 0 0 9px;
+      }
+      .tree li::before,
+      .tree li::after {
+        content: "";
+        position: absolute;
+        top: 0;
+        right: 50%;
+        width: 50%;
+        height: 26px;
+        border-top: 2px solid var(--gold);
+      }
+      .tree li::after {
+        right: auto;
+        left: 50%;
+        border-left: 2px solid var(--gold);
+      }
+      .tree li:only-child::before,
+      .tree li:only-child::after {
+        display: none;
+      }
+      .tree li:only-child {
+        padding-top: 0;
+      }
+      .tree li:first-child::before {
+        border: none;
+      }
+      .tree li:last-child::after {
+        border: none;
+      }
+      .tree li:last-child::before {
+        border-right: 2px solid var(--gold);
+        border-radius: 0 6px 0 0;
+      }
+      .tree li:first-child::after {
+        border-radius: 6px 0 0 0;
+      }
+      .tree ul ul::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 50%;
+        border-left: 2px solid var(--gold);
+        width: 0;
+        height: 26px;
+      }
+
+      .couple {
+        display: flex;
+        align-items: center;
+      }
+      .union {
+        font-size: 12px;
+        color: var(--oxblood);
+        padding: 0 7px;
+        white-space: nowrap;
+        align-self: center;
+      }
+
+      .person {
+        min-width: 140px;
+        max-width: 215px;
+        padding: 8px 12px;
+        border-radius: 4px;
+        text-align: center;
+        border: 1px solid rgba(0, 0, 0, 0.28);
+        box-shadow: 2px 2px 0 rgba(0, 0, 0, 0.12);
+      }
+
+      .person .name {
+        font-weight: 600;
+        font-size: 14px;
+        line-height: 1.28;
+      }
+      .person .dates {
+        font-size: 11.5px;
+        margin-top: 3px;
+        opacity: 0.92;
+      }
+      .person .note {
+        font-size: 10.6px;
+        font-style: italic;
+        margin-top: 4px;
+        opacity: 0.9;
+        line-height: 1.32;
+      }
+
+      .person.male {
+        background: var(--male-bg);
+        color: var(--male-fg);
+      }
+      .person.female {
+        background: var(--female-bg);
+        color: var(--female-fg);
+      }
+      .person.unknown {
+        background: transparent;
+        border: 1.5px dashed var(--ink-soft);
+        color: var(--ink-soft);
+        font-style: italic;
+      }
+      .person.hypo {
+        border-style: dashed;
+        border-width: 2px;
+        border-color: var(--ink);
+      }
+      .person.flag {
+        border: 2px solid var(--flag);
+      }
+      .person.placeholder {
+        background: transparent;
+        border: 1.5px dashed var(--gold);
+        color: var(--gold);
+        font-style: italic;
+        box-shadow: none;
+      }
+      .person.root {
+        min-width: 170px;
+        max-width: 220px;
+        padding: 12px 16px;
+      }
+      .person.root .name {
+        font-size: 16px;
+      }
+
+      .tree.mini .person {
+        min-width: 120px;
+        padding: 6px 9px;
+      }
+      .tree.mini .person .name {
+        font-size: 12.5px;
+      }
+      .tree.mini .person .dates {
+        font-size: 10px;
+      }
+      .tree.mini li {
+        padding-top: 20px;
+      }
+      .tree.mini ul {
+        padding-top: 20px;
+      }
+      .tree.mini li::before,
+      .tree.mini li::after {
+        height: 20px;
+      }
+      .tree.mini ul ul::before {
+        height: 20px;
+      }
+
+      .person-card-link {
+        text-decoration: none;
+        color: inherit;
+        display: block;
+      }
+      .person-link {
+        cursor: pointer;
+        transition:
+          transform 0.2s ease,
+          box-shadow 0.2s ease,
+          border-color 0.2s ease;
+      }
+      .person-link:hover {
+        transform: translateY(-3px);
+        box-shadow:
+          0 8px 20px rgba(0, 0, 0, 0.3),
+          0 0 10px rgba(255, 255, 255, 0.18);
+        border-color: #f3e5ab;
+      }
+
+      .fragments-intro {
+        max-width: 860px;
+        font-size: 14px;
+        line-height: 1.6;
+        color: var(--ink-soft);
+        font-style: italic;
+        margin: 0 0 30px;
+        padding: 14px 18px;
+        background: rgba(161, 128, 47, 0.08);
+        border: 1px dashed var(--gold);
+        border-radius: 4px;
+      }
+
+      /* ---------- future-line placeholder ---------- */
+      .future-line {
+        margin-top: 60px;
+        padding: 26px 24px;
+        border: 2px dashed var(--gold);
+        border-radius: 6px;
+        background: rgba(244, 238, 219, 0.4);
+        text-align: center;
+      }
+      .future-line h2 {
+        margin: 0 0 8px;
+        font-size: 19px;
+        color: var(--gold);
+        font-weight: 600;
+      }
+      .future-line p {
+        margin: 0 auto;
+        max-width: 680px;
+        font-size: 13.5px;
+        color: var(--ink-soft);
+        font-style: italic;
+        line-height: 1.6;
+      }
+
+      /* ---------- footer ---------- */
+      .page-footer {
+        margin-top: 70px;
+        padding-top: 22px;
+        border-top: 3px double var(--gold);
+        font-size: 12.5px;
+        color: var(--ink-soft);
+        line-height: 1.6;
+      }
+
+      .no-print {
+      }
+
+      @media (max-width: 720px) {
+        .header-inner {
+          flex-direction: column;
+          align-items: flex-start;
+        }
+        .wrap {
+          padding: 0 14px 60px;
+        }
+        .line-num {
+          font-size: 30px;
+          min-width: 40px;
+        }
+      }
+
+      @media print {
+        @page {
+          size: A3 landscape;
+          margin: 10mm;
+        }
+        body {
+          background-image: none;
+        }
+        .no-print {
+          display: none !important;
+        }
+        .page-header {
+          position: static;
+          box-shadow: none;
+          background: #26364a;
+        }
+        .wrap {
+          max-width: none;
+          padding: 0 4px 30px;
+        }
+        .tree-frame {
+          overflow: visible;
+          zoom: 0.85;
+        }
+        .branch-block,
+        .overview-block {
+          break-inside: avoid;
+        }
+        .line-section {
+          border-top: none;
+          padding-top: 8px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header class="page-header">
+      <div class="header-inner">
+        <div>
+          <h1>Родовід Корнійчуків</h1>
+          <p class="subtitle">
+            Початок реконструкції роду Корнійчуків із с. Непедівка — за
+            метричними книгами (запис про народження 1868 р. та запис про шлюб
+            1890 р.). Даних поки небагато, сторінка розрахована на поступове
+            доповнення.
+          </p>
+        </div>
+        <div class="header-actions no-print">
+          <a class="home-btn" href="../index.html">⌂ На головну</a>
+          <button class="print-btn" onclick="window.print()">
+            Зберегти як PDF
+          </button>
+        </div>
+      </div>
+      <p class="print-tip no-print">
+        Порада: у вікні друку оберіть «Зберегти як PDF» і альбомну орієнтацію
+        (формат A3). Якщо кольори не з'явились — увімкніть у налаштуваннях друку
+        пункт «Фонові рисунки / Background graphics».
+      </p>
+    </header>
+
+    <div class="wrap">
+      <div class="intro">
+        <p>
+          Рід простежено поки на три покоління від Прокопія Корнійчука. Головне
+          джерело — метрична книга с. Непедівка: запис про народження Марії
+          Марківни Корнійчук (27.06.1868) та запис про її шлюб із Григорієм
+          Онисимовичем (Овсійовичем) Бонюком (21.05.1890). Це та сама родина
+          Бонюків, що й в основному родоводі — тому запис є прямим стиком двох
+          дерев. Дані, які спираються на непрямі докази (спільне по батькові,
+          роль хрещеного), позначені пунктиром і описані в примітках.
+        </p>
+      </div>
+
+      <div class="legend no-print">
+        <div class="legend-item"><span class="swatch male"></span>Чоловік</div>
+        <div class="legend-item"><span class="swatch female"></span>Жінка</div>
+        <div class="legend-item">
+          <span class="swatch unknown"></span>Особа чи ім'я не встановлені
+        </div>
+        <div class="legend-item">
+          <span class="swatch hypo"></span>Непряме свідчення (по батькові,
+          кумівство) — не метрика напряму
+        </div>
+        <div class="legend-item">
+          <span class="swatch flag"></span>Розбіжність у прочитанні джерела
+        </div>
+        <div class="legend-item">
+          <span class="swatch placeholder"></span>Місце для доповнення
+        </div>
+        <div class="legend-item">
+          <span class="union-sample">⚭</span>Шлюб (з датою, якщо відома)
+        </div>
+      </div>
+
+      <nav class="toc no-print">
+        <a href="#overview">Огляд: Марко Прокопович і троє дітей</a>
+        <a href="#branch-zakhariy">1. Захарій Маркович</a>
+        <a href="#branch-maria">2. Марія Марківна ⚭ Бонюк</a>
+
+        <a href="#branch-ivan">3. Іван Маркович</a>
+        <span class="toc-sep">·</span>
+        <a href="#open-questions">Відкриті питання</a>
+        <span class="toc-sep">·</span>
+        <a href="#future-lines">На майбутнє</a>
+      </nav>
+
+      <!-- ============ MAIN TRUNK ============ -->
+      <section class="line-section" id="line-1">
+        <div class="line-head">
+          <span class="line-num">I</span>
+          <div>
+            <h2 class="line-title">Марко Прокопович Корнійчук</h2>
+            <p class="line-sub">
+              Орієнтовно народжений 1835–1850; батько — Прокопій Корнійчук
+            </p>
+          </div>
+        </div>
+
+        <div class="overview-block" id="overview">
+          <p class="overview-label">
+            Марко Прокопович Корнійчук і троє відомих дітей — загальна схема
+          </p>
+          <div class="tree-frame">
+            <div class="tree">
+              <ul>
+                <li>
+                  <div class="person male unknown">
+                    <div class="name">Прокопій Корнійчук</div>
+                    <div class="note">дати не встановлені</div>
+                  </div>
+                  <ul>
+                    <li>
+                      <div class="couple">
+                        <div class="person male root">
+                          <div class="name">Марко Прокопович Корнійчук</div>
+                          <div class="dates">орієнтовно 1835–1850 р.н.</div>
+                        </div>
+                        <div class="union">⚭</div>
+                        <div class="person female flag">
+                          <div class="name">
+                            Лукія (Лукіана) Матвіївна / Мамонтівна
+                          </div>
+                          <div class="note">
+                            по батькові в різних джерелах читається по-різному —
+                            див. примітку нижче
+                          </div>
+                        </div>
+                      </div>
+                      <ul>
+                        <li>
+                          <a href="#branch-zakhariy" class="person-card-link">
+                            <div class="person male person-link">
+                              <div class="name">Захарій Маркович</div>
+                            </div>
+                          </a>
+                        </li>
+                        <li>
+                          <a href="#branch-maria" class="person-card-link">
+                            <div class="person female person-link">
+                              <div class="name">Марія Марківна</div>
+                              <div class="dates">27.06.1868</div>
+                            </div>
+                          </a>
+                        </li>
+                        <li>
+                          <a href="#branch-ivan" class="person-card-link">
+                            <div class="person male person-link">
+                              <div class="name">Іван Маркович</div>
+                            </div>
+                          </a>
+                        </li>
+                      </ul>
+                    </li>
+                  </ul>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <!-- ===== BRANCH 1: ZAKHARIY ===== -->
+        <div class="branch-block" id="branch-zakhariy">
+          <div class="branch-head">
+            <span class="branch-num">1</span>
+            <h3 class="branch-title">Захарій Маркович Корнійчук</h3>
+          </div>
+
+          <div class="tree-frame">
+            <div class="tree">
+              <ul>
+                <li>
+                  <div class="couple">
+                    <div class="person male">
+                      <div class="name">Захарій Маркович Корнійчук</div>
+                    </div>
+                    <div class="union">⚭</div>
+                    <div class="person unknown">
+                      <div class="name">дружина не встановлена</div>
+                    </div>
+                  </div>
+                  <ul>
+                    <li>
+                      <div class="couple">
+                        <div class="person female hypo">
+                          <div class="name">Варвара Захарівна</div>
+                          <div class="note">
+                            ймовірна донька, документально не підтверджено
+                          </div>
+                        </div>
+                        <div class="union">⚭</div>
+                        <div class="person male">
+                          <div class="name">Михайло Баранчук</div>
+                        </div>
+                      </div>
+                      <p
+                        class="branch-note"
+                        style="
+                          max-width: 520px;
+                          margin: 10px auto 0;
+                          text-align: center;
+                        "
+                      >
+                        Варвара Захарівна — хресна мати Івана Ігнатовича Бонюка
+                        (нар. 29.12.1917), сина Ігнатія Григоровича Бонюка —
+                        тобто хрещена для сина свого двоюрідного брата
+                        (племінника в другому коліні).
+                      </p>
+                    </li>
+                  </ul>
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <p class="branch-note">
+            Сам Захарій Маркович задокументований як хресний батько Ігнатія
+            Григоровича Бонюка (син Марії Марківни, гілка 2) — традиційно цю
+            роль у ХІХ ст. довіряли рідному дядькові дитини, що й стало головним
+            доказом братерства Захарія з Марією.
+          </p>
+        </div>
+
+        <!-- ===== BRANCH 2: MARIA ===== -->
+
+        <!-- <p class="branch-note">
+          Повну картку шлюбу з дітьми та хрещеними — Ігнатій, Февронія, Ульяна,
+          Тетяна Климентівна — див. на сторінці роду Бонюків.
+        </p>
+        <a class="home-btn" href="../boniuk.html#hryhoriy-i-maria">
+          Відкрити картку Григорія і Марії →
+        </a> -->
+
+        <div class="branch-block" id="branch-maria">
+          <div class="branch-head">
+            <span class="branch-num">2</span>
+            <h3 class="branch-title">
+              Марія Марківна Корнійчук ⚭ Григорій Бонюк
+            </h3>
+          </div>
+
+          <p class="branch-note">
+            Повну картку шлюбу з дітьми та хрещеними — Ігнатій, Февронія,
+            Ульяна, Тетяна Климентівна — див. на сторінці роду Бонюків.
+          </p>
+          <a
+            href="../boniuk/index.html#hryhoriy-i-maria"
+            class="person-card-link"
+          >
+            <div class="person person-link">
+              Відкрити картку Григорія і Марії →
+            </div>
+          </a>
+
+          <!-- 
+          <div class="tree-frame">
+            <div class="tree">
+              <ul>
+                <li>
+                  <div class="couple">
+                    <div class="person male flag">
+                      <div class="name">Григорій Онисимович Бонюк</div>
+                      <div class="dates">
+                        бл. 21.05.1867 – 21.05.1868 (за розрахунком з віку)
+                      </div>
+                      <div class="note">
+                        по батькові в записі «Описиев» — варіанти прочитання:
+                        Онисимович / Овсійович / Євсійович
+                      </div>
+                    </div>
+                    <div class="union">⚭ 21.05.1890</div>
+                    <div class="person female">
+                      <div class="name">Марія Марківна Корнійчук</div>
+                      <div class="dates">27.06.1868 – ?</div>
+                      <div class="note">
+                        хрещена 28.06.1868; на шлюбі записана «20 років» —
+                        насправді мала повних 21
+                      </div>
+                    </div>
+                  </div>
+                  <ul>
+                    <li>
+                      <div class="person male">
+                        <div class="name">Ігнатій Григорович Бонюк</div>
+                        <div class="dates">1895 р.н.</div>
+                        <div class="note">
+                          хресний батько — Захарій Маркович Корнійчук (гілка 1)
+                        </div>
+                      </div>
+                      <ul>
+                        <li>
+                          <div class="person male">
+                            <div class="name">Іван Ігнатович Бонюк</div>
+                            <div class="dates">29.12.1917</div>
+                            <div class="note">
+                              хресна мати — Варвара Захарівна Баранчук (гілка 1)
+                            </div>
+                          </div>
+                        </li>
+                      </ul>
+                    </li>
+                  </ul>
+                </li>
+              </ul>
+            </div>
+          </div>
+-->
+          <div class="branch-note">
+            <b style="color: var(--oxblood); font-style: normal">
+              Запис про народження, 27.06.1868 (метрична книга):
+            </b>
+            <br />
+            Батько — «Свободный обыватель Маркъ Прокопіевъ Корнюкъ»; мати —
+            «законная его жена Лукія Мамонтєва», обоє православного
+            віросповідання. Хрещені: Федір Петрович Гупало та Марія Федорівна
+            (дружина відставного солдата Якова Граматюка). Священик Никита
+            Кановський.
+          </div>
+
+          <div class="branch-note">
+            <b style="color: var(--oxblood); font-style: normal">
+              Запис про шлюб, 21.05.1890 (метрична книга, запис № 10):
+            </b>
+            <br />
+            Наречений — «Села Непедовки крестьянинъ собственникъ Григорій
+            Описиевъ Бонюкъ», 22 роки, перший шлюб. Наречена — «Села Непедовки
+            крестьянка собственница Марія Маркова Корніюкова», 20 років, перший
+            шлюб. Священик Никита Кановський, дяк Симеон Радашкевич.
+            <br /><br />
+            Поручителі з боку нареченого: Михайло Пилипович Чубатий (Чубитий),
+            Іван Кіндратович Грамчук (Громанчук).
+            <br />
+            Поручителі з боку нареченої: Сава Савович Нечипорук, Опанас
+            (Афанасій) Іванович Трайдакало.
+            <br /><br />
+            Серед свідків весілля також згаданий Климентій Овсійович (Євсейович)
+            Бонюк — див. відкриті питання нижче.
+          </div>
+
+          <p class="branch-open">
+            Гілка відкрита для доповнення: подальша доля Марії та Григорія після
+            1895–1917 рр. не встановлені.
+          </p>
+        </div>
+
+        <!-- ===== BRANCH 3: IVAN ===== -->
+        <div class="branch-block" id="branch-ivan">
+          <div class="branch-head">
+            <span class="branch-num">3</span>
+            <h3 class="branch-title">Іван Маркович Корнійчук</h3>
+          </div>
+
+          <div class="tree-frame">
+            <div class="tree mini">
+              <ul>
+                <li>
+                  <div class="couple">
+                    <div class="person male">
+                      <div class="name">Іван Маркович Корнійчук</div>
+                    </div>
+                    <div class="union">⚭</div>
+                    <div class="person unknown">
+                      <div class="name">дружина не встановлена</div>
+                    </div>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <p class="branch-note">
+            У матеріалах окремо згадана Анна Матвіївна Корнійчук (свідок
+            18.10.1892) — по батькові не збігається з «Марковича», тож це,
+            найімовірніше, інша особа, а не дружина чи родичка Івана Марковича в
+            прямій лінії. Див. відкриті питання нижче.
+          </p>
+        </div>
+
+        <p class="line-footnote">
+          Джерело основної лінії: метрична книга с. Непедівка, записи про
+          народження (1868) і шлюб (1890), опрацьовані за сканами FamilySearch.
+          У Марка Прокоповича та Лукії наразі підтверджено щонайменше троє дітей
+          — Марія, Іван, Захарій.
+        </p>
+      </section>
+
+      <!-- ============ OPEN QUESTIONS ============ -->
+      <section class="line-section" id="open-questions">
+        <div class="line-head">
+          <span class="line-num">II</span>
+          <div>
+            <h2 class="line-title">Відкриті питання</h2>
+            <p class="line-sub">
+              Зачіпки з тих самих джерел, які поки не вдалося прив'язати до
+              дерева вище
+            </p>
+          </div>
+        </div>
+
+        <p class="fragments-intro">
+          Під час розшифровки метричних книг трапилось кілька імен і записів,
+          які явно стосуються Корнійчуків або близького кола, але їхнє місце в
+          дереві ще не визначене. Фіксую їх тут, щоб не загубити, а не вигадую
+          зв'язок, якого немає в джерелі.
+        </p>
+
+        <div class="branch-block fragment" id="q-yevdokiya">
+          <div class="branch-head">
+            <span class="branch-num">?1</span>
+            <h3 class="branch-title">
+              Євдокія Опанасівна (Афанасіївна) Корнійчук (Корнюкова)
+            </h3>
+          </div>
+          <div class="tree-frame">
+            <div class="tree mini">
+              <ul>
+                <li>
+                  <div class="person female unknown">
+                    <div class="name">
+                      Євдокія Опанасівна / Афанасіївна Корнійчук
+                    </div>
+                    <div class="note">
+                      «дочка відставного солдата»; свідок 27.10.1885
+                    </div>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <p class="branch-note">
+            По батькові «Опанасівна» не збігається з «Прокопович» Марка — тобто
+            вона не може бути його рідною донькою. Найімовірніше, це дружина чи
+            родичка когось на прізвище Корнійчук/Корнюк з іншої, поки не
+            встановленої лінії — можливо, невістка (дружина одного із синів
+            Марка), яка зберегла дівоче по батькові в записі. Потребує окремого
+            пошуку метрики.
+          </p>
+        </div>
+
+        <div class="branch-block fragment" id="q-klymentiy">
+          <div class="branch-head">
+            <span class="branch-num">?2</span>
+            <h3 class="branch-title">Климентій Овсійович (Євсейович) Бонюк</h3>
+          </div>
+          <div class="tree-frame">
+            <div class="tree mini">
+              <ul>
+                <li>
+                  <div class="person male unknown">
+                    <div class="name">Климентій Овсійович Бонюк</div>
+                    <div class="note">
+                      свідок на весіллі Григорія й Марії, 21.05.1890
+                    </div>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <p class="branch-note">
+            По батькові «Овсійович» збігається з одним із варіантів прочитання
+            по батькові самого Григорія («Овсійович»/ «Онисимович»/«Євсійович»)
+            — тобто Климентій, цілком можливо, рідний брат Григорія Бонюка. Якщо
+            так, це означає, що є ще не описаний батько «Овсій (Онисим/Євсій)
+            Бонюк» на одне покоління вище за Григорія в основному родоводі
+            Бонюків — варто звірити з тим документом.
+          </p>
+        </div>
+
+        <div class="branch-block fragment" id="q-anna">
+          <div class="branch-head">
+            <span class="branch-num">?3</span>
+            <h3 class="branch-title">Анна Матвіївна Корнійчук (Корнійкова)</h3>
+          </div>
+          <div class="tree-frame">
+            <div class="tree mini">
+              <ul>
+                <li>
+                  <div class="couple">
+                    <div class="person male unknown">
+                      <div class="name">Іларіон Федорович Девшер…</div>
+                      <div class="note">
+                        19 років; прізвище в джерелі обірване
+                      </div>
+                    </div>
+                    <div class="union">⚭ запис №18, жовтень</div>
+                    <div class="person female unknown">
+                      <div class="name">Анна Матвіївна Корнійчук</div>
+                      <div class="dates">19 років</div>
+                    </div>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <p class="branch-note">
+            По батькові «Матвіївна» не збігається з «Маркович/Марківна» — отже,
+            Анна Матвіївна, найімовірніше, не рідна сестра Марії, Івана й
+            Захарія, а представниця іншої родини Корнійчуків із того самого
+            села. Також залишається нерозшифрований запис-свідок «Иванъ Марковъ
+            Ефраимовъ» і підпис «Никита Калениковъ Корнійчукъ» (можливі варіанти
+            прочитання: Борачук / Бойчук) — прізвище на «Б-» там читається
+            неоднозначно.
+          </p>
+        </div>
+
+        <p class="line-footnote">
+          Жодне з трьох питань вище не відкидається — просто для кожного бракує
+          ще однієї метрики (народження чи шлюбу), яка підтвердила б зв'язок
+          напряму, а не через збіг імені.
+        </p>
+      </section>
+
+      <!-- ============ FUTURE ============ -->
+      <div class="future-line" id="future-lines">
+        <h2>Перетини з іншими родоводами</h2>
+        <p>
+          Опанас (Афанасій) Іванович Трайдакало — поручитель на весіллі Григорія
+          й Марії (21.05.1890) — це та сама особа, що вже зафіксована в
+          документі «Родовід Трайдакало» як свідок на весіллі Григорія
+          Онисимовича Бонюка. Запис підтверджує обидва дерева одночасно. Михайло
+          Пилипович Чубатий, інший поручитель того ж весілля, поки не знайдений
+          серед уже описаних Чубатих — можливо, це ще одна, поки не приєднана
+          гілка роду Чубатих з того самого села Непедівка.
+        </p>
+      </div>
+
+      <footer class="page-footer">
+        <p>
+          Реконструйовано за метричною книгою с. Непедівка (записи про
+          народження 1868 р. та шлюб 1890 р., скани FamilySearch) і похідними
+          від них свідченнями про кумівство. Документ навмисно короткий — це
+          перший етап, який розширюватиметься в міру опрацювання нових метрик.
+        </p>
+      </footer>
+    </div>
+
+    <script>
+      (function () {
+        function getPrintableWidthPx() {
+          var probe = document.createElement("div");
+          probe.style.position = "absolute";
+          probe.style.visibility = "hidden";
+          probe.style.width = "calc(420mm - 20mm)";
+          document.body.appendChild(probe);
+          var w = probe.getBoundingClientRect().width;
+          document.body.removeChild(probe);
+          return w;
+        }
+        function fitTreesForPrint() {
+          var available = getPrintableWidthPx() * 0.96;
+          document.querySelectorAll(".tree-frame").forEach(function (frame) {
+            frame.style.zoom = "1";
+            var tree = frame.querySelector(".tree");
+            if (!tree) return;
+            var natural = tree.scrollWidth;
+            if (natural > available) {
+              frame.style.zoom = Math.max(0.32, available / natural);
+            } else {
+              frame.style.zoom = "";
+            }
+          });
+        }
+        function resetTreesAfterPrint() {
+          document.querySelectorAll(".tree-frame").forEach(function (frame) {
+            frame.style.zoom = "";
+          });
+        }
+        window.addEventListener("beforeprint", fitTreesForPrint);
+        window.addEventListener("afterprint", resetTreesAfterPrint);
+      })();
+    </script>
+    <script src="../../js/audio.js"></script>
+  </body>
+</html>
