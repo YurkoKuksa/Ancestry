@@ -625,17 +625,26 @@
       }
 
       @media (max-width: 720px) {
-        .print-btn {
+        .home-btn-desktop {
           display: none;
         }
         .print-tip {
           display: none;
         }
-        .page-header {
-          padding: 16px 18px;
+        .home-btn-small {
+          display: inline-block;
+          margin: 0 0 6px;
+          padding: 3px 10px;
+          font-size: 11px;
+        }
+        .print-btn {
+          display: none;
         }
         .header-inner .subtitle {
           display: none;
+        }
+        .page-header {
+          padding: 16px 18px;
         }
         .wrap {
           padding: 0 14px 60px;
@@ -690,6 +699,9 @@
       <div class="header-inner">
         <div>
           <h1>Родовід Чубатих</h1>
+          <a class="home-btn home-btn-small no-print" href="../index.html"
+            >⌂ На головну</a
+          >
           <p class="subtitle">
             Лінія родоначальника Андрія Чубатого (орієнтовно 1855–1875 р.н.) —
             перша з ліній роду Чубатих, внесених до цього документа. Структура
@@ -698,7 +710,9 @@
           </p>
         </div>
         <div class="header-actions no-print">
-          <a class="home-btn" href="../index.html">⌂ На головну</a>
+          <a class="home-btn home-btn-desktop" href="../index.html"
+            >⌂ На головну</a
+          >
           <button class="print-btn" onclick="window.print()">
             Зберегти як PDF
           </button>

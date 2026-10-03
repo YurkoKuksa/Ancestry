@@ -596,19 +596,35 @@
       .no-print {
       }
 
-
+.home-btn-small {
+  display: none;
+  margin: 2px 0 12px;
+  padding: 5px 14px;
+  font-size: 12px;
+}
 
 
 @media (max-width: 720px) {
+  .home-btn-desktop {
+    display: none;
+  }
+          .print-tip {
+          display: none;
+        }
+  .home-btn-small {
+    display: inline-block;
+    margin: 0 0 6px;
+    padding: 3px 10px;
+    font-size: 11px;
+  }
   .print-btn {
     display: none;
   }
-  .print-tip{display: none;}
-  .page-header {
-    padding: 16px 18px;
-  }
   .header-inner .subtitle {
     display: none;
+  }
+  .page-header {
+    padding: 16px 18px;
   }
   .wrap {
     padding: 0 14px 60px;
@@ -618,7 +634,6 @@
     min-width: 40px;
   }
 }
-
 
 
 
@@ -688,6 +703,10 @@
   /* Відступ від попереднього блоку */
 }
 
+
+
+
+
 /* Спеціальні правила для режиму друку (Ctrl + P -> PDF) */
 @media print {
   .page-start {
@@ -703,13 +722,14 @@
       <div class="header-inner">
         <div>
           <h1>Родовід Бонюків</h1>
+          <a class="home-btn home-btn-small no-print" href="../index.html">⌂ На головну</a>
           <p class="subtitle">
             Шість паралельних ліній роду — за матеріалами метричних книг і
             родинних записів, ХІХ–ХХ ст.
           </p>
         </div>
         <div class="header-actions no-print">
-          <a class="home-btn" href="../index.html">⌂ На головну</a>
+          <a class="home-btn home-btn-desktop" href="../index.html">⌂ На головну</a>
           <button class="print-btn" onclick="window.print()">
             Зберегти як PDF
           </button>
