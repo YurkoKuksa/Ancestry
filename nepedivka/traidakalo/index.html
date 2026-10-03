@@ -620,18 +620,20 @@
       }
 
       @media (max-width: 720px) {
-        /* .header-inner {
-          flex-direction: column;
-          align-items: flex-start;
-        } */
+        .print-btn {
+          display: none;
+        }
+        .print-tip {
+          display: none;
+        }
         .page-header {
+          padding: 16px 18px;
+        }
+        .header-inner .subtitle {
           display: none;
         }
         .wrap {
           padding: 0 14px 60px;
-        }
-        .scroll-hint {
-          display: block;
         }
         .line-num {
           font-size: 30px;

@@ -596,25 +596,33 @@
       .no-print {
       }
 
-      @media (max-width: 720px) {
-        /* .header-inner {
-          flex-direction: column;
-          align-items: flex-start;
-        } */
-           .page-header {
+
+
+
+@media (max-width: 720px) {
+  .print-btn {
     display: none;
   }
-        .wrap {
-          padding: 0 14px 60px;
-        }
-        .scroll-hint {
-          display: block;
-        }
-        .line-num {
-          font-size: 30px;
-          min-width: 40px;
-        }
-      }
+  .print-tip{display: none;}
+  .page-header {
+    padding: 16px 18px;
+  }
+  .header-inner .subtitle {
+    display: none;
+  }
+  .wrap {
+    padding: 0 14px 60px;
+  }
+  .line-num {
+    font-size: 30px;
+    min-width: 40px;
+  }
+}
+
+
+
+
+
 
       @media print {
         @page {
