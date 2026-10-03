@@ -24,7 +24,7 @@
     }
   }
 
-  var bgm = new Audio(new URL("sound/bg.mp3", base).href);
+  var bgm = new Audio(new URL("sound/an.mp3", base).href);
   bgm.loop = true;
   bgm.volume = 0.02; // фон ≈ 2%
 

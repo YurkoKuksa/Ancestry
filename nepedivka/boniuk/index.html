@@ -549,16 +549,16 @@
         font-size: 14px;
         color: var(--oxblood);
       }
-      .tree-row {
+      /* .tree-row {
         display: flex;
         flex-wrap: wrap;
         gap: 30px;
         justify-content: center;
-      }
+      } */
 
-      .box-row-extra {
+      /* .box-row-extra {
         justify-content: flex-end;
-      }
+      } */
 
       .side-note {
         font-size: 12.5px;
@@ -597,10 +597,13 @@
       }
 
       @media (max-width: 720px) {
-        .header-inner {
+        /* .header-inner {
           flex-direction: column;
           align-items: flex-start;
-        }
+        } */
+           .page-header {
+    display: none;
+  }
         .wrap {
           padding: 0 14px 60px;
         }
@@ -953,8 +956,9 @@
 
         <div class="side-tree">
           <p class="side-label">Родина Трайдакало (батьківська лінія Марфи)</p>
-          <div class="tree-row box-row-extra">
-            <div class="tree mini">
+
+          <div class="tree-frame">
+            <div class="tree">
               <ul>
                 <li>
                   <div class="person male">
@@ -1960,7 +1964,7 @@
           </div>
         </div>
 
-         <div class="tree-frame frame-right">
+         <div class="tree-frame">
           <div class="tree">
             <!-- <ul>
               <li> -->
