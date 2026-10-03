@@ -305,7 +305,7 @@
         border: 1px solid var(--paper-edge);
         border-left: 4px solid var(--oxblood);
         border-radius: 0 4px 4px 0;
-        scroll-margin-top: 90px;
+        scroll-margin-top: 250px;
       }
       .branch-block.fragment {
         border-left-style: dashed;
@@ -618,8 +618,17 @@
 
       .no-print {
       }
+      .home-btn-small {
+        display: none;
+        margin: 2px 0 12px;
+        padding: 5px 14px;
+        font-size: 12px;
+      }
 
       @media (max-width: 720px) {
+        .branch-block {
+          scroll-margin-top: 90px;
+        }
         .home-btn-desktop {
           display: none;
         }
