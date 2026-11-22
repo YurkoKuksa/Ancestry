@@ -1,0 +1,1643 @@
+<!doctype html>
+<html lang="uk">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Григорій Іванович (Онисимович) Бонюк · 1868–1919</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Marck+Script&family=Ruslan+Display&family=Spectral:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400;1,500&display=swap"
+      rel="stylesheet"
+    />
+    <script>
+      document.documentElement.classList.add("intro-on");
+    </script>
+    <noscript>
+      <style>
+        #intro { display: none !important; }
+        html.intro-on .page { visibility: visible !important; }
+        html.intro-on, html.intro-on body { overflow: auto !important; }
+      </style>
+    </noscript>
+    <style>
+      :root {
+        --bg: #d5c7a4;
+        --paper: #f1e8cb;
+        --paper-edge: #bba978;
+        --ink: #2a2116;
+        --ink-soft: #6c5f47;
+        --ink-brown: #3a2c1b;
+        --gold: #a1802f;
+        --oxblood: #6f3434;
+        --male-bar: #2e4a68;
+        --female-bar: #a95f52;
+        --memorial: #4a4238;
+        --flag: #b23a3a;
+        --grain: url("data:image/svg+xml;utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='240' height='240'%3E%3Cfilter id='n' x='0' y='0'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 .3 0 0 0 0 .2 0 0 0 0 .08 0 0 0 .5 0'/%3E%3C/filter%3E%3Crect width='240' height='240' filter='url(%23n)' opacity='.55'/%3E%3C/svg%3E");
+      }
+      * {
+        box-sizing: border-box;
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+      }
+      html {
+        scroll-behavior: smooth;
+      }
+      html.intro-on,
+      html.intro-on body {
+        overflow: hidden;
+      }
+      html.intro-on .page {
+        visibility: hidden;
+      }
+
+      /* matte light-brown aged-paper ground: grain + foxing + vignette */
+      body {
+        margin: 0;
+        font-family: "Spectral", Georgia, "Times New Roman", serif;
+        color: var(--ink);
+        background-color: var(--bg);
+        background-image: var(--grain),
+          radial-gradient(ellipse 38% 26% at 10% 16%, rgba(111, 52, 52, 0.08), transparent 72%),
+          radial-gradient(ellipse 30% 22% at 90% 58%, rgba(110, 80, 30, 0.12), transparent 72%),
+          radial-gradient(ellipse 26% 18% at 18% 88%, rgba(90, 60, 20, 0.12), transparent 72%),
+          radial-gradient(ellipse 120% 90% at 50% 35%, rgba(238, 227, 194, 0.85) 0%, rgba(213, 199, 164, 0) 62%),
+          radial-gradient(ellipse at 50% 50%, transparent 52%, rgba(70, 45, 15, 0.3) 100%),
+          linear-gradient(180deg, #dacdab, #cbbb93);
+        background-attachment: fixed;
+      }
+
+      .page {
+        position: relative;
+        z-index: 2;
+      }
+      .page.entered {
+        animation: pageIn 1.2s ease both;
+      }
+      @keyframes pageIn {
+        from { opacity: 0; transform: translateY(10px); }
+        to { opacity: 1; transform: none; }
+      }
+
+/* ---------- intro video ---------- */
+      #intro {
+        position: fixed;
+        inset: 0;
+        z-index: 1000;
+        background: #000;
+        transition: opacity 0.9s ease;
+      }
+      #intro.hide {
+        opacity: 0;
+        pointer-events: none;
+      }
+      #intro video {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+      }
+      #intro::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        pointer-events: none;
+        box-shadow: inset 0 0 170px rgba(45, 28, 6, 0.7);
+      }
+      #introBar {
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 3px;
+        width: 0;
+        background: var(--gold);
+        z-index: 3;
+      }
+      .intro-ui {
+        position: absolute;
+        right: 22px;
+        bottom: 22px;
+        z-index: 3;
+        display: flex;
+        gap: 10px;
+      }
+      .intro-btn {
+        background: rgba(28, 40, 54, 0.72);
+        color: #f1ead6;
+        border: 1px solid var(--gold);
+        font-family: inherit;
+        font-size: 15px;
+        padding: 10px 22px;
+        border-radius: 3px;
+        cursor: pointer;
+        letter-spacing: 0.3px;
+        backdrop-filter: blur(3px);
+        transition: background 0.15s ease, color 0.15s ease;
+      }
+      .intro-btn:hover {
+        background: var(--gold);
+        color: #1c2836;
+      }
+
+      
+/* ---------- header ---------- */
+      .page-header {
+        background: linear-gradient(180deg, #26364a, #1c2836);
+        color: #f1ead6;
+        padding: 24px 28px;
+        border-bottom: 4px double var(--gold);
+        position: sticky;
+        top: 0;
+        z-index: 20;
+        box-shadow: 0 6px 18px rgba(0, 0, 0, 0.25);
+      }
+      .header-inner {
+        max-width: 1160px;
+        margin: 0 auto;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 24px;
+        flex-wrap: wrap;
+      }
+      .header-inner h1 {
+        font-family: "Ruslan Display", "Spectral", serif;
+        font-weight: 400;
+        font-size: clamp(20px, 2.6vw, 32px);
+        margin: 0 0 4px;
+        letter-spacing: 0.4px;
+      }
+      .header-inner .subtitle {
+        margin: 0;
+        font-style: italic;
+        color: #cbd3da;
+        font-size: 14.5px;
+      }
+      .header-actions {
+        display: flex;
+        gap: 10px;
+        flex-wrap: wrap;
+      }
+      .home-btn {
+        background: transparent;
+        color: #f1ead6;
+        border: 1px solid #a1802f;
+        font-family: inherit;
+        font-size: 15px;
+        padding: 10px 20px;
+        border-radius: 3px;
+        cursor: pointer;
+        white-space: nowrap;
+        text-decoration: none;
+        display: inline-block;
+        transition: background 0.15s ease, color 0.15s ease;
+      }
+      .home-btn:hover {
+        background: #a1802f;
+        color: #1c2836;
+      }
+      .home-btn-small {
+        display: none;
+      }
+      .print-btn {
+        background: var(--oxblood);
+        color: #f4eedb;
+        border: 1px solid #9a5252;
+        font-family: inherit;
+        font-size: 15px;
+        padding: 10px 20px;
+        border-radius: 3px;
+        cursor: pointer;
+        white-space: nowrap;
+        transition: background 0.15s ease;
+      }
+      .print-btn:hover {
+        background: #8f4444;
+      }
+
+      
+      .page-header {
+        border-bottom: 3px double var(--gold);
+      }
+
+      /* ---------- layout ---------- */
+      .wrap {
+        max-width: 1080px;
+        margin: 0 auto;
+        padding: 40px 36px 90px;
+        counter-reset: sec doc;
+      }
+
+      /* each section is a ruled "sheet" */
+      .card {
+        position: relative;
+        background-color: rgba(243, 235, 211, 0.95);
+        background-image: var(--grain);
+        border: 1px solid #a9976a;
+        border-radius: 1px;
+        box-shadow: 0 1px 0 rgba(255, 255, 255, 0.45) inset,
+          0 16px 36px rgba(50, 32, 8, 0.22), 0 2px 4px rgba(50, 32, 8, 0.2);
+        padding: 46px 58px 42px;
+        margin: 0 0 38px;
+        scroll-margin-top: 150px;
+      }
+      .card::before,
+      .card::after {
+        content: "";
+        position: absolute;
+        pointer-events: none;
+      }
+      .card::before {
+        inset: 11px;
+        border: 1px solid rgba(111, 52, 52, 0.5);
+      }
+      .card::after {
+        inset: 15px;
+        border: 1px solid rgba(161, 128, 47, 0.38);
+      }
+
+      /* ---------- hero ---------- */
+      .hero {
+        padding: 0;
+        overflow: hidden;
+      }
+      .hero-scene {
+        display: block;
+        width: 100%;
+        height: 210px;
+        position: relative;
+        z-index: 1;
+        margin-top: 26px;
+      }
+      .stitch-band {
+        display: block;
+        width: calc(100% - 64px);
+        height: 10px;
+        margin: 6px 32px 0;
+        position: relative;
+        z-index: 1;
+        opacity: 0.85;
+      }
+      .hero-body {
+        display: grid;
+        grid-template-columns: 236px 1fr;
+        gap: 44px;
+        padding: 34px 58px 46px;
+        align-items: start;
+        position: relative;
+        z-index: 1;
+      }
+      .photo-frame {
+        position: relative;
+        width: 216px;
+        margin: 4px auto 0;
+        padding: 10px 10px 36px;
+        background: #ece2c2;
+        border: 1px solid #8f7c52;
+        box-shadow: 0 10px 24px rgba(40, 25, 5, 0.38), inset 0 0 0 4px #ece2c2,
+          inset 0 0 0 5px rgba(143, 124, 82, 0.7);
+      }
+      .photo-frame img {
+        display: block;
+        width: 100%;
+        aspect-ratio: 3 / 4;
+        object-fit: cover;
+        filter: sepia(0.8) contrast(1.08) brightness(0.96);
+        border: 1px solid rgba(0, 0, 0, 0.45);
+        position: relative;
+        z-index: 0;
+      }
+      .photo-frame::after {
+        content: "";
+        position: absolute;
+        left: 10px;
+        right: 10px;
+        top: 10px;
+        bottom: 36px;
+        box-shadow: inset 0 0 38px rgba(40, 25, 5, 0.55);
+        pointer-events: none;
+      }
+      .photo-frame .cap {
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: 9px;
+        text-align: center;
+        font-family: "Marck Script", cursive;
+        font-size: 17px;
+        color: var(--ink-soft);
+      }
+      .photo-frame.missing img {
+        display: none;
+      }
+      .photo-frame.missing::after {
+        display: none;
+      }
+      .photo-frame.missing::before {
+        content: "Фото";
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        aspect-ratio: 3 / 4;
+        border: 1.5px dashed var(--gold);
+        color: var(--gold);
+        font-style: italic;
+      }
+      .old-name {
+        font-family: "Marck Script", cursive;
+        font-size: 33px;
+        color: var(--oxblood);
+        margin: 0 0 4px;
+        line-height: 1.15;
+      }
+      .hero-title {
+        font-family: "Ruslan Display", "Spectral", serif;
+        font-weight: 400;
+        font-size: clamp(26px, 3.1vw, 37px);
+        margin: 0 0 8px;
+        line-height: 1.15;
+        color: var(--ink-brown);
+      }
+      .life-dates {
+        font-style: italic;
+        color: var(--ink-soft);
+        font-size: 16px;
+        margin: 0 0 16px;
+      }
+      .village {
+        display: inline-block;
+        font-size: 12.5px;
+        letter-spacing: 1.4px;
+        text-transform: uppercase;
+        color: var(--oxblood);
+        border-top: 1px solid var(--gold);
+        border-bottom: 1px solid var(--gold);
+        padding: 6px 2px;
+        margin: 0 0 20px;
+      }
+      .facts {
+        display: grid;
+        grid-template-columns: 118px 1fr;
+        gap: 0 16px;
+        margin: 0;
+        font-size: 14.5px;
+        line-height: 1.5;
+      }
+      .facts dt,
+      .facts dd {
+        padding: 8px 0;
+        border-bottom: 1px dotted rgba(108, 95, 71, 0.55);
+      }
+      .facts dt {
+        color: var(--ink-soft);
+        font-style: italic;
+      }
+      .facts dd {
+        margin: 0;
+      }
+
+      /* ---------- toc ---------- */
+      .toc {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 8px 0;
+        padding: 16px 20px;
+        margin: 0 0 38px;
+        border-top: 1px solid var(--gold);
+        border-bottom: 1px solid var(--gold);
+        background: rgba(241, 232, 203, 0.5);
+      }
+      .toc a {
+        position: relative;
+        padding: 0 16px;
+        color: var(--oxblood);
+        text-decoration: none;
+        font-size: 13.5px;
+        letter-spacing: 0.6px;
+        font-variant: small-caps;
+      }
+      .toc a + a::before {
+        content: "";
+        position: absolute;
+        left: -3px;
+        top: 50%;
+        width: 5px;
+        height: 5px;
+        margin-top: -3px;
+        border: 1px solid var(--gold);
+        transform: rotate(45deg);
+      }
+      .toc a:hover {
+        color: var(--ink);
+        text-decoration: underline;
+        text-underline-offset: 4px;
+      }
+
+      /* ---------- section typography ---------- */
+      h2.sec-title {
+        position: relative;
+        font-family: "Ruslan Display", "Spectral", serif;
+        font-weight: 400;
+        font-size: 28px;
+        color: var(--ink-brown);
+        margin: 0 0 26px;
+        padding: 0 0 14px;
+        border-bottom: 1px solid var(--oxblood);
+        box-shadow: 0 4px 0 -3px var(--gold);
+        counter-increment: sec;
+      }
+      h2.sec-title::before {
+        content: counter(sec, upper-roman) ".";
+        font-family: "Spectral", serif;
+        font-size: 17px;
+        font-style: italic;
+        color: var(--gold);
+        margin-right: 16px;
+        letter-spacing: 1px;
+      }
+      h3.sub-title {
+        font-size: 14px;
+        font-weight: 600;
+        letter-spacing: 1.6px;
+        text-transform: uppercase;
+        color: var(--oxblood);
+        margin: 34px 0 12px;
+      }
+      .card p {
+        font-size: 16px;
+        line-height: 1.74;
+        margin: 0 0 14px;
+        max-width: 800px;
+        text-align: justify;
+        hyphens: auto;
+      }
+      .card ul {
+        font-size: 16px;
+        line-height: 1.7;
+        max-width: 800px;
+        padding-left: 22px;
+      }
+      .card ul li::marker {
+        color: var(--gold);
+      }
+      .card a {
+        color: var(--oxblood);
+      }
+      #origin > p:first-of-type::first-letter {
+        float: left;
+        font-family: "Ruslan Display", serif;
+        font-size: 58px;
+        line-height: 0.82;
+        padding: 6px 10px 0 0;
+        color: var(--oxblood);
+      }
+
+      /* marginal annotation */
+      .callout {
+        position: relative;
+        border: none;
+        border-left: 2px solid var(--oxblood);
+        background: linear-gradient(90deg, rgba(111, 52, 52, 0.06), transparent 80%);
+        padding: 12px 22px;
+        margin: 22px 0;
+        max-width: 800px;
+      }
+      .callout p {
+        margin: 0 0 8px;
+        font-size: 15px;
+        font-style: italic;
+        text-align: left;
+      }
+      .callout p:last-child {
+        margin: 0;
+      }
+      .callout.mystery {
+        border-left: 2px solid var(--oxblood);
+      }
+
+      /* ---------- documents as numbered plates ---------- */
+      .docs {
+        display: grid;
+        gap: 22px;
+        margin: 24px 0 10px;
+      }
+      .docs.two {
+        grid-template-columns: 1fr 1fr;
+      }
+      a.doc {
+        text-decoration: none;
+        color: inherit;
+        display: block;
+      }
+      .metrick-wide-photo {
+        margin: 0;
+        padding: 12px 12px 10px;
+        background: #ece2c2;
+        border: 1px solid #8f7c52;
+        box-shadow: 0 8px 20px rgba(40, 25, 5, 0.3), inset 0 0 0 4px #ece2c2,
+          inset 0 0 0 5px rgba(143, 124, 82, 0.6);
+        transition: transform 0.25s ease, box-shadow 0.25s ease;
+      }
+      a.doc:hover .metrick-wide-photo {
+        transform: translateY(-2px);
+        box-shadow: 0 14px 26px rgba(40, 25, 5, 0.36), inset 0 0 0 4px #ece2c2,
+          inset 0 0 0 5px rgba(143, 124, 82, 0.6);
+      }
+      .metrick-wide-photo img {
+        display: block;
+        width: 100%;
+        height: auto;
+        filter: sepia(0.3) contrast(1.03);
+        border: 1px solid rgba(0, 0, 0, 0.4);
+      }
+      .metrick-wide-photo figcaption {
+        margin-top: 10px;
+        font-size: 12.5px;
+        font-style: italic;
+        color: var(--ink-soft);
+        text-align: center;
+      }
+      .metrick-wide-photo figcaption::before {
+        counter-increment: doc;
+        content: "Док. " counter(doc) ". ";
+        font-style: normal;
+        letter-spacing: 1px;
+        color: var(--oxblood);
+        font-variant: small-caps;
+      }
+      .metrick-wide-photo.missing img {
+        display: none;
+      }
+      .metrick-wide-photo.missing::before {
+        content: "Скан документа: " attr(data-file);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 130px;
+        padding: 10px;
+        text-align: center;
+        border: 1.5px dashed var(--gold);
+        color: var(--gold);
+        font-style: italic;
+        font-size: 13.5px;
+      }
+
+      /* ---------- people ---------- */
+      .pair {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 18px;
+        margin: 6px 0 20px;
+        max-width: 800px;
+      }
+      .person-card {
+        padding: 14px 18px 14px 20px;
+        background: rgba(236, 226, 194, 0.7);
+        border: 1px solid var(--paper-edge);
+        border-left-width: 4px;
+        border-radius: 1px;
+        color: var(--ink);
+      }
+      .person-card.male {
+        border-left-color: var(--male-bar);
+      }
+      .person-card.female {
+        border-left-color: var(--female-bar);
+      }
+      .person-card .pc-name {
+        font-weight: 600;
+        font-size: 16px;
+      }
+      .person-card .pc-old {
+        font-family: "Marck Script", cursive;
+        font-size: 17px;
+        color: var(--oxblood);
+      }
+      .person-card .pc-meta {
+        font-size: 13px;
+        margin-top: 4px;
+        color: var(--ink-soft);
+        line-height: 1.4;
+      }
+      .person-card .pc-meta a {
+        color: var(--oxblood) !important;
+      }
+      .haplo {
+        display: inline-block;
+        margin-top: 8px;
+        padding: 2px 10px;
+        font-size: 11px;
+        border: 1px solid var(--gold);
+        background: rgba(161, 128, 47, 0.12);
+        letter-spacing: 0.4px;
+        color: var(--ink-brown);
+      }
+
+      .kids {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+        gap: 16px;
+        margin: 16px 0 6px;
+      }
+      .kid {
+        background: rgba(236, 226, 194, 0.6);
+        border: 1px solid var(--paper-edge);
+        border-left: 4px solid var(--male-bar);
+        padding: 12px 16px 14px;
+        font-size: 14px;
+        line-height: 1.5;
+      }
+      .kid.f {
+        border-left-color: var(--female-bar);
+      }
+      .kid.war {
+        border-left-color: var(--memorial);
+        background: rgba(74, 66, 56, 0.1);
+      }
+      .kid h4 {
+        margin: 0 0 2px;
+        font-size: 16.5px;
+      }
+      .kid .kd {
+        color: var(--oxblood);
+        font-size: 13px;
+        margin-bottom: 6px;
+        letter-spacing: 0.3px;
+      }
+      .kid .kn {
+        color: var(--ink-soft);
+        font-size: 13px;
+        font-style: italic;
+      }
+
+      table.cmp {
+        border-collapse: collapse;
+        margin: 18px 0 8px;
+        font-size: 14.5px;
+        max-width: 780px;
+        width: 100%;
+      }
+      table.cmp th,
+      table.cmp td {
+        border-top: 1px solid var(--paper-edge);
+        border-bottom: 1px solid var(--paper-edge);
+        padding: 9px 14px;
+        text-align: left;
+        vertical-align: top;
+      }
+      table.cmp th {
+        color: var(--oxblood);
+        font-weight: 600;
+        font-size: 12.5px;
+        letter-spacing: 1.2px;
+        text-transform: uppercase;
+        border-bottom: 2px solid var(--oxblood);
+      }
+
+      /* ---------- timeline as a ledger ---------- */
+      .timeline {
+        list-style: none;
+        margin: 0;
+        padding: 0 !important;
+        max-width: 800px;
+      }
+      .timeline li {
+        display: grid;
+        grid-template-columns: 210px 1fr;
+        gap: 18px;
+        padding: 9px 0;
+        font-size: 15px;
+        line-height: 1.45;
+        border-bottom: 1px dotted rgba(108, 95, 71, 0.6);
+      }
+      .timeline b {
+        color: var(--oxblood);
+        font-size: 13.5px;
+        letter-spacing: 0.3px;
+        font-weight: 600;
+      }
+      .timeline li.sad b::before {
+        content: "† ";
+        color: var(--memorial);
+      }
+
+      .geo {
+        font-size: 13px;
+        color: var(--ink-soft);
+      }
+
+      /* ---------- footer ---------- */
+      .rule-ornament {
+        display: flex;
+        align-items: center;
+        gap: 14px;
+        max-width: 460px;
+        margin: 4px auto 18px;
+      }
+      .rule-ornament::before,
+      .rule-ornament::after {
+        content: "";
+        flex: 1;
+        height: 1px;
+        background: linear-gradient(90deg, transparent, var(--gold), transparent);
+      }
+      .rule-ornament i {
+        width: 8px;
+        height: 8px;
+        border: 1px solid var(--oxblood);
+        transform: rotate(45deg);
+      }
+      .sources {
+        font-size: 13.5px;
+        color: var(--ink-soft);
+        line-height: 1.7;
+        text-align: center;
+        max-width: 760px;
+        margin: 0 auto;
+        font-style: italic;
+      }
+      .sources a {
+        color: var(--oxblood);
+      }
+      .related {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px 14px;
+        margin-top: 24px;
+        padding-top: 18px;
+        border-top: 1px solid var(--paper-edge);
+      }
+      .related a {
+        border: 1px solid var(--gold);
+        padding: 6px 14px;
+        text-decoration: none;
+        font-size: 13.5px;
+        letter-spacing: 0.3px;
+        color: var(--oxblood);
+      }
+      .related a:hover {
+        background: var(--oxblood);
+        border-color: var(--oxblood);
+        color: #f1ead6;
+      }
+
+      /* ---------- responsive ---------- */
+      @media (max-width: 860px) {
+        .hero-body {
+          grid-template-columns: 1fr;
+          gap: 26px;
+        }
+        .docs.two,
+        .pair {
+          grid-template-columns: 1fr;
+        }
+        .timeline li {
+          grid-template-columns: 1fr;
+          gap: 2px;
+        }
+      }
+      @media (max-width: 720px) {
+        .page-header {
+          position: static;
+          padding: 16px 18px;
+        }
+        .header-inner {
+          flex-direction: column;
+          align-items: flex-start;
+          gap: 4px;
+        }
+        .header-inner .subtitle,
+        .print-btn,
+        .home-btn-desktop {
+          display: none;
+        }
+        .home-btn-small {
+          display: inline-block;
+          margin: 0 0 6px;
+          padding: 3px 10px;
+          font-size: 11px;
+        }
+        .wrap {
+          padding: 20px 12px 70px;
+        }
+        .card {
+          padding: 30px 22px 28px;
+          scroll-margin-top: 16px;
+        }
+        .card::before {
+          inset: 6px;
+        }
+        .card::after {
+          inset: 9px;
+        }
+        .hero-body {
+          padding: 24px 22px 30px;
+        }
+        .hero-scene {
+          height: 130px;
+          margin-top: 18px;
+        }
+        .stitch-band {
+          width: calc(100% - 36px);
+          margin-left: 18px;
+        }
+        .facts {
+          grid-template-columns: 92px 1fr;
+        }
+        .old-name {
+          font-size: 28px;
+        }
+        h2.sec-title {
+          font-size: 23px;
+        }
+        .card p {
+          text-align: left;
+        }
+        .intro-ui {
+          right: 14px;
+          bottom: 14px;
+        }
+      }
+
+      @media print {
+        @page {
+          size: A4 portrait;
+          margin: 12mm;
+        }
+        #intro,
+        .no-print {
+          display: none !important;
+        }
+        html.intro-on .page {
+          visibility: visible;
+        }
+        body {
+          background: #f1e8cb;
+          background-image: none;
+        }
+        .page-header {
+          position: static;
+          box-shadow: none;
+        }
+        .wrap {
+          padding: 10px 0;
+          max-width: none;
+        }
+        .card {
+          box-shadow: none;
+          break-inside: avoid-page;
+        }
+        .hero-scene {
+          height: 150px;
+        }
+      }
+
+    </style>
+  </head>
+  <body>
+    <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+      <defs>
+        <pattern id="embx" width="36" height="28" patternUnits="userSpaceOnUse" patternTransform="scale(0.36)">
+          <path fill="#7c3a3a" d="M12 0h4v4h-4zM8 4h12v4H8zM4 8h20v4H4zM0 12h28v4H0zM4 16h20v4H4zM8 20h12v4H8zM12 24h4v4h-4z" />
+          <rect x="12" y="12" width="4" height="4" fill="#e9dfc0" />
+          <rect x="30" y="12" width="4" height="4" fill="#3a2c1b" />
+        </pattern>
+      </defs>
+    </svg>
+
+    <!-- ========== intro video ========== -->
+    <div id="intro" aria-label="Вступне відео">
+      <video
+        id="introVideo"
+        src="./video/intro.mp4"
+        autoplay
+        muted
+        playsinline
+        preload="auto"
+      ></video>
+      <div id="introBar"></div>
+      <div class="intro-ui">
+        <button id="introSound" class="intro-btn" type="button">🔇 Звук</button>
+        <button id="introSkip" class="intro-btn" type="button">Пропустити ›</button>
+      </div>
+    </div>
+
+    
+    <div class="page">
+      <header class="page-header">
+        <div class="header-inner">
+          <div>
+            <h1>Григорій Іванович (Онисимович) Бонюк</h1>
+            <a class="home-btn home-btn-small no-print" href="../index.html">⌂ На головну</a>
+            <p class="subtitle">1868 – 1919 · с. Непедівка · біографія</p>
+          </div>
+          <div class="header-actions no-print">
+            <a class="home-btn home-btn-desktop" href="../index.html">⌂ На головну</a>
+            <button class="print-btn" onclick="window.print()">Зберегти як PDF</button>
+          </div>
+        </div>
+      </header>
+
+      <div class="wrap">
+        <!-- ========== HERO ========== -->
+        <section class="card hero" id="top">
+          <svg class="hero-scene" viewBox="0 0 1200 200" preserveAspectRatio="xMidYMax slice" role="img" aria-label="Гравюра: Непедівка XIX століття — дерев'яна церква, хати під стріхою, журавель над криницею, тополі">
+            <defs>
+              <pattern id="hch" width="6" height="4" patternUnits="userSpaceOnUse"><path d="M0 2H6" stroke="#3a2c1b" stroke-width=".7" /></pattern>
+              <pattern id="hcv" width="4" height="6" patternUnits="userSpaceOnUse"><path d="M2 0V6" stroke="#3a2c1b" stroke-width=".7" /></pattern>
+              <pattern id="tyn" width="9" height="22" patternUnits="userSpaceOnUse">
+                <path d="M4.5 0V22" stroke="#3a2c1b" stroke-width="1.6" />
+                <path d="M0 6 Q4.5 3 9 6 M0 12 Q4.5 9 9 12 M0 18 Q4.5 15 9 18" stroke="#3a2c1b" stroke-width="1" fill="none" />
+              </pattern>
+              <linearGradient id="fdx" x1="0" x2="1" y1="0" y2="0">
+                <stop offset="0" stop-color="#000" />
+                <stop offset=".14" stop-color="#fff" />
+                <stop offset=".86" stop-color="#fff" />
+                <stop offset="1" stop-color="#000" />
+              </linearGradient>
+              <linearGradient id="fdy" x1="0" x2="0" y1="0" y2="1">
+                <stop offset="0" stop-color="#000" />
+                <stop offset=".8" stop-color="#fff" />
+              </linearGradient>
+              <mask id="mkx" maskUnits="userSpaceOnUse" x="0" y="0" width="1200" height="200"><rect width="1200" height="200" fill="url(#fdx)" /></mask>
+              <mask id="mky" maskUnits="userSpaceOnUse" x="0" y="0" width="1200" height="200"><rect width="1200" height="200" fill="url(#fdy)" /></mask>
+
+              <g id="chr" fill="#3a2c1b">
+                <rect x="-14" y="-36" width="28" height="36" />
+                <rect x="-36" y="-22" width="22" height="22" />
+                <rect x="14" y="-22" width="22" height="22" />
+                <polygon points="-17,-36 0,-58 17,-36" />
+                <rect x="-3" y="-66" width="6" height="9" />
+                <path d="M-8 -66 C-10 -78 0 -84 0 -97 C0 -84 10 -78 8 -66Z" />
+                <polygon points="-39,-22 -25,-36 -11,-22" />
+                <polygon points="11,-22 25,-36 39,-22" />
+                <path d="M-30 -36 C-31 -42 -25 -44 -25 -50 C-25 -44 -19 -42 -20 -36Z" />
+                <path d="M20 -36 C19 -42 25 -44 25 -50 C25 -44 31 -42 30 -36Z" />
+                <path d="M0 -97V-112M-5 -105H5M-25 -50V-60M-29 -55H-21M25 -50V-60M21 -55H29" stroke="#3a2c1b" stroke-width="1.8" fill="none" />
+                <g fill="#e9dfc0" opacity=".85">
+                  <rect x="-4" y="-14" width="8" height="14" rx="4" />
+                  <rect x="-31" y="-14" width="4" height="8" />
+                  <rect x="27" y="-14" width="4" height="8" />
+                  <rect x="-3" y="-30" width="6" height="8" />
+                </g>
+              </g>
+
+              <g id="hut">
+                <rect x="0" y="-24" width="62" height="24" fill="#3a2c1b" opacity=".4" />
+                <path d="M-9 -22 C-2 -26 6 -34 14 -46 H48 C56 -34 64 -26 71 -22 Z" fill="#3a2c1b" />
+                <path d="M-9 -22 H71" stroke="#3a2c1b" stroke-width="3" />
+                <rect x="44" y="-56" width="7" height="12" fill="#3a2c1b" />
+                <rect x="9" y="-18" width="11" height="10" fill="#e9dfc0" opacity=".85" />
+                <rect x="40" y="-20" width="12" height="20" fill="#3a2c1b" opacity=".85" />
+              </g>
+
+              <g id="pop">
+                <path d="M0 0V-14" stroke="#3a2c1b" stroke-width="3" />
+                <ellipse cx="0" cy="-52" rx="7.5" ry="42" fill="#3a2c1b" opacity=".72" />
+                <ellipse cx="0" cy="-52" rx="7.5" ry="42" fill="url(#hcv)" opacity=".35" />
+              </g>
+
+              <g id="wil">
+                <path d="M0 0 C-2 -18 2 -34 0 -48" stroke="#3a2c1b" stroke-width="5" fill="none" />
+                <path d="M-34 -50 C-34 -78 34 -78 34 -50 C26 -56 18 -50 12 -56 C6 -50 -6 -50 -12 -56 C-18 -50 -26 -56 -34 -50Z" fill="#3a2c1b" opacity=".68" />
+                <path d="M-30 -52 q-3 22 -1 40 M-20 -52 q-3 24 -1 44 M-9 -54 q-2 24 0 46 M3 -54 q2 24 1 46 M14 -54 q3 24 1 44 M24 -52 q3 22 1 40 M31 -50 q3 18 1 34" stroke="#3a2c1b" stroke-width="1.3" fill="none" opacity=".75" />
+              </g>
+
+              <g id="crn" stroke="#3a2c1b" fill="none">
+                <path d="M0 0V-52" stroke-width="3.4" />
+                <path d="M-34 -64 L36 -44" stroke-width="2.6" />
+                <path d="M-31 -63 V-28" stroke-width="1.2" />
+                <path d="M-36 -28 h10 l-2 8 h-6z" fill="#3a2c1b" stroke-width="1" />
+                <rect x="34" y="-48" width="6" height="7" fill="#3a2c1b" />
+                <path d="M-11 0V-11H11V0M-12 -11H12" stroke-width="2" />
+              </g>
+
+              <g id="mil" fill="#3a2c1b">
+                <polygon points="-14,0 -7,-42 7,-42 14,0" />
+                <polygon points="-9,-42 0,-54 9,-42" />
+                <path d="M0 -46 L-34 -78 M0 -46 L34 -78 M0 -46 L-34 -14 M0 -46 L34 -14" stroke="#3a2c1b" stroke-width="2.4" fill="none" />
+              </g>
+            </defs>
+
+            <g mask="url(#mkx)">
+              <rect width="1200" height="152" fill="url(#hch)" opacity=".3" mask="url(#mky)" />
+              <circle cx="842" cy="58" r="30" fill="none" stroke="#3a2c1b" stroke-width="1" opacity=".55" />
+              <circle cx="842" cy="58" r="24" fill="url(#hcv)" opacity=".35" />
+              <g stroke="#3a2c1b" stroke-width="1.4" fill="none" opacity=".7">
+                <path d="M300 56 q5 -6 10 0 q5 -6 10 0" />
+                <path d="M356 40 q4 -5 8 0 q4 -5 8 0" />
+                <path d="M928 80 q4 -5 8 0 q4 -5 8 0" />
+              </g>
+
+              <path d="M0 138 Q120 112 270 132 T540 124 T820 134 T1040 116 T1200 128 V200 H0Z" fill="#3a2c1b" opacity=".13" />
+              <path d="M0 150 Q200 128 420 146 T820 142 T1200 136 V200 H0Z" fill="#3a2c1b" opacity=".24" />
+              <use href="#mil" transform="translate(1012 140) scale(.62)" opacity=".5" />
+
+              <use href="#pop" transform="translate(70 162) scale(.95)" />
+              <use href="#pop" transform="translate(112 160) scale(1.15)" opacity=".9" />
+              <use href="#hut" transform="translate(170 162) scale(.85)" opacity=".9" />
+              <use href="#hut" transform="translate(262 160)" />
+              <rect x="338" y="144" width="140" height="20" fill="url(#tyn)" opacity=".75" />
+              <use href="#wil" transform="translate(432 164)" />
+
+              <use href="#chr" transform="translate(620 156)" />
+
+              <rect x="690" y="146" width="90" height="18" fill="url(#tyn)" opacity=".75" />
+              <use href="#crn" transform="translate(768 164)" />
+              <use href="#hut" transform="translate(858 162) scale(.92)" />
+              <use href="#hut" transform="translate(968 154) scale(.6)" opacity=".7" />
+              <use href="#pop" transform="translate(1058 160)" />
+              <use href="#pop" transform="translate(1102 162) scale(.85)" opacity=".85" />
+
+              <path d="M0 170 Q300 158 600 168 T1200 162 V200 H0Z" fill="#3a2c1b" opacity=".36" />
+              <path d="M0 170 Q300 158 600 168 T1200 162 V200 H0Z" fill="url(#hch)" opacity=".55" />
+            </g>
+          </svg>
+          <svg class="stitch-band" aria-hidden="true"><rect width="100%" height="10" fill="url(#embx)" /></svg>
+
+          <div class="hero-body">
+            <div class="person-photo">
+              <div class="photo-frame">
+                <img
+                  src="img/hryhorii.jpg"
+                  alt="Григорій Іванович (Онисимович) Бонюк"
+                  onerror="this.parentNode.classList.add('missing')"
+                />
+                <div class="cap">Григорій Бонюк</div>
+              </div>
+            </div>
+
+            <div>
+              <p class="old-name">Григорій Іоанниковъ Бонюкъ</p>
+              <h2 class="hero-title">Григорій Іванович (Онисимович) Бонюк</h2>
+              <p class="life-dates">
+                25 січня 1868 – 30 листопада (13 грудня за новим стилем) 1919
+              </p>
+              <div class="village">
+                село Непедівка · Бердичівський повіт · Київська губернія
+              </div>
+              <dl class="facts">
+                <dt>Віра</dt>
+                <dd>православна</dd>
+                <dt>Батько</dt>
+                <dd>
+                  Иоанній Иоанновъ Бонюкъ (Іван Іванович), народився бл. 1826 р.
+                </dd>
+                <dt>Мати</dt>
+                <dd>
+                  Марѳа Ивановна Трайдакало (Марфа Іванівна), народилася бл.
+                  1843 р.
+                </dd>
+                <dt>Дружини</dt>
+                <dd>
+                  Марія Марківна Корнійчук (1890–1907) · Мотрона Онуфріївна
+                  Гупало (з 1908)
+                </dd>
+                <dt>Діти</dt>
+                <dd>
+                  Севастіан, Ігнатій, Ульяна, Февронія, Петро, Сава
+                </dd>
+              </dl>
+            </div>
+          </div>
+        </section>
+
+        <nav class="toc no-print" aria-label="Зміст">
+          <a href="#timeline">Життя в датах</a>
+          <a href="#origin">Походження</a>
+          <a href="#birth">Народження і хрещення</a>
+          <a href="#status">Станова приналежність</a>
+          <a href="#sister">Сестра Феодосія</a>
+          <a href="#name-mystery">Таємниця імені</a>
+          <a href="#marriages">Подружнє життя</a>
+          <a href="#death">Смерть</a>
+          <a href="#village">Село на той момент</a>
+          <a href="#summary">Підсумок</a>
+        </nav>
+
+        <!-- ========== TIMELINE ========== -->
+        <section class="card" id="timeline">
+          <h2 class="sec-title">Життя в датах</h2>
+          <ol class="timeline">
+            <li><b>14 травня 1867</b>Одруження батьків — Івана Бонюка та Марфи Трайдакало</li>
+            <li><b>25 січня 1868</b>Народження Григорія; хрещений наступного дня</li>
+            <li><b>21 травня 1890</b>Шлюб із Марією Марківною Корнійчук</li>
+            <li><b>18–19 грудня 1891</b>Народження першого сина Севастіана</li>
+            <li><b>23/24 жовтня 1895</b>Народження сина Ігнатія</li>
+            <li><b>5 листопада 1895</b>Григорій — свідок на весіллі сестри Феодосії</li>
+            <li><b>19 грудня 1900</b>Народження доньки Ульяни</li>
+            <li><b>26 лютого 1906</b>Народження доньки Февронії</li>
+            <li class="sad"><b>26 листопада 1907</b>Смерть першої дружини Марії</li>
+            <li><b>27 січня 1908</b>Шлюб із Мотроною Онуфріївною Гупало</li>
+            <li class="sad"><b>20 лютого 1908</b>Смерть доньки Февронії (2 роки)</li>
+            <li><b>11 січня 1909</b>Народження сина Петра</li>
+            <li><b>27 серпня 1911</b>Народження сина Сави</li>
+            <li class="sad"><b>10 березня 1919</b>Загибель сина Ігнатія у війні</li>
+            <li class="sad"><b>30 листопада (13 грудня) 1919</b>Смерть Григорія від тифу</li>
+          </ol>
+        </section>
+
+        <!-- ========== ORIGIN ========== -->
+        <section class="card" id="origin">
+          <h2 class="sec-title">Походження</h2>
+          <div class="pair">
+            <div class="person-card male">
+              <div class="pc-old">Иоанній Иоанновъ Бонюкъ</div>
+              <div class="pc-name">Іван Іванович Бонюк</div>
+              <div class="pc-meta">народився бл. 1826 р. · другий шлюб</div>
+            </div>
+            <div class="person-card female">
+              <div class="pc-old">Марѳа Ивановна Трайдакало</div>
+              <div class="pc-name">Марфа Іванівна Трайдакало</div>
+              <div class="pc-meta">народилася бл. 1843 р.</div>
+            </div>
+          </div>
+          <p>
+            Батьки Григорія одружилися 14 травня 1867 року. Для Івана це був
+            другий шлюб, тож цілком ймовірно, що в Григорія були зведені брати
+            чи сестри. На момент одруження Іванові було 41 рік, а Марфі — 24.
+            Григорій був першою дитиною в цій подружній парі.
+          </p>
+          <p>
+            <b>Свідки нареченого:</b> брати Іван Данилович Біда та Василь
+            Данилович Біда.<br />
+            <b>Свідки нареченої:</b> Иванъ Яковлевъ Трайдакало та Исаакій
+            Яковлевъ Трайдакало.
+          </p>
+        </section>
+
+        <!-- ========== BIRTH ========== -->
+        <section class="card" id="birth">
+          <h2 class="sec-title">Народження і хрещення</h2>
+          <p>
+            Григорій народився 25 січня 1868 року, а вже наступного дня, 26
+            січня, його охрестили.
+          </p>
+          <ul>
+            <li><b>Хрещений батько:</b> Федір Михайлович</li>
+            <li><b>Хрещена мати:</b> Агафія Ігнатівна (дружина Нестора Левчука)</li>
+            <li><b>Священик:</b> Никита Каковскій</li>
+          </ul>
+          <div class="docs two">
+            <a class="doc" href="https://www.familysearch.org/ark:/61903/3:1:3QHK-1W9X-B99Z?view=explore&groupId=TH-7706-163031-3852-31&lang=en" target="_blank" rel="noopener noreferrer">
+              <figure class="metrick-wide-photo" data-file="img/hryhorii_birth.jpg">
+                <img src="img/hryhorii_birth.jpg" alt="Метрична книга народження Григорія" onerror="this.parentNode.classList.add('missing')" />
+                <figcaption>Метрична книга, запис про народження · FamilySearch ↗</figcaption>
+              </figure>
+            </a>
+            <a class="doc" href="https://www.familysearch.org/ark:/61903/3:1:3QHK-1W9X-B99Z?view=explore&groupId=TH-7706-163031-3852-31&lang=en" target="_blank" rel="noopener noreferrer">
+              <figure class="metrick-wide-photo" data-file="img/hryhorii_birth_chreshcheni.jpg">
+                <img src="img/hryhorii_birth_chreshcheni.jpg" alt="Метрична книга хрещених Григорія" onerror="this.parentNode.classList.add('missing')" />
+                <figcaption>Запис про хрещених · FamilySearch ↗</figcaption>
+              </figure>
+            </a>
+          </div>
+        </section>
+
+        <!-- ========== STATUS ========== -->
+        <section class="card" id="status">
+          <h2 class="sec-title">Станова приналежність</h2>
+          <p>
+            Григорій народився в родині «слободского обывателя» (слобідського
+            міщанина, жителя слободи). Це свідчить, що Бонюки були особисто
+            вільними жителями слободи, а не кріпаками. У XIX столітті такий
+            стан мав дуже чітке значення для Подільської та Київської губерній.
+          </p>
+          <ul>
+            <li>
+              <b>Житель слободи.</b> «Слободою» називали поселення (або
+              передмістя чи частину села), мешканці якого історично отримували
+              певні пільги — «свободи» — від податків чи повинностей за
+              заселення нових, освоєних земель.
+            </li>
+            <li>
+              <b>Соціальний стан.</b> У діловодстві Російської імперії середини
+              XIX століття термін «слободской обыватель» був близьким до
+              дрібного міщанина або особисто вільного селянина-землероба, що
+              проживав у слободі.
+            </li>
+            <li>
+              <b>Зв'язок із чиншовою шляхтою.</b> Дуже часто саме декласовану
+              шляхту (колишніх чиншовиків), що жила на землях поміщика
+              окремими поселеннями-слободами, записували як «слободских
+              обывателей».
+            </li>
+          </ul>
+          <p>
+            Поняття «слобідський обиватель» безпосередньо пов'язане з
+            міграційними процесами XVII–XIX століть. У XVII–XVIII століттях
+            Правобережна Україна — зокрема Східне Поділля та Брацлавщина, де
+            розташована Непедівка, — зазнавала постійних спустошень через
+            війни. Поміщики активно закликали переселенців з інших регіонів — з
+            Волині, Галичини, Полісся чи сусідніх маєтків — для заснування
+            нових «слобід» і підняття господарства.
+          </p>
+        </section>
+
+        <!-- ========== SISTER ========== -->
+        <section class="card" id="sister">
+          <h2 class="sec-title">Сестра Феодосія і коло друзів родини</h2>
+          <p>
+            Точно відома молодша сестра Григорія — Феодосія, народжена бл. 1873
+            року. Григорій був свідком на її весіллі 5 листопада 1895 року, коли
+            Феодосія виходила заміж за Андрія Феодорова Редченка (або Радчука).
+            Той привів свого свідка — Романа Андрійовича Якимчука.
+          </p>
+          <p>
+            Згодом Роман Андрійович Якимчук стане хрещеним батьком для двох
+            доньок Григорія — Февронії та Ульяни. Григорій і Роман також разом
+            виступали свідками на інших весіллях, як-от на одруженні Доментія
+            Семеновича Трайдакала (див.
+            <a href="../../traidakalo/index.html">Родовід Трайдакало</a>). Це свідчить про
+            справді дружні сімейні стосунки між ними.
+          </p>
+        </section>
+
+        <!-- ========== NAME MYSTERY ========== -->
+        <section class="card" id="name-mystery">
+          <h2 class="sec-title">Таємниця імені Григорія</h2>
+          <p>
+            Григорій залишив у спадок загадку, яка, очевидно, плутала людей ще
+            за його життя.
+          </p>
+          <div class="callout mystery">
+            <p>При народженні Григорія батько записаний як <b>Іван Іванович Бонюк</b>.</p>
+            <p>
+              Але в записі про народження його рідної сестри батько вказаний уже
+              як <b>Онисим Онисимович Бонюк</b>.
+            </p>
+            <p>
+              Згодом записи про Григорія впродовж життя фіксувалися то як
+              «Іванович», то як «Онисимович». У записі про його смерть
+              вписано подвійне по батькові — <b>Іванович (Онисимович)</b>, що
+              прямо вказує на одну й ту саму особу.
+            </p>
+          </div>
+          <p>
+            Відомо точно, що це один і той самий Григорій. Чому в нього подвійне
+            по батькові — поки невідомо. Є різні теорії з цього приводу, але
+            питання потребує подальшого дослідження.
+          </p>
+        </section>
+
+        <!-- ========== MARRIAGES ========== -->
+        <section class="card" id="marriages">
+          <h2 class="sec-title">Подружнє життя Григорія</h2>
+          <p>
+            Дивовижним чином у Григорія склалася схожа біографія зі своїм
+            батьком: обидва мали по два шлюби.
+          </p>
+          <table class="cmp">
+            <thead>
+              <tr><th></th><th>Іван (батько)</th><th>Григорій (син)</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>Вдруге одружився у віці</td><td>41 рік</td><td>40 років</td></tr>
+              <tr><td>Перша дружина померла у віці</td><td>37 років</td><td>36 років</td></tr>
+              <tr><td>Причина смерті першої дружини</td><td>туберкульоз</td><td>туберкульоз</td></tr>
+              <tr><td>Різниця у віці з другою дружиною</td><td>17 років</td><td>18 років</td></tr>
+            </tbody>
+          </table>
+
+          <h3 class="sub-title" id="marriage-1">Перша дружина — Марія Марківна Корнійчук</h3>
+          <div class="pair">
+            <div class="person-card female">
+              <div class="pc-name">Марія Марківна Корнійчук</div>
+              <div class="pc-meta">27.06.1868 – 26.11.1907</div>
+              <div class="haplo">мтДНК: T2a1a</div>
+            </div>
+            <div class="person-card male">
+              <div class="pc-name">Шлюб 21 травня 1890</div>
+              <div class="pc-meta">
+                Родина нареченої — на сторінці
+                <a href="../../korniichuk/korniychuk.html" style="color:#f3e5ab">Родовід Корнійчуків</a>
+              </div>
+            </div>
+          </div>
+          <div class="docs">
+            <a class="doc" href="https://www.familysearch.org/ark:/61903/3:1:3QHN-5W9F-S9QF?view=explore&groupId=TH-7706-163031-3855-24&lang=en" target="_blank" rel="noopener noreferrer">
+              <figure class="metrick-wide-photo" data-file="img/hryhorii_first_marriage.jpg">
+                <img src="img/hryhorii_first_marriage.jpg" alt="Метрична книга про перший шлюб Григорія" onerror="this.parentNode.classList.add('missing')" />
+                <figcaption>Метрична книга, запис про шлюб 1890 р. · FamilySearch ↗</figcaption>
+              </figure>
+            </a>
+          </div>
+          <p><b>Свідки на весіллі (1890):</b></p>
+          <ul>
+            <li>
+              <b>По нареченому:</b> Михайло Пилипович Чубатий (див.
+              <a href="../../chubatyi/index.html">Родовід Чубатих</a>), Іван Кіндратович
+              Грамчук.
+            </li>
+            <li>
+              <b>По нареченій:</b> Сава Савович Нечипорук, Опанас Іванович
+              Трайдакало.
+            </li>
+          </ul>
+          <p style="font-style: italic; color: var(--ink-soft)">
+            Участь Опанаса Трайдакала серед свідків з боку нареченої — ще одне
+            свідчення тісних родинно-сусідських зв'язків між Бонюками та
+            Трайдакалами в Непедівці.
+          </p>
+
+          <h3 class="sub-title">Діти від першого шлюбу</h3>
+          <div class="kids">
+            <div class="kid">
+              <h4>Севастіан</h4>
+              <div class="kd">народився 18, охрещений 19 грудня 1891</div>
+              <div>Хресний батько: Савва<br />Хресна мати: Пелагія Іванівна, дружина Прокопа Левчука</div>
+              <div class="kn">Про життя Севастіана наразі мало що відомо.</div>
+            </div>
+            <div class="kid war">
+              <h4>Ігнатій</h4>
+              <div class="kd">23/24.10.1895 – 10.03.1919</div>
+              <div>Хресний батько: Захарій Маркович Корнійчук (брат Марії)<br />Хресна мати: Пелагія Іванівна, дружина Прокопа Левчука</div>
+              <div class="kn">Загинув під час Першої світової війни.</div>
+            </div>
+            <div class="kid f">
+              <h4>Ульяна</h4>
+              <div class="kd">19.12.1900 – 1923</div>
+              <div>Хресний батько: Роман Андрійович Якимчук<br />Хресна мати: Євдокія Федорівна, дружина Юхима Поліщука</div>
+            </div>
+            <div class="kid f">
+              <h4>Февронія</h4>
+              <div class="kd">26.02.1906 – 20.02.1908</div>
+              <div>Хресний батько: Роман Андрійович Якимчук<br />Хресна мати: Євдокія Іванова (Якимчук), дружина Василя Трайдакала</div>
+              <div class="kn">Померла від коклюшу.</div>
+            </div>
+          </div>
+
+          <h3 class="sub-title" id="marriage-2">Друга дружина — Мотрона Онуфріївна Гупало</h3>
+          <div class="pair">
+            <div class="person-card female">
+              <div class="pc-name">Мотрона Онуфріївна Гупало</div>
+              <div class="pc-meta">народилася бл. 1886 р.</div>
+            </div>
+            <div class="person-card male">
+              <div class="pc-name">Шлюб 27 січня 1908</div>
+              <div class="pc-meta">через 2 місяці після смерті Марії (26.11.1907)</div>
+            </div>
+          </div>
+          <div class="docs">
+            <a class="doc" href="https://www.familysearch.org/ark:/61903/3:1:3QHK-GW9X-LSND-5?view=explore&groupId=TH-7792-163341-68775-21&lang=en" target="_blank" rel="noopener noreferrer">
+              <figure class="metrick-wide-photo" data-file="img/hryhorii_second_marriage.jpg">
+                <img src="img/hryhorii_second_marriage.jpg" alt="Метрична книга другий шлюб Григорія" onerror="this.parentNode.classList.add('missing')" />
+                <figcaption>Метрична книга, запис про шлюб 1908 р. · FamilySearch ↗</figcaption>
+              </figure>
+            </a>
+          </div>
+          <p>
+            Одразу після весілля, наступного місяця, помирає двохрічна донька
+            Февронія.
+          </p>
+
+          <h3 class="sub-title">Діти від другого шлюбу</h3>
+          <div class="kids">
+            <div class="kid">
+              <h4>Петро</h4>
+              <div class="kd">11.01.1909 – 03.03.1997</div>
+              <div>Хрещені: Михайло Павлович Баранчук; Уляна Лук'янівна (дружина Федосія Поліщука)</div>
+            </div>
+            <div class="kid">
+              <h4>Сава</h4>
+              <div class="kd">27.08.1911 – 04.02.1912</div>
+              <div class="kn">Помер у віці 5 місяців від застуди («отъ простуды»).</div>
+            </div>
+          </div>
+          <p style="margin-top: 18px">
+            Доля Мотрони потребує додаткового дослідження.
+          </p>
+        </section>
+
+        <!-- ========== DEATH ========== -->
+        <section class="card" id="death">
+          <h2 class="sec-title">Смерть</h2>
+          <p>
+            Григорій помер від тифу у віці 51 року — 30 листопада (13 грудня за
+            новим стилем) 1919 року.
+          </p>
+          <div class="docs">
+            <a class="doc" href="https://www.familysearch.org/ark:/61903/3:1:3QHJ-9W3W-5ZD3-7?view=explore&groupId=TH-7772-163420-1914-49&lang=en" target="_blank" rel="noopener noreferrer">
+              <figure class="metrick-wide-photo" data-file="img/hryhorii_death.jpg">
+                <img src="img/hryhorii_death.jpg" alt="Метрична книга запис про смерть Григорія" onerror="this.parentNode.classList.add('missing')" />
+                <figcaption>Метрична книга, запис про смерть · FamilySearch ↗</figcaption>
+              </figure>
+            </a>
+          </div>
+          <p>
+            З квітня 1919 до 1920 року тривала сильна епідемія тифу: майже
+            кожна друга людина, яку вона вражала, помирала. Григорій, на жаль,
+            був одним із тих, кого хвороба не оминула. Загалом у Непедівці за
+            1919–1920 роки від тифу померло щонайменше 106 людей.
+          </p>
+          <div class="callout">
+            <p>
+              Сину Петру на момент смерті Григорія було лише 10 років. Ульяні —
+              майже 19. Ігнатій за кілька місяців до того, 10 березня 1919 року,
+              загинув у війні у віці 23 років.
+            </p>
+          </div>
+        </section>
+
+        <!-- ========== VILLAGE ========== -->
+        <section class="card" id="village">
+          <h2 class="sec-title">Село на той момент</h2>
+
+          <h3 class="sub-title" style="margin-top: 0">Хата Григорія</h3>
+          <p>
+            Григорій жив у традиційній глиняній хаті під солом'яною стріхою,
+            що стояла над дорогою — одразу навпроти одного зі ставків по
+            центральній вулиці
+            <span class="geo">(приблизні координати
+              <a href="https://www.openstreetmap.org/?mlat=49.775390&mlon=28.801009#map=18/49.775390/28.801009" target="_blank" rel="noopener noreferrer">49.775390, 28.801009</a>)</span>.
+            У середині XX століття внаслідок сильної пожежі (очевидно,
+            умисної) ця хата згоріла разом з багатьма іншими, що стояли на той
+            момент уздовж цієї вулиці.
+          </p>
+
+          <h3 class="sub-title">Власник і населення</h3>
+          <p>
+            Село належало відставному поручику Константину Мазаракі
+            (римо-католицького віросповідання, 1825 р. н.), який отримав його у
+            спадщину від свого батька Казимира Йосиповича. Переважна більшість
+            людей були православними. За джерелом «Сказанія о населенныхъ
+            мѣстностяхъ Кіевской губерніи» Л. Похилевича, на 1864 рік у селі
+            проживало 846 православних, 7 римо-католиків та 8 євреїв.
+          </p>
+
+          <h3 class="sub-title">Свято-Миколаївська церква</h3>
+          <p>
+            Парафіяни ходили до Свято-Миколаївської церкви — дерев'яної, дуже
+            старої (вітхої), 6-го класу; вона володіла 47 десятинами землі та
+            була збудована 1736 року. Класи визначали рівень фінансування церкви
+            й кількість священнослужителів за штатом; 6-й і 7-й класи вважалися
+            найнижчими, їм за штатом належало лише двоє священнослужителів. Це
+            була типова малобюджетна сільська парафія зі стандартним мінімальним
+            штатом і невеликим державним утриманням.
+          </p>
+          <p>
+            Церква стояла на місці сучасного центрального парку поблизу алеї
+            Слави
+            <span class="geo">(<a href="https://www.openstreetmap.org/?mlat=49.778005&mlon=28.804440#map=18/49.778005/28.804440" target="_blank" rel="noopener noreferrer">49.778005, 28.804440</a>)</span>.
+            Для мешканців Непедівки XIX — початку XX століття ця невелика бідна
+            парафія відігравала вирішальну роль:
+          </p>
+          <ul>
+            <li>
+              <b>Єдиний орган фіксації життя (РАЦС).</b> У цій вітхій будівлі
+              реєстрували народження, хрещення, шлюби та смерті всіх 846+
+              православних мешканців села.
+            </li>
+            <li>
+              <b>Центр суспільного життя та згуртованості.</b> При парафії 6-го
+              класу зі штатом у двох церковнослужителів (священник і
+              псаломщик/дяк) церква була єдиним місцем, де щонеділі та на
+              свята збиралося практично все село. Біля неї оголошували
+              розпорядження волості, вирішували сільські справи та проводили
+              ярмарки.
+            </li>
+            <li>
+              <b>Духовний осередок у католицькому маєтку.</b> Оскільки поміщик
+              Константин Казимирович Мазаракі та його родина були
+              римо-католиками, Свято-Миколаївська церква слугувала для селян
+              головним осередком збереження власної православної та української
+              культурної ідентичності.
+            </li>
+          </ul>
+          <div class="callout">
+            <p>
+              Дерев'яну Свято-Миколаївську церкву 1736 року побудови було
+              розібрано / зруйновано в радянські часи (1930-ті роки) під час
+              масової антирелігійної кампанії («безбожної п'ятирічки»).
+            </p>
+          </div>
+        </section>
+
+        <!-- ========== SUMMARY ========== -->
+        <section class="card" id="summary">
+          <h2 class="sec-title">Підсумок генеалогічного дослідження</h2>
+
+          <h3 class="sub-title" style="margin-top: 0">Що встановлено</h3>
+          <ul>
+            <li>
+              <b>Особа.</b> Григорій Іванович (Онисимович) Бонюк
+              (25.01.1868 – 30.11.1919) — перша дитина із другого шлюбу Івана
+              Бонюка та Марфи Трайдакало, особисто вільний «слободской
+              обыватель» з Непедівки. Прожив 51 рік.
+            </li>
+            <li>
+              <b>Родина.</b> Два шлюби — з Марією Корнійчук (1890–1907) та
+              Мотроною Гупало (з 1908) — і шестеро відомих дітей. Двоє з них
+              померли в дитинстві (Февронія, Сава), Ігнатій загинув у 23 роки,
+              Ульяна прожила до 22–23 років, доля Севастіана невідома. Найдовше
+              з усіх прожив Петро (1909–1997). На момент смерті Григорія серед
+              живих точно були лише Ульяна й Петро.
+            </li>
+            <li>
+              <b>Мережа зв'язків.</b> Імена в метриках повторюються в одному
+              колі родин: Трайдакали (мати, свідки, Опанас), Корнійчуки
+              (дружина та її брат Захарій як хресний), Якимчуки (Роман
+              Андрійович — свідок на весіллі Феодосії, а згодом хресний двох
+              доньок), Левчуки (хресні матері Григорія, Севастіана й Ігнатія),
+              Поліщуки та Баранчуки. Хрещених і свідків добирали з тих самих
+              кількох родин — це тісна сусідська громада.
+            </li>
+            <li>
+              <b>Парадокс по батькові.</b> «Іванович» і «Онисимович» в одній
+              людині — задокументований факт, пояснення якого ще немає.
+            </li>
+            <li>
+              <b>Паралелі з батьком.</b> Обидва мали по два шлюби, обидва
+              овдовіли від туберкульозу й одружилися вдруге у 40–41 рік із
+              різницею у віці 17–18 років.
+            </li>
+            <li>
+              <b>Контекст.</b> Смерть настала в розпал епідемії тифу 1919–1920
+              років, а родина пережила цілу низку втрат — від дитячих смертей
+              до загибелі сина на війні.
+            </li>
+          </ul>
+
+          <h3 class="sub-title">Відкриті питання</h3>
+          <ul>
+            <li>Чому в Григорія подвійне по батькові — Іванович (Онисимович)?</li>
+            <li>Чи були в Івана Бонюка діти від першого шлюбу (зведені брати й сестри Григорія)?</li>
+            <li>Хто такі брати Іван і Василь Данилович Біда — свідки на весіллі батьків?</li>
+            <li>Яка доля Севастіана (нар. 1891) та Мотрони Гупало?</li>
+          </ul>
+
+          <div class="related no-print">
+            <a href="../index.html">⌂ Родовід Бонюків</a>
+            <a href="../../korniichuk/korniychuk.html">Родовід Корнійчуків</a>
+            <a href="../../traidakalo/index.html">Родовід Трайдакало</a>
+            <a href="../../chubatyi/index.html">Родовід Чубатих</a>
+          </div>
+        </section>
+
+        <div class="rule-ornament" aria-hidden="true"><i></i></div>
+        <p class="sources">
+          Джерела: метричні книги с. Непедівка (записи про народження 1868,
+          шлюби 1890 та 1908, смерть 1919), FamilySearch; Л. Похилевич,
+          «Сказанія о населенныхъ мѣстностяхъ Кіевской губерніи». Біографія
+          поступово доповнюватиметься.
+        </p>
+      </div>
+    </div>
+
+    
+    <script>
+      (function () {
+        var html = document.documentElement;
+        var intro = document.getElementById("intro");
+        var v = document.getElementById("introVideo");
+        var skip = document.getElementById("introSkip");
+        var snd = document.getElementById("introSound");
+        var bar = document.getElementById("introBar");
+        var page = document.querySelector(".page");
+        var done = false;
+
+        function reveal() {
+          if (done) return;
+          done = true;
+          try {
+            v.pause();
+          } catch (e) {}
+          intro.classList.add("hide");
+          html.classList.remove("intro-on");
+          page.classList.add("entered");
+          window.scrollTo(0, 0);
+          if (location.hash.length > 1) {
+            var t = document.getElementById(decodeURIComponent(location.hash.slice(1)));
+            if (t) t.scrollIntoView();
+          }
+          setTimeout(function () {
+            intro.style.display = "none";
+            v.removeAttribute("src");
+            v.load();
+          }, 950);
+        }
+
+        skip.addEventListener("click", reveal);
+        v.addEventListener("ended", reveal);
+        v.addEventListener("error", reveal);
+        v.addEventListener("timeupdate", function () {
+          if (v.duration) bar.style.width = (v.currentTime / v.duration) * 100 + "%";
+        });
+        snd.addEventListener("click", function () {
+          v.muted = !v.muted;
+          snd.textContent = v.muted ? "🔇 Звук" : "🔊 Звук";
+        });
+        document.addEventListener("keydown", function (e) {
+          if (e.key === "Escape") reveal();
+        });
+        var p = v.play();
+        if (p && p.catch) p.catch(reveal);
+        setTimeout(function () {
+          if (!done && v.readyState < 2) reveal();
+        }, 6000);
+      })();
+    </script>
+  </body>
+</html>
